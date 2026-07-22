@@ -672,61 +672,143 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#F8F9FA] flex items-center justify-center pt-28 pb-20 px-6">
-        <div className="max-w-md w-full bg-white rounded-[32px] p-8 md:p-10 shadow-2xl border border-gray-100 relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#FFCC00]" />
-          
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-black text-gray-800 uppercase tracking-tight">Akan Enerji</h1>
-            <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mt-1">Yönetim Paneli Girişi</p>
+      <div className="fixed inset-0 z-[9999] min-h-screen w-full flex bg-[#0F172A] text-white overflow-hidden font-sans">
+        {/* Left Side - Full Screen High Quality Image Area */}
+        <div className="hidden lg:flex lg:w-3/5 relative min-h-screen items-center justify-center p-16 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1600&auto=format&fit=crop"
+            alt="Sakarya Uzman Klima Yönetim Paneli"
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+          />
+          {/* Gradients & Glow overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/75 to-[#0F172A]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-[#0F172A]/60" />
+          <div className="absolute inset-0 bg-topo-waves opacity-25 pointer-events-none" />
+          <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-[#0EA5E9]/20 blur-[140px] rounded-full pointer-events-none" />
+
+          {/* Content on Image */}
+          <div className="relative z-10 space-y-6 max-w-xl">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-[#0EA5E9] font-black text-xs uppercase tracking-widest">
+              <ShieldAlert className="w-4 h-4 animate-pulse" />
+              Güvenli Yönetim Portalı
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-none text-white">
+              Sakarya Uzman<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8]">
+                Klima Servisi
+              </span>
+            </h1>
+
+            <p className="text-gray-300 font-semibold text-sm sm:text-base leading-relaxed">
+              7/24 mobil servis taleplerini, müşteri yorumlarını, blog içeriklerini ve site dinamik verilerini tek bir merkezden yönetin.
+            </p>
+
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <div className="text-[#0EA5E9] font-black text-xl">16 İlçe</div>
+                <div className="text-[#94A3B8] text-[10px] uppercase font-bold tracking-wider mt-1">Servis Ağı</div>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <div className="text-emerald-400 font-black text-xl">7/24</div>
+                <div className="text-[#94A3B8] text-[10px] uppercase font-bold tracking-wider mt-1">Canlı Destek</div>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <div className="text-amber-400 font-black text-xl">%100</div>
+                <div className="text-[#94A3B8] text-[10px] uppercase font-bold tracking-wider mt-1">Garantili</div>
+              </div>
+            </div>
           </div>
-          
-          {authError && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-2xl flex items-center gap-2.5 text-xs font-bold uppercase tracking-wide">
-              <ShieldAlert className="w-5 h-5 shrink-0" />
-              <span>{authError}</span>
-            </div>
-          )}
-          
-          <form onSubmit={handleLogin} className="space-y-6">
-            <div>
-              <label className="block text-xs font-black text-gray-400 uppercase tracking-wider mb-2">Kullanıcı Adı</label>
-              <input
-                type="text"
-                required
-                value={usernameInput}
-                onChange={(e) => setUsernameInput(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
-                placeholder="admin"
-              />
-            </div>
-            
-            <div>
-              <label className="block text-xs font-black text-gray-400 uppercase tracking-wider mb-2">Şifre</label>
-              <input
-                type="password"
-                required
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-                className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
-                placeholder="••••••••"
-              />
-            </div>
-            
-            <button
-              type="submit"
-              className="w-full py-4 bg-[#FFCC00] hover:bg-[#E6B800] text-white font-black uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-[#FFCC00]/20 transition-all cursor-pointer flex items-center justify-center gap-2"
-            >
-              <span>Panel Girişi Yap</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </form>
-          
-          <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-            <Link href="/" className="text-xs font-bold text-gray-400 hover:text-[#FFCC00] transition-colors uppercase tracking-wider flex items-center justify-center gap-1">
-              <ArrowRight className="w-3.5 h-3.5 rotate-180" />
-              Siteden Çık / Ana Sayfa
+        </div>
+
+        {/* Right Side - Form Container */}
+        <div className="w-full lg:w-2/5 flex flex-col justify-between p-8 sm:p-12 md:p-16 bg-[#0B1120] relative z-20 border-l border-white/5">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl bg-[#0EA5E9] flex items-center justify-center text-white shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <line x1="12" y1="2" x2="12" y2="22"/>
+                  <path d="m2 7 10 5 10-5"/>
+                  <path d="m2 17 10-5 10 5"/>
+                  <path d="m7 4.5-2.5 2.5 2.5 2.5"/>
+                  <path d="M17 4.5l2.5 2.5-2.5 2.5"/>
+                  <path d="m7 19.5-2.5-2.5 2.5-2.5"/>
+                  <path d="M17 19.5l2.5-2.5-2.5-2.5"/>
+                </svg>
+              </div>
+              <div>
+                <span className="block font-black text-sm text-white tracking-tight">SAKARYA UZMAN</span>
+                <span className="block font-bold text-[10px] text-[#0EA5E9] uppercase tracking-widest">Klima Servisi</span>
+              </div>
             </Link>
+
+            <Link
+              href="/"
+              className="text-xs font-bold text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10"
+            >
+              <ArrowRight className="w-3.5 h-3.5 rotate-180" />
+              Siteden Çık
+            </Link>
+          </div>
+
+          <div className="my-auto py-8 max-w-md w-full mx-auto space-y-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+                Yönetim Paneli
+              </h2>
+              <p className="text-gray-400 text-xs font-semibold mt-2">
+                Devam etmek için yönetici kullanıcı adı ve şifrenizi girin.
+              </p>
+            </div>
+
+            {authError && (
+              <div className="p-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-2xl flex items-center gap-3 text-xs font-bold uppercase tracking-wide">
+                <ShieldAlert className="w-5 h-5 shrink-0" />
+                <span>{authError}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleLogin} className="space-y-5">
+              <div>
+                <label className="block text-xs font-black text-gray-400 uppercase tracking-wider mb-2">
+                  Kullanıcı Adı
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={usernameInput}
+                  onChange={(e) => setUsernameInput(e.target.value)}
+                  className="w-full px-4 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#0EA5E9] focus:bg-white/10 focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold"
+                  placeholder="admin"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-black text-gray-400 uppercase tracking-wider mb-2">
+                  Şifre
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  className="w-full px-4 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#0EA5E9] focus:bg-white/10 focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold"
+                  placeholder="••••••••"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-4.5 bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] hover:from-[#0284C7] hover:to-[#0369A1] text-white font-black uppercase tracking-wider text-xs rounded-2xl shadow-lg shadow-sky-500/25 transition-all cursor-pointer flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Sisteme Giriş Yap</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+
+          <div className="text-center text-[11px] font-semibold text-gray-500 border-t border-white/5 pt-6">
+            © 2026 Sakarya Uzman Klima İklimlendirme Servisi. Tüm Hakları Saklıdır.
           </div>
         </div>
       </div>
