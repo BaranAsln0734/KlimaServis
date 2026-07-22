@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0EA5E9;
+  --color-primary-dark: #0284C7;
+  --color-dark-bg: #0F172A;
+  --color-dark-text: #1E293B;
+  --color-light-bg: #F0F9FF;
+  --color-accent-blue: #0EA5E9;
+  
+  --font-sans: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #334155;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-dash {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 1000;
+  animation: dash 15s linear infinite;
+}
+
+/* District Page HTML content styles */
+.district-html-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  color: #4b5563; /* text-gray-600 */
+}
+
+.district-html-content strong {
+  color: #111111;
+  font-weight: 700;
+}
+
+/* Hero specific district content styles */
+.district-html-content-hero p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  color: #ffffff !important;
+}
+
+.district-html-content-hero strong {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.district-html-content-hero a {
+  color: #4299E1;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.district-html-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+.district-html-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.district-html-content a {
+  color: #0EA5E9;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.district-html-content a:hover {
+  color: #0284C7;
+}
+
+.district-html-content img {
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+
+/* =============================================
+   HERO CINEMATIC BACKGROUND ANIMATIONS
+   ============================================= */
+
+/* Slow rotating light cone */
+@keyframes hero-rotate {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Pulsing orb breathe */
+@keyframes hero-breathe {
+  0%, 100% { opacity: 0.07; transform: scale(1); }
+  50%       { opacity: 0.16; transform: scale(1.25); }
+}
+
+/* Drifting orb — slow float */
+@keyframes hero-drift {
+  0%   { transform: translate(0px, 0px); }
+  33%  { transform: translate(50px, -40px); }
+  66%  { transform: translate(-30px, 25px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* Horizontal light streak scan */
+@keyframes hero-streak {
+  0%   { transform: translateX(-120%) skewX(-20deg); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateX(220vw) skewX(-20deg); opacity: 0; }
+}
+
+/* Vertical energy pulse */
+@keyframes hero-pulse-v {
+  0%   { transform: translateY(110vh); opacity: 0; }
+  8%   { opacity: 0.5; }
+  92%  { opacity: 0.5; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+.hero-rotate    { animation: hero-rotate  30s linear infinite; }
+.hero-breathe-1 { animation: hero-breathe  7s ease-in-out infinite; }
+.hero-breathe-2 { animation: hero-breathe 10s ease-in-out infinite 2.5s; }
+.hero-breathe-3 { animation: hero-breathe 14s ease-in-out infinite 5s; }
+.hero-drift     { animation: hero-drift   22s ease-in-out infinite; }
+.hero-streak-1  { animation: hero-streak   9s linear infinite 0s; }
+.hero-streak-2  { animation: hero-streak   9s linear infinite 5s; }
+.hero-pulse-v-1 { animation: hero-pulse-v 12s linear infinite 1.5s; }
+.hero-pulse-v-2 { animation: hero-pulse-v 12s linear infinite 7s; }
+
+@keyframes airflow-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Airflow waves background overlay */
+.bg-topo-waves {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cpath d='M-100,300 C300,100 500,500 900,300 C1300,100 1500,500 1700,300' fill='none' stroke='rgba%28255,255,255,0.03%29' stroke-width='1.5'/%3E%3Cpath d='M-100,450 C200,250 600,650 1000,450 C1400,250 1500,650 1700,450' fill='none' stroke='rgba%28255,255,255,0.015%29' stroke-width='1'/%3E%3Cpath d='M-100,150 C400,350 700,-50 1100,150 C1500,350 1400,150 1700,150' fill='none' stroke='rgba%28255,255,255,0.02%29' stroke-width='1'/%3E%3Cpath d='M-100,600 C300,400 400,750 900,600 C1400,450 1300,750 1700,600' fill='none' stroke='rgba%28255,255,255,0.025%29' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 150% 150%;
+  animation: airflow-drift 25s ease-in-out infinite;
+}
+
+/* Hide scrollbars but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Morphing Organic Blobs */
+@keyframes morph-blob {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+    transform: translate(40px, -60px) scale(1.08) rotate(120deg);
+  }
+  66% {
+    border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%;
+    transform: translate(-30px, 40px) scale(0.92) rotate(240deg);
+  }
+}
+
+@keyframes morph-blob-reverse {
+  0%, 100% {
+    border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%;
+    transform: translate(0px, 0px) scale(1) rotate(360deg);
+  }
+  33% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(-50px, 50px) scale(0.92) rotate(240deg);
+  }
+  66% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+    transform: translate(50px, -50px) scale(1.08) rotate(120deg);
+  }
+}
+
+.animate-organic-blob {
+  animation: morph-blob 22s ease-in-out infinite;
+}
+
+.animate-organic-blob-reverse {
+  animation: morph-blob-reverse 26s ease-in-out infinite;
+}
+

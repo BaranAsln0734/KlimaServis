@@ -1,0 +1,42 @@
+{
+  "title": "Tüm Marka ve Modellere Uzman Klima Servisi",
+  "subtitle": "Hizmet Verdiğimiz Klima Markaları",
+  "list": [
+    {
+      "name": "Daikin",
+      "logo": "https://logo.clearbit.com/daikin.com"
+    },
+    {
+      "name": "Mitsubishi Electric",
+      "logo": "https://logo.clearbit.com/mitsubishielectric.com"
+    },
+    {
+      "name": "Samsung",
+      "logo": "https://logo.clearbit.com/samsung.com"
+    },
+    {
+      "name": "LG",
+      "logo": "https://logo.clearbit.com/lg.com"
+    },
+    {
+      "name": "Arçelik",
+      "logo": "https://logo.clearbit.com/arcelik.com.tr"
+    },
+    {
+      "name": "Bosch",
+      "logo": "https://logo.clearbit.com/bosch.com"
+    },
+    {
+      "name": "Vestel",
+      "logo": "https://logo.clearbit.com/vestel.com.tr"
+    },
+    {
+      "name": "Toshiba",
+      "logo": "https://logo.clearbit.com/toshiba.com"
+    },
+    {
+      "name": "Beko",
+      "logo": "https://logo.clearbit.com/beko.com"
+    }
+  ]
+}

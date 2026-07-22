@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "TSE Hizmet Yeterlilik Belgesi",
+    "desc": "TS 12650 standardına uygun, jeneratör yetkili servis hizmet yeterlilik belgemiz.",
+    "img": "/images/akanenerji/HIZMET-YETERLILIK-TSE-768x1086.jpg"
+  },
+  {
+    "id": 2,
+    "title": "ISO 10002:2018 Müşteri Memnuniyeti Sertifikası",
+    "desc": "Müşteri memnuniyeti ve şikâyet yönetimi standartlarına uygunluk sertifikamız.",
+    "img": "/images/akanenerji/IMG_20241128_0001-768x1086.jpg"
+  },
+  {
+    "id": 3,
+    "title": "ISO 45001:2018 İş Sağlığı ve Güvenliği Sertifikası",
+    "desc": "Jeneratör bakım, onarım and bobinaj sarım işlerinde iş sağlığı ve güvenliği standart belgemiz.",
+    "img": "/images/akanenerji/IMG_20241128_0002-768x1086.jpg"
+  },
+  {
+    "id": 4,
+    "title": "ISO 14001:2015 Çevre Yönetim Sistemi Sertifikası",
+    "desc": "Jeneratör servis ve bakım süreçlerimizin çevre standartlarına uygunluk belgesi.",
+    "img": "/images/akanenerji/IMG_20241128_0003-768x1086.jpg"
+  },
+  {
+    "id": 5,
+    "title": "ISO 9001:2015 Kalite Yönetim Sistemi Sertifikası",
+    "desc": "Jeneratör servis, bakım ve onarım hizmetlerinde uluslararası kalite yönetim standardımız.",
+    "img": "/images/akanenerji/IMG_20241128_0004-768x1086.jpg"
+  },
+  {
+    "id": 6,
+    "title": "ISO 31000:2018 Kurumsal Risk Yönetim Sistemi Sertifikası",
+    "desc": "Jeneratör operasyonlarında risk analizi ve kurumsal risk yönetimi standart belgemiz.",
+    "img": "/images/akanenerji/IMG_20241128_0005-768x1086.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Doğaya Saygı Sertifikası (Respect for Nature)",
+    "desc": "Servis ve onarım hizmetlerinde çevreye ve doğaya olan duyarlılığımızın tescil belgesi.",
+    "img": "/images/akanenerji/IMG_20241128_0006-768x1086.jpg"
+  },
+  {
+    "id": 8,
+    "title": "ISO 26000:2021 Sosyal Sorumluluk Yönetim Sistemi Sertifikası",
+    "desc": "Topluma ve çevreye duyarlı iş süreçlerimizin sosyal sorumluluk standart belgesi.",
+    "img": "/images/akanenerji/IMG_20241128_0007-768x1086.jpg"
+  },
+  {
+    "id": 9,
+    "title": "ISO 22301:2019 İş Sürekliliği Yönetim Sistemi Sertifikası",
+    "desc": "Jeneratör arıza ve periyodik servis süreçlerinde kesintisiz iş sürekliliği belgemiz.",
+    "img": "/images/akanenerji/IMG_20241128_0008-768x1086.jpg"
+  }
+]
