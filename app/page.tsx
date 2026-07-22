@@ -1346,8 +1346,8 @@ export default function Home() {
   return (
     <div className="bg-white min-h-screen">
       
-      {/* 1. HERO SECTION (Autoplay Slide Deck) */}
-      <section ref={containerRef} className="relative h-screen w-full flex items-center overflow-hidden pt-[134px] bg-[#0B1120] text-white -mt-[134px]">
+      {/* 1. HERO SECTION (Autoplay Slide Deck - FULL SCREEN 100VH) */}
+      <section ref={containerRef} className="relative min-h-screen h-screen w-full flex flex-col justify-between items-center overflow-hidden bg-[#0B1120] text-white pt-28 pb-8 sm:pb-12">
         {/* Organic Blobs for Hero Overlay */}
         <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-[#0EA5E9]/7 blur-[140px] pointer-events-none animate-organic-blob z-10" />
         <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-sky-400/5 blur-[140px] pointer-events-none animate-organic-blob-reverse z-10" />
@@ -1372,16 +1372,19 @@ export default function Home() {
               unoptimized={true}
             />
             <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/45 z-10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-transparent to-black/50 z-10 pointer-events-none" />
           </motion.div>
         ))}
 
+        {/* Top Spacer for Header Alignment */}
+        <div className="w-full shrink-0" />
+
         {/* Main content grid */}
-        <div className="max-w-[1600px] mx-auto px-10 w-full relative z-20 py-20 md:py-28">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-10 w-full relative z-20 my-auto">
           <AnimatePresence mode="wait">
             <motion.div 
               key={activeIndex}
-              className="max-w-4xl mx-auto text-center space-y-6"
+              className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -25 }}
@@ -1389,44 +1392,44 @@ export default function Home() {
             >
               <div className="space-y-1">
                 <h1 className="block">
-                  <span className="block font-semibold uppercase tracking-[0.25em] text-primary text-xs md:text-sm mb-3">
+                  <span className="block font-semibold uppercase tracking-[0.25em] text-[#0EA5E9] text-xs md:text-sm mb-3">
                     {activeIndex === 0 ? "Sakarya Uzman Klima İklimlendirme Servisi" : STAGES[activeIndex].badge}
                   </span>
-                  <span className="block font-black tracking-tight leading-[1.0] text-white text-[45px] md:text-[80px] uppercase">
+                  <span className="block font-black tracking-tight leading-[1.0] text-white text-[34px] sm:text-[50px] md:text-[76px] uppercase">
                     {STAGES[activeIndex].title}
                   </span>
                 </h1>
-                <h2 className="font-light tracking-tight leading-[1.0] text-primary text-[30px] md:text-[60px] uppercase">
+                <h2 className="font-light tracking-tight leading-[1.0] text-[#0EA5E9] text-[24px] sm:text-[38px] md:text-[56px] uppercase">
                   {STAGES[activeIndex].titleYellow}
                 </h2>
               </div>
 
-              <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium text-base md:text-lg pt-2">
+              <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium text-xs sm:text-base md:text-lg pt-1">
                 {STAGES[activeIndex].desc}
               </p>
 
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-3.5 pt-4">
                 {STAGES[activeIndex].btnHref.startsWith("tel:") ? (
                   <a
                     href={STAGES[activeIndex].btnHref}
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-primary text-white font-black uppercase tracking-widest hover:bg-[#0284C7] transition-all duration-300 text-sm hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/30 w-full sm:w-auto"
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#0EA5E9] text-white font-black uppercase tracking-widest hover:bg-[#0284C7] transition-all duration-300 text-xs sm:text-sm hover:translate-y-[-2px] hover:shadow-lg hover:shadow-sky-500/30 w-full sm:w-auto"
                   >
                     {STAGES[activeIndex].btnText}
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 ) : (
                   <Link
                     href={STAGES[activeIndex].btnHref}
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-primary text-white font-black uppercase tracking-widest hover:bg-[#0284C7] transition-all duration-300 text-sm hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/30 w-full sm:w-auto"
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#0EA5E9] text-white font-black uppercase tracking-widest hover:bg-[#0284C7] transition-all duration-300 text-xs sm:text-sm hover:translate-y-[-2px] hover:shadow-lg hover:shadow-sky-500/30 w-full sm:w-auto"
                   >
                     {STAGES[activeIndex].btnText}
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 )}
                 {activeIndex === 0 && (
                   <a
-                    href="#giris"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-white/5 text-white border border-white/20 hover:border-white hover:bg-white/10 font-bold uppercase tracking-widest transition-all duration-300 text-sm hover:translate-y-[-2px] w-full sm:w-auto"
+                    href="#hizmetler"
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white/10 text-white border border-white/20 hover:border-white hover:bg-white/20 font-bold uppercase tracking-widest transition-all duration-300 text-xs sm:text-sm hover:translate-y-[-2px] w-full sm:w-auto backdrop-blur-md"
                   >
                     Keşfet
                   </a>
@@ -1435,7 +1438,14 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
         </div>
+
+        {/* Bottom Scroll Indicator */}
+        <div className="relative z-20 flex flex-col items-center gap-2 text-white/50 hover:text-white transition-colors cursor-pointer shrink-0">
+          <span className="text-[10px] font-black uppercase tracking-widest">Aşağı Kaydır</span>
+          <ChevronDown className="w-4 h-4 animate-bounce text-[#0EA5E9]" />
+        </div>
       </section>
+
 
       {/* 1.5 STATS STRIP — Klima sektörüne özgü */}
       <div className="bg-[#0F172A] border-b border-white/5 relative overflow-hidden">
