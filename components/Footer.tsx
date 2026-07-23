@@ -134,10 +134,11 @@ export default function Footer() {
         <div className="absolute inset-0 bg-topo-waves pointer-events-none opacity-80" />
         <div className="max-w-[1600px] mx-auto px-10 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 pt-16 relative z-10">
           {/* Brand details */}
-          <div className="flex flex-col gap-4 items-start text-left">
-
-            <Logo className="text-white mb-2" />
-            <p className="text-sm leading-relaxed text-gray-400">
+          <div className="flex flex-col items-start justify-start text-left gap-0 -mt-8">
+            <div className="w-full flex justify-start -mb-8 -ml-3">
+              <Logo imageClassName="h-40 sm:h-48 md:h-52 w-auto object-contain scale-135 sm:scale-150 origin-left" priority={true} />
+            </div>
+            <p className="text-sm leading-relaxed text-gray-400 text-left relative z-10">
               Sakarya Beyaz Eşya Kombi Klima Servisi, Adapazarı başta olmak üzere tüm Sakarya ilçelerinde Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Ev Aletleri için garantili teknik servis sunmaktadır.
             </p>
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ArizaTeshisSihirbaziPage() {
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-gray-900 pt-32 sm:pt-36">
+    <main className="min-h-screen bg-[#F8FAFC] text-gray-900 pt-36 sm:pt-44">
       
       {/* ━━━ HERO HEADER (Clean White Theme) ━━━ */}
       <section className="relative py-16 md:py-20 overflow-hidden bg-white border-b border-gray-100 shadow-sm">

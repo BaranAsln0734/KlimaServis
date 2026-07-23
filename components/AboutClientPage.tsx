@@ -148,7 +148,7 @@ export default function AboutClientPage() {
             
             <div className="relative w-full max-w-[420px] aspect-[4/5] rounded-[48px] overflow-hidden shadow-2xl border border-gray-200/50 group z-10">
               <Image
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop"
+                src="/images/about_us_workshop.jpg"
                 alt="Sakarya Uzman Klima Teknik Servis Ekipleri"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"

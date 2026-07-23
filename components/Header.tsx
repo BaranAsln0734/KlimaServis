@@ -150,10 +150,10 @@ export default function Header() {
     (pathname && (pathname.includes("-klima-servisi") || pathname.includes("-Klima-Servisi")));
 
   const headerBgClass = isScrolled
-    ? "bg-white/95 backdrop-blur-lg shadow-md border-b border-gray-100 py-4 sm:py-5"
+    ? "bg-white/95 backdrop-blur-lg shadow-md border-b border-gray-100 h-28 sm:h-32 flex items-center"
     : isDarkHeroPage
-    ? "bg-transparent py-6 sm:py-7 border-b border-white/10"
-    : "bg-white py-6 sm:py-7 border-b border-gray-100";
+    ? "bg-transparent border-b border-white/10 h-32 sm:h-36 flex items-center"
+    : "bg-white border-b border-gray-100 h-32 sm:h-36 flex items-center";
 
 
   const linkColorClass = isScrolled
@@ -167,8 +167,10 @@ export default function Header() {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBgClass}`}>
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
-          <Logo className={logoTextColor} priority={true} />
+        <div className="max-w-[1650px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6 md:gap-12 h-full">
+          <div className="flex items-center justify-center shrink-0 h-full my-auto mr-6 lg:mr-16 overflow-visible">
+            <Logo className={logoTextColor} imageClassName="h-28 sm:h-34 md:h-40 w-auto object-contain scale-135 sm:scale-150 origin-left" priority={true} />
+          </div>
 
 
           {/* Desktop Navigation */}

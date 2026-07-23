@@ -18,7 +18,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Çamaşır Makinesi Arıza Servisi",
     slug: "camasir-makinesi-ariza-servisi",
     iconName: "activity",
-    image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_camasir.jpg",
     intro: "Çamaşır makineniz su almıyor, sıkma yapmıyor, sesli çalışıyor veya su sızdırıyorsa uzman teknik ekibimiz orijinal yedek parça garantisiyle aynı gün yerinde tamir hizmeti sunar.",
     whyRequired: "Çamaşır makinesi arızaları zamanında giderilmediğinde motor yanması, kazan bilyası dağılması veya evi su basması gibi büyük hasarlara yol açabilir.",
     scope: [
@@ -42,7 +42,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Bulaşık Makinesi Arıza Servisi",
     slug: "bulasik-makinesi-ariza-servisi",
     iconName: "shield-check",
-    image: "https://images.unsplash.com/photo-1585837575652-267c041d77d4?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_bulasik.jpg",
     intro: "Bulaşık makineniz iyi yıkamıyor, lekeli bırakıyor, su ısıtmıyor veya kurutma yapmıyorsa 7/24 mobil teknik servisimizle sorunsuz çözümler sağlıyoruz.",
     whyRequired: "Tıkalı fıskiyeler veya arızalı sirkülasyon pompaları bulaşıkların hijyensiz kalmasına ve bakteri üretmesine sebep olur.",
     scope: [
@@ -66,7 +66,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Buzdolabı Arıza Servisi",
     slug: "buzdolabi-ariza-servisi",
     iconName: "zap",
-    image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_buzdolabi.jpg",
     intro: "Buzdolabınız soğutmuyor, buzlanma yapıyor, motoru sürekli çalışıyor veya gaz kaçağı varsa gıdalarınız bozulmadan acil mobil ekibimiz adresi ziyaret eder.",
     whyRequired: "Buzdolabı arızaları gıdaların hızla bozulmasına ve yüksek maddi kayıplara sebep olan en kritik ev aleti arızalarındandır.",
     scope: [
@@ -90,7 +90,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Kombi Arıza Servisi",
     slug: "kombi-ariza-servisi",
     iconName: "cpu",
-    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_kombi.jpg",
     intro: "Kombiniz sıcak su vermiyor, petekleri ısıtmıyor, basınç düşürüyor veya ateşleme yapmıyorsa sertifikalı kombi teknisyenlerimizle 7/24 güvenli servis sunuyoruz.",
     whyRequired: "Kombi arızaları kış aylarında konfor kaybına ve gaz kaçakları ile aşırı yüksek doğalgaz faturalarına yol açabilir.",
     scope: [
@@ -114,7 +114,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Klima Arızası Servisi",
     slug: "klima-arizasi-servisi",
     iconName: "compass",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_klima.jpg",
     intro: "Sakarya genelinde klimanız soğutmuyor, ısıtmıyor, su akıtıyor veya sesli çalışıyorsa 7/24 tam donanımlı mobil araçlarımızla yerinde arıza tespiti ve tamir hizmeti sağlıyoruz.",
     whyRequired: "Giderilmeyen klima arızaları kompresör sıkışmasına ve elektrik aksamında yanmalara yol açarak yüksek maliyet oluşturabilir.",
     scope: [
@@ -138,7 +138,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Küçük Ev Aletleri Arıza Servisi",
     slug: "kucuk-ev-aletleri-ariza-servisi",
     iconName: "briefcase",
-    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_evaletleri.jpg",
     intro: "Süpürge, mikser, kahve makinesi, ütü, robot süpürge ve diğer küçük ev aletlerinizdeki motor, kablo ve rezistans arızalarını garantili şekilde onarıyoruz.",
     whyRequired: "Arızalı küçük ev aletleri elektrik kaçakları ve kablo yanmaları sebebiyle ev güvenliği açısından risk oluşturabilir.",
     scope: [
@@ -162,7 +162,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Kurutma Makinesi Arıza Servisi",
     slug: "kurutma-makinesi-ariza-servisi",
     iconName: "sparkles",
-    image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_kurutma.jpg",
     intro: "Kurutma makineniz çamaşırları nemli bırakıyor, ısıtmıyor, koku yapıyor veya kayış koparmışsa ısı pompalı ve yoğuşmalı tüm modellerde uzman servis sağlıyoruz.",
     whyRequired: "Filtre ve kondanser bakımı yapılmayan kurutma makineleri aşırı ısınarak yangın riski oluşturabilir ve çamaşırları yıpratır.",
     scope: [
@@ -187,7 +187,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Klima Arızası Servisi",
     slug: "klima-arizasi-servisi",
     iconName: "compass",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_klima.jpg",
     intro: "Sakarya genelinde klimanız soğutmuyor, ısıtmıyor, su akıtıyor veya sesli çalışıyorsa 7/24 tam donanımlı mobil araçlarımızla yerinde arıza tespiti ve tamir hizmeti sağlıyoruz.",
     whyRequired: "Giderilmeyen klima arızaları kompresör sıkışmasına ve elektrik aksamında yanmalara yol açarak yüksek maliyet oluşturabilir.",
     scope: [
@@ -211,7 +211,7 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     title: "Kombi Arıza Servisi",
     slug: "kombi-ariza-servisi",
     iconName: "cpu",
-    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_kombi.jpg",
     intro: "Kombiniz sıcak su vermiyor, petekleri ısıtmıyor, basınç düşürüyor veya ateşleme yapmıyorsa sertifikalı kombi teknisyenlerimizle 7/24 güvenli servis sunuyoruz.",
     whyRequired: "Kombi arızaları kış aylarında konfor kaybına ve gaz kaçakları ile aşırı yüksek doğalgaz faturalarına yol açabilir.",
     scope: [
@@ -232,34 +232,34 @@ const SERVICES_DATA: { [key: string]: ServiceDetail } = {
     ]
   },
   "klima-montaj": {
-    title: "Çamaşır Makinesi Arıza Servisi",
-    slug: "camasir-makinesi-ariza-servisi",
-    iconName: "activity",
-    image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop",
-    intro: "Çamaşır makineniz su almıyor, sıkma yapmıyor, sesli çalışıyor veya su sızdırıyorsa uzman teknik ekibimiz orijinal yedek parça garantisiyle aynı gün yerinde tamir hizmeti sunar.",
-    whyRequired: "Çamaşır makinesi arızaları zamanında giderilmediğinde motor yanması, kazan bilyası dağılması veya evi su basması gibi büyük hasarlara yol açabilir.",
+    title: "Klima Montajı & Söküm Hizmetleri",
+    slug: "klima-montaj",
+    iconName: "wind",
+    image: "/images/hero_klima_montaj.jpg",
+    intro: "Yeni klima kurulumu, cihaz deplasesi (yer değişimi) veya profesyonel söküm işlemlerinde vakumlamalı, bakır borulamalı ve 1 yıl garantili montaj hizmeti sunuyoruz.",
+    whyRequired: "Hatalı klima montajı gaz kaçağına, verimsiz soğutmaya ve kompresörün kısa sürede arızalanmasına neden olur.",
     scope: [
-      { title: "Motor ve Kazan Tamiri", desc: "Kazan bilyası, amortisör, kayış ve motor kömürü değişimleri yerinde yapılır." },
-      { title: "Pompa ve Kart Onarımı", desc: "Su tahliye pompası tıkanıklığı ve elektronik kart arızaları orijinal parçalarla giderilir." },
-      { title: "Deterjan ve Rezistans Bakımı", desc: "Kireçlenen ısıtıcı rezistanslar değiştirilerek yıkama kalitesi ilk günkü seviyesine getirilir." }
+      { title: "Vakumlu ve Standarda Uygun Montaj", desc: "Sistemin nemden arındırılması için vakum pompası ile tam vakumlama ve sızdırmazlık testi yapılır." },
+      { title: "Garantili Bakır Borulama", desc: "TSE standartlarında eksiz bakır boru hattı ve estetik izolasyon uygulaması." },
+      { title: "Güvenli Demontaj (Söküm)", desc: "Gazı dış üniteye toplayarak kayıpsız klima sökümü ve sökülen cihazın yeni adrese nakli." }
     ],
     benefits: [
-      "Aynı gün adreste hızlı arıza tespiti ve tamir.",
-      "1 Yıl parça ve işçilik garantisi.",
-      "Orijinal ve sertifikalı yedek parça kullanımı.",
-      "Sıkma ve yıkama performansının yenilenmesi."
+      "Gaz kaybı olmadan profesyonel söküm ve nakil.",
+      "Vakumlu montaj ile maksimum performans ve tasarruf.",
+      "1 Yıl işçilik ve montaj garantisi.",
+      "Tüm duvar tipi, kaset ve salon tipi klimalarda uzmanlık."
     ],
     faqs: [
-      { q: "Çamaşır makinesi neden çok gürültülü sıkma yapar?", a: "Kazan bilyalarının (rulman) aşınması veya amortisörlerin patlaması sıkma esnasında şiddetli sarsıntı ve gürültüye sebep olur." },
-      { q: "Makine suyu boşaltmıyorsa ne yapılmalı?", a: "Pompa filtresinde bozuk para veya yabancı cisim birikmiş olabilir. Filtre temizlendikten sonra sorun sürüyorsa pompa motoru değiştirilir." },
-      { q: "Tamir garantili midir?", a: "Evet, servisimiz tarafından değiştirilen tüm parçalar 1 yıl garanti kapsamındadır." }
+      { q: "Klima montajında vakumlama şart mıdır?", a: "Evet, tesisattaki hava ve nem vakumlanmazsa soğutucu gazın yapısı bozulur ve soğutma verimi %30 düşer." },
+      { q: "Söküm esnasında klima gazı uçar mı?", a: "Hayır, uzman ekibimiz gazı dış ünite kompresörüne toplayarak (pompalama) sıfır gaz kaybı ile söküm yapar." },
+      { q: "Montaj ne kadar sürer?", a: "Standart duvar tipi klima montajı yaklaşık 1.5 - 2 saat sürer." }
     ]
   },
   "gaz-dolumu": {
     title: "Buzdolabı Arıza Servisi",
     slug: "buzdolabi-ariza-servisi",
     iconName: "zap",
-    image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop",
+    image: "/images/hero_buzdolabi.jpg",
     intro: "Buzdolabınız soğutmuyor, buzlanma yapıyor, motoru sürekli çalışıyor veya gaz kaçağı varsa gıdalarınız bozulmadan acil mobil ekibimiz adresi ziyaret eder.",
     whyRequired: "Buzdolabı arızaları gıdaların hızla bozulmasına ve yüksek maddi kayıplara sebep olan en kritik ev aleti arızalandırır.",
     scope: [

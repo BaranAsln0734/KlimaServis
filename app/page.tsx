@@ -1093,8 +1093,6 @@ function HizmetlerSection({ services: _services }: { services: ServiceItem[] }) 
 }
 
 
-
-
 // Map shared PROJECTS data to the local Project interface
 const STATIC_PROJECTS: Project[] = PROJECTS.map((p) => ({
   title: p.title,
@@ -1117,7 +1115,7 @@ const STAGES = [
     title: "Klima",
     titleYellow: "Arıza & Bakım",
     desc: "Inverter split, kaset ve VRF klima arızalarında 7/24 mobil araçlarımızla profesyonel müdahale, R32/R410A gaz dolumu ve ilaçlı periyodik bakım.",
-    bg: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1920&auto=format&fit=crop",
+    bg: "/images/hero_klima.jpg",
     btnText: "Klima Hizmeti",
     btnHref: "/hizmetler/klima-arizasi-servisi"
   },
@@ -1128,7 +1126,7 @@ const STAGES = [
     title: "Çamaşır Makinesi",
     titleYellow: "Arıza Servisi",
     desc: "Çamaşır makineniz sıkmada gürültü mü yapıyor, su mu boşaltmıyor veya tambur dönmüyor mu? Sakarya genelinde orijinal parça ve 1 yıl garantiyle aynı gün hizmet.",
-    bg: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=1920&auto=format&fit=crop",
+    bg: "/images/hero_camasir.jpg",
     btnText: "Çamaşır Makinesi Servisi",
     btnHref: "/hizmetler/camasir-makinesi-ariza-servisi"
   },
@@ -1139,7 +1137,7 @@ const STAGES = [
     title: "Bulaşık Makinesi",
     titleYellow: "Arıza Servisi",
     desc: "Bulaşık makineniz su ısıtmıyor, deterjanı eritmiyor, iyi yıkamıyor veya su mu akıtıyor? Sirkülasyon pompası ve anakart tamirinde yerinde çözüm.",
-    bg: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop",
+    bg: "/images/hero_bulasik.jpg",
     btnText: "Bulaşık Makinesi Servisi",
     btnHref: "/hizmetler/bulasik-makinesi-ariza-servisi"
   },
@@ -1150,7 +1148,7 @@ const STAGES = [
     title: "Buzdolabı",
     titleYellow: "Arıza Servisi",
     desc: "Buzdolabınız soğutmuyor, buzlanma yapıyor veya motoru durmuyor mu? Gıdalarınız bozulmadan 30 dakikada nöbetçi mobil ekibimiz adrese ulaşır.",
-    bg: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=1920&auto=format&fit=crop",
+    bg: "/images/hero_buzdolabi.jpg",
     btnText: "Buzdolabı Servisi",
     btnHref: "/hizmetler/buzdolabi-ariza-servisi"
   },
@@ -1161,7 +1159,7 @@ const STAGES = [
     title: "Kombi",
     titleYellow: "Arıza & Bakım",
     desc: "Kombiniz sıcak su vermiyor, petekleri ısıtmıyor, basınç düşürüyor veya ateşleme yapmıyorsa sertifikalı kombi teknisyenlerimizle anında yerinde servis.",
-    bg: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1920&auto=format&fit=crop",
+    bg: "/images/hero_kombi.jpg",
     btnText: "Kombi Servisi",
     btnHref: "/hizmetler/kombi-ariza-servisi"
   },
@@ -1172,7 +1170,7 @@ const STAGES = [
     title: "Kurutma Makinesi",
     titleYellow: "Arıza Servisi",
     desc: "Kurutma makineniz nemli bırakıyor, koku yapıyor veya tambur dönmüyorsa ısı pompalı ve yoğuşmalı tüm markalarda garantili tamir.",
-    bg: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=1920&auto=format&fit=crop",
+    bg: "/images/hero_kurutma.jpg",
     btnText: "Kurutma Makinesi Servisi",
     btnHref: "/hizmetler/kurutma-makinesi-ariza-servisi"
   },
@@ -1183,7 +1181,7 @@ const STAGES = [
     title: "Küçük Ev Aletleri",
     titleYellow: "Tamir Servisi",
     desc: "Süpürge motoru, robot süpürge bataryası, ütü ve kahve makinesi arızalarında orijinal yedek parça garantisiyle ekonomik ve hızlı onarım.",
-    bg: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=1920&auto=format&fit=crop",
+    bg: "/images/hero_evaletleri.jpg",
     btnText: "Ev Aletleri Servisi",
     btnHref: "/hizmetler/kucuk-ev-aletleri-ariza-servisi"
   }
@@ -1566,7 +1564,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: EASE }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop"
+                src="/images/about_service_team.jpg"
                 alt="Sakarya Uzman Klima Teknik Servis Ekipleri"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -1685,7 +1683,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1600&auto=format&fit=crop')",
+            backgroundImage: "url('/images/hero_kombi.jpg')",
             backgroundAttachment: "fixed"
           }}
         />
@@ -1777,10 +1775,10 @@ export default function Home() {
                 {/* Desktop Version: Hover-Expanding Panels */}
                 <div className="hidden lg:flex w-full gap-5 h-[480px]">
                   {[
-                    { icon: Wrench, title: "Çamaşır Makinesi Servisi", desc: "Tambur dönmeme, sıkmada gürültü yapma ve su boşaltmama arızalarına yerinde müdahale.", href: "/hizmetler/camasir-makinesi-ariza-servisi", tag: "Çamaşır", img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop" },
-                    { icon: ShieldCheck, title: "Bulaşık Makinesi Servisi", desc: "Su ısıtmama, deterjan eritmeme, lekesiz yıkama pompası ve anakart onarımları.", href: "/hizmetler/bulasik-makinesi-ariza-servisi", tag: "Bulaşık", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Zap, title: "Buzdolabı Arıza Servisi", desc: "Kompresör değişimi, No-Frost defrost arızası ve gaz şarjı ile 30 dakikada nöbetçi servis.", href: "/hizmetler/buzdolabi-ariza-servisi", tag: "Buzdolabı", img: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Settings, title: "Kurutma Makinesi Servisi", desc: "Isı pompası gaz şarjı, kazan kayışı değişimi ve filtre nem sensörü bakımı.", href: "/hizmetler/kurutma-makinesi-ariza-servisi", tag: "Kurutma", img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Wrench, title: "Çamaşır Makinesi Servisi", desc: "Tambur dönmeme, sıkmada gürültü yapma ve su boşaltmama arızalarına yerinde müdahale.", href: "/hizmetler/camasir-makinesi-ariza-servisi", tag: "Çamaşır", img: "/images/hero_camasir.jpg" },
+                    { icon: ShieldCheck, title: "Bulaşık Makinesi Servisi", desc: "Su ısıtmama, deterjan eritmeme, lekesiz yıkama pompası ve anakart onarımları.", href: "/hizmetler/bulasik-makinesi-ariza-servisi", tag: "Bulaşık", img: "/images/hero_bulasik.jpg" },
+                    { icon: Zap, title: "Buzdolabı Arıza Servisi", desc: "Kompresör değişimi, No-Frost defrost arızası ve gaz şarjı ile 30 dakikada nöbetçi servis.", href: "/hizmetler/buzdolabi-ariza-servisi", tag: "Buzdolabı", img: "/images/hero_buzdolabi.jpg" },
+                    { icon: Settings, title: "Kurutma Makinesi Servisi", desc: "Isı pompası gaz şarjı, kazan kayışı değişimi ve filtre nem sensörü bakımı.", href: "/hizmetler/kurutma-makinesi-ariza-servisi", tag: "Kurutma", img: "/images/hero_kurutma.jpg" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     const isHovered = hoveredKonut === i;
@@ -1846,10 +1844,10 @@ export default function Home() {
                 {/* Mobile & Tablet Version: Standard Grid Fallback */}
                 <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {[
-                    { icon: Wrench, title: "Çamaşır Makinesi Servisi", desc: "Tambur dönmeme, sıkmada gürültü yapma ve su boşaltmama arızalarına yerinde müdahale.", href: "/hizmetler/camasir-makinesi-ariza-servisi", tag: "Çamaşır", img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop" },
-                    { icon: ShieldCheck, title: "Bulaşık Makinesi Servisi", desc: "Su ısıtmama, deterjan eritmeme, lekesiz yıkama pompası ve anakart onarımları.", href: "/hizmetler/bulasik-makinesi-ariza-servisi", tag: "Bulaşık", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Zap, title: "Buzdolabı Arıza Servisi", desc: "Kompresör değişimi, No-Frost defrost arızası ve gaz şarjı ile 30 dakikada nöbetçi servis.", href: "/hizmetler/buzdolabi-ariza-servisi", tag: "Buzdolabı", img: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Settings, title: "Kurutma Makinesi Servisi", desc: "Isı pompası gaz şarjı, kazan kayışı değişimi ve filtre nem sensörü bakımı.", href: "/hizmetler/kurutma-makinesi-ariza-servisi", tag: "Kurutma", img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Wrench, title: "Çamaşır Makinesi Servisi", desc: "Tambur dönmeme, sıkmada gürültü yapma ve su boşaltmama arızalarına yerinde müdahale.", href: "/hizmetler/camasir-makinesi-ariza-servisi", tag: "Çamaşır", img: "/images/hero_camasir.jpg" },
+                    { icon: ShieldCheck, title: "Bulaşık Makinesi Servisi", desc: "Su ısıtmama, deterjan eritmeme, lekesiz yıkama pompası ve anakart onarımları.", href: "/hizmetler/bulasik-makinesi-ariza-servisi", tag: "Bulaşık", img: "/images/hero_bulasik.jpg" },
+                    { icon: Zap, title: "Buzdolabı Arıza Servisi", desc: "Kompresör değişimi, No-Frost defrost arızası ve gaz şarjı ile 30 dakikada nöbetçi servis.", href: "/hizmetler/buzdolabi-ariza-servisi", tag: "Buzdolabı", img: "/images/hero_buzdolabi.jpg" },
+                    { icon: Settings, title: "Kurutma Makinesi Servisi", desc: "Isı pompası gaz şarjı, kazan kayışı değişimi ve filtre nem sensörü bakımı.", href: "/hizmetler/kurutma-makinesi-ariza-servisi", tag: "Kurutma", img: "/images/hero_kurutma.jpg" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     return (
@@ -1899,10 +1897,10 @@ export default function Home() {
                 {/* Desktop Version: Hover-Expanding Panels */}
                 <div className="hidden lg:flex w-full gap-5 h-[480px]">
                   {[
-                    { icon: Snowflake, title: "Acil Klima Arıza Servisi", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/klima-arizasi-servisi", tag: "Klima", img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Thermometer, title: "Kombi Arıza & Bakım", desc: "Ateşleme arızası, sıcak su dalgalanması ve petek yıkama bakımları.", href: "/hizmetler/kombi-ariza-servisi", tag: "Kombi", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Wind, title: "Klima Montaj & Söküm", desc: "Garantili bakır borulama, gaz toplama ve vakumlu montaj hizmeti.", href: "/hizmetler/klima-montaj", tag: "Montaj", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Cpu, title: "Küçük Ev Aletleri Servisi", desc: "Süpürge motoru, robot süpürge bataryası ve ütü rezistans onarımları.", href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi", tag: "Ev Aletleri", img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Snowflake, title: "Acil Klima Arıza Servisi", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/klima-arizasi-servisi", tag: "Klima", img: "/images/hero_klima.jpg" },
+                    { icon: Thermometer, title: "Kombi Arıza & Bakım", desc: "Ateşleme arızası, sıcak su dalgalanması ve petek yıkama bakımları.", href: "/hizmetler/kombi-ariza-servisi", tag: "Kombi", img: "/images/hero_kombi.jpg" },
+                    { icon: Wind, title: "Klima Montaj & Söküm", desc: "Garantili bakır borulama, gaz toplama ve vakumlu montaj hizmeti.", href: "/hizmetler/klima-montaj", tag: "Montaj", img: "/images/hero_klima_montaj.jpg" },
+                    { icon: Cpu, title: "Küçük Ev Aletleri Servisi", desc: "Süpürge motoru, robot süpürge bataryası ve ütü rezistans onarımları.", href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi", tag: "Ev Aletleri", img: "/images/hero_evaletleri.jpg" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     const isHovered = hoveredTicari === i;
@@ -1968,10 +1966,10 @@ export default function Home() {
                 {/* Mobile & Tablet Version: Standard Grid Fallback */}
                 <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {[
-                    { icon: Snowflake, title: "Acil Klima Arıza Servisi", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/klima-arizasi-servisi", tag: "Klima", img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Thermometer, title: "Kombi Arıza & Bakım", desc: "Ateşleme arızası, sıcak su dalgalanması ve petek yıkama bakımları.", href: "/hizmetler/kombi-ariza-servisi", tag: "Kombi", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Wind, title: "Klima Montaj & Söküm", desc: "Garantili bakır borulama, gaz toplama ve vakumlu montaj hizmeti.", href: "/hizmetler/klima-montaj", tag: "Montaj", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Cpu, title: "Küçük Ev Aletleri Servisi", desc: "Süpürge motoru, robot süpürge bataryası ve ütü rezistans onarımları.", href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi", tag: "Ev Aletleri", img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Snowflake, title: "Acil Klima Arıza Servisi", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/klima-arizasi-servisi", tag: "Klima", img: "/images/hero_klima.jpg" },
+                    { icon: Thermometer, title: "Kombi Arıza & Bakım", desc: "Ateşleme arızası, sıcak su dalgalanması ve petek yıkama bakımları.", href: "/hizmetler/kombi-ariza-servisi", tag: "Kombi", img: "/images/hero_kombi.jpg" },
+                    { icon: Wind, title: "Klima Montaj & Söküm", desc: "Garantili bakır borulama, gaz toplama ve vakumlu montaj hizmeti.", href: "/hizmetler/klima-montaj", tag: "Montaj", img: "/images/hero_klima_montaj.jpg" },
+                    { icon: Cpu, title: "Küçük Ev Aletleri Servisi", desc: "Süpürge motoru, robot süpürge bataryası ve ütü rezistans onarımları.", href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi", tag: "Ev Aletleri", img: "/images/hero_evaletleri.jpg" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     return (
@@ -2019,7 +2017,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1600&auto=format&fit=crop')",
+            backgroundImage: "url('/images/hero_klima.jpg')",
             backgroundAttachment: "fixed"
           }}
         />
@@ -2087,7 +2085,7 @@ export default function Home() {
             {/* SOL KOLON: Çapraz Kesimli Görsel (5 kolon) */}
             <div className="lg:col-span-5 relative min-h-[350px] lg:min-h-full overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop"
+                src="/images/customer_satisfaction.jpg"
                 alt="Sakarya Uzman Klima Müşteri Deneyimi"
                 fill
                 className="object-cover"
@@ -2226,7 +2224,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=1600&auto=format&fit=crop')",
+            backgroundImage: "url('/images/hero_camasir.jpg')",
             backgroundAttachment: "fixed"
           }}
         />

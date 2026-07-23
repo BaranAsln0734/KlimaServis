@@ -5,7 +5,6 @@ import "./globals.css";
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SnowEffect from "@/components/SnowEffect";
 const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsApp"));
 import { Analytics } from "@vercel/analytics/next";
 
@@ -19,11 +18,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg", type: "image/svg+xml" }
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" }
     ],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   metadataBase: new URL("https://www.sakaryaklimaservisi.demo"),
   title: {
@@ -129,9 +128,9 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
-        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
 
         <script
           type="application/ld+json"
@@ -143,7 +142,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-[family-name:--font-plus-jakarta-sans] bg-white relative" style={{color:'#334155'}}>
-        <SnowEffect />
         <Header />
         <main className="flex-grow">
           {children}
