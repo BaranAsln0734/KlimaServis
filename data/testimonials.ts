@@ -15,7 +15,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     "name": "Murat Yılmaz",
     "role": "Ev Sahibi",
     "company": "Serdivan / Sakarya",
-    "quote": "Evime klima aldım, montaj için Sakarya Uzman Klima'yı aradım. Aynı gün gelip tertemiz işçilikle kurdular. Duvar borulaması çok nizami yapıldı, elinize sağlık.",
+    "quote": "Çamaşır makinemiz sıkma yaparken kazan çok gürültü çıkarıyordu. Sakarya Uzman ekibi aynı gün adrese gelip amortisör ve rulman değişimini yaptılar. 1 yıl parça garantisiyle ilk günkü gibi sessiz çalışıyor.",
     "rating": 5,
     "initials": "MY",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
@@ -25,7 +25,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     "name": "Elif Şahin",
     "role": "Ofis Yöneticisi",
     "company": "Adapazarı / Sakarya",
-    "quote": "Şirket ofisimizin kaset klimalarının periyodik bakımı ve gaz dolumu için hizmet aldık. Havalandırma performansı bariz arttı. İşinin ehli, son derece kibar ekipler.",
+    "quote": "Ofisimizin klimalarının periyodik bakımı ve R32 gaz dolumu için hizmet aldık. Hem soğutma performansı bariz arttı hem de elektrik faturamız düştü. İşinin ehli, dürüst teknik servis.",
     "rating": 5,
     "initials": "EŞ",
     "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
@@ -35,7 +35,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     "name": "Ahmet Demir",
     "role": "Esnaf",
     "company": "Erenler / Sakarya",
-    "quote": "Gece yarısı dükkandaki klimamız su akıtmaya başladı. 7/24 acil servis hattından ulaştım, sabah saatlerinde gelip arızayı çözdüler. Orijinal yedek parça garantisi de verdiler.",
+    "quote": "Kış ortasında kombimiz sıcak su vermemeye başladı ve hata koduna geçti. 7/24 nöbetçi acil servisi aradım, kısa sürede gelip üç yollu vana ve anakart arızasını çözdüler. Sıcak yuvamıza kavuştuk.",
     "rating": 5,
     "initials": "AD",
     "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
@@ -43,9 +43,9 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     "id": 4,
     "name": "Zeynep Kaya",
-    "role": "Mimar",
+    "role": "Villa Sahibi",
     "company": "Sapanca / Sakarya",
-    "quote": "Sapanca'daki proje villamız için VRF merkezi klima sistemi kurulumu yaptırdık. Keşif ve mühendislik hesaplarından montaja kadar her aşamada mükemmel bir profesyonellik sergilediler.",
+    "quote": "Buzdolabımızın alt bölmesi soğutmadığı için gıdalar bozulmak üzereydi. Ustalar hemen gelip defrost rezistansı ve sensör değişimini yerinde yaptı. Gıdalarımız kurtuldu, teşekkürler.",
     "rating": 5,
     "initials": "ZK",
     "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop"
@@ -53,9 +53,9 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     "id": 5,
     "name": "Mustafa Koç",
-    "role": "Villa Sahibi",
+    "role": "Müstakil Ev Sahibi",
     "company": "Akyazı / Sakarya",
-    "quote": "Klima bakımı konusunda Sakarya'da tek geçerim. Filtreleri kimyasalla tertemiz yıkayıp dezenfekte ediyorlar. Enerji sarfiyatımız periyodik bakımlardan sonra gözle görülür şekilde düştü.",
+    "quote": "Bulaşık makinesi su boşaltmıyor ve kurutma makinesi çamaşırları nemli bırakıyordu. İki cihazımıza da aynı gün yerinde müdahale edip pompa ve ısı pompası bakımını hallettiler.",
     "rating": 5,
     "initials": "MK",
     "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop"
@@ -65,7 +65,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     "name": "Selin Öztürk",
     "role": "Yazlık Sahibi",
     "company": "Karasu / Sakarya",
-    "quote": "Karasu'daki yazlığımızın klimasını söktürüp başka odaya taşıttık. Gazı hiç boşa gitmeden cihazın içine topladılar ve yeni yerine kurdular. Güvenilir ve dürüst esnaflar.",
+    "quote": "Yeni klimamızın vakumlu montajını yaptırdık, ayrıca arızalı robot süpürgemizin batarya değişimini hallettiler. Sakarya'da iklimlendirme ve beyaz eşya servisinde kesinlikle tek adres.",
     "rating": 5,
     "initials": "SÖ",
     "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop"

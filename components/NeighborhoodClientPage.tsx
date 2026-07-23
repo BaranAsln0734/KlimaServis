@@ -187,50 +187,50 @@ export default function NeighborhoodClientPage() {
       num: "01",
       icon: Wrench,
       accent: "#0EA5E9",
-      title: `${districtName} ${neighborhoodName} Mahallesi Klima Servis Hizmeti`,
-      content: `${districtName} ilçesi ${neighborhoodName} mahallesinde bulunan tüm konut, müstakil ev ve ticari işletmeler için 7/24 mobil teknik servis desteği sunuyoruz. Klimanız soğutmuyor, fan çalıştırmıyor veya sigorta attırıyorsa; uzman teknisyenlerimiz çağrınız üzerine kısa sürede adresinize gelerek dijital test cihazlarıyla yerinde arıza tespiti gerçekleştirmektedir. Daikin, Mitsubishi Electric, Samsung, LG, Arçelik, Vestel ve tüm markalarda yetkin müdahale sunulmaktadır.`
+      title: `${districtName} ${neighborhoodName} Mahallesi Klima, Kombi & Beyaz Eşya Servis Hizmeti`,
+      content: `${districtName} ilçesi ${neighborhoodName} mahallesinde bulunan tüm konut, müstakil ev ve ticari işletmeler için 7/24 mobil teknik servis desteği sunuyoruz. Klimanız, kombiniz, çamaşır veya bulaşık makineniz ya da buzdolabınız arızalandığında; uzman teknisyenlerimiz çağrınız üzerine kısa sürede adresinize gelerek dijital test cihazlarıyla yerinde arıza tespiti gerçekleştirmektedir. Daikin, Mitsubishi, Samsung, LG, Arçelik, Bosch, Beko, Vestel ve tüm markalarda garantili müdahale sunulmaktadır.`
     },
     {
       num: "02",
       icon: Snowflake,
       accent: "#10B981",
-      title: `${neighborhoodName} Mahallesi İlaçlı Periyodik Klima Bakımı`,
-      content: `${neighborhoodName} mahallesinde klima hijyeni ve enerji tasarrufu için yılda iki kez profesyonel bakım yaptırılması önerilmektedir. İç ünite filtre temizliği, evaporatör kimyasal ilaçlı serpantin yıkaması, drenaj tavası dezenfeksiyonu ve dış ünite kondanser temizliği yapılarak cihazınızın bakterilerden arındırılması ve elektrik faturasında %30'a varan tasarruf sağlaması temin edilir.`
+      title: `${neighborhoodName} Mahallesi İlaçlı Klima & Kombi Periyodik Bakımı`,
+      content: `${neighborhoodName} mahallesinde hijyen ve yüksek enerji tasarrufu için klimalarda yılda 2 kez, kombilerde yılda 1 kez profesyonel bakım önerilmektedir. Klima iç/dış ünite antibakteriyel temizliği ve kombi yanma odası, filtre ile petek temizliği yapılarak cihazlarınızın ömrü uzatılır ve yakıt masraflarında %30'a varan tasarruf temin edilir.`
     },
     {
       num: "03",
       icon: Droplets,
       accent: "#8B5CF6",
-      title: `R32 ve R410A Gaz Dolumu & Sızdırmazlık Testi`,
-      content: `${locativeName} ${neighborhoodName} mahallesinde klimanızın yetersiz soğutması veya boru bağlantılarında karlanma olması soğutucu gaz eksikliğine işaret eder. Dijital manifold cihazlarımızla gaz basıncı ölçülür, nitrojen testi ile gaz kaçağı noktası belirlenerek tamir edilir, sistem vakumlanır ve TSE standartlarında %100 orijinal R32 veya R410A gaz şarjı yapılır.`
+      title: `Çamaşır, Bulaşık Makinesi & Buzdolabı Adreste Tamir Hizmeti`,
+      content: `${locativeName} ${neighborhoodName} mahallesinde çamaşır makinenizin sıkmaması, bulaşık makinenizin kirli yıkaması veya buzdolabınızın soğutmaması gibi problemlere tam donanımlı mobil araçlarımızla adreste müdahale ediyoruz. Dijital ölçümlerle arıza tespit edilir ve aynı gün cihazınız çalışır vaziyette teslim edilir.`
     },
     {
       num: "04",
       icon: Wind,
       accent: "#F59E0B",
-      title: `${neighborhoodName} Klima Montajı, Demontajı & Deplase Hizmeti`,
-      content: `${neighborhoodName} mahallesinde yeni bina veya taşınma durumlarında profesyonel klima montaj hizmeti veriyoruz. İç ve dış ünite konumlandırılması, standartlara uygun bakır boru izolasyonu, drenaj eğimi ve vakumlama işlemleri titizlikle yapılır. Eski klimanızın gazı güvenle toplanarak zarar görmeden sökülür ve yeni noktaya montajı sağlanır.`
+      title: `${neighborhoodName} Klima & Beyaz Eşya Montaj, Demontaj Hizmeti`,
+      content: `${neighborhoodName} mahallesinde yeni bina veya taşınma durumlarında profesyonel montaj hizmeti veriyoruz. Klimanızın konumlandırılması, vakumlama, borulama ve beyaz eşyalarınızın tesisat bağlantıları standartlara uygun olarak yapılır.`
     },
     {
       num: "05",
       icon: ShieldCheck,
       accent: "#EC4899",
       title: `Orijinal Yedek Parça & 1 Yıl İşçilik Garantisi`,
-      content: `${districtName} ${neighborhoodName} mahallesinde yapılan tüm klima tamir ve parça değişim işlemlerinde (kompresör, fan motoru, elektronik anakart, 4 yollu vana, kondansatör, sensör) yalnızca orijinal yedek parçalar kullanılır. Yapılan her teknik müdahale sonrası 1 Yıl Resmi İşçilik ve Parça Garanti Belgesi yazılı olarak teslim edilmektedir.`
+      content: `${districtName} ${neighborhoodName} mahallesinde yapılan tüm arıza tamir ve parça değişim işlemlerinde (kompresör, fan motoru, anakart, pompa, sensör, rezistans) yalnızca orijinal yedek parçalar kullanılır. Yapılan her teknik müdahale sonrası 1 Yıl Resmi İşçilik ve Parça Garanti Belgesi yazılı olarak teslim edilmektedir.`
     }
   ], [districtName, neighborhoodName, locativeName]);
 
   const faqs = [
     { q:`${neighborhoodName} mahallesine ortalama varış süreniz nedir?`, a:`Ekiplerimiz ${districtName} ${neighborhoodName} mahallesine Adapazarı merkezimizden mobil servis araçlarıyla ortalama 30–60 dakika içinde ulaşmaktadır. Acil durumlarda öncelikli yönlendirme yapılır.` },
-    { q:"Klima arızalarında parça garantisi veriyor musunuz?", a:"Evet. Servis kapsamında onarılan veya değiştirilen tüm orijinal yedek parçalar Sakarya Uzman Klima 1 yıl işçilik ve parça garantisi altındadır. İşlem sonrası yazılı teknik servis formu düzenlenir." },
-    { q:"Klima bakımı ne sıklıkla yapılmalıdır?", a:"Solunum yolu sağlığınızı korumak ve enerji tüketimini optimize etmek için klimaların yılda en az iki kez (yaz ve kış sezonu başlangıçlarında) profesyonel antibakteriyel ilaçlarla periyodik bakımının yapılması önerilmektedir." },
-    { q:"Hangi marka klimalara servis veriyorsunuz?", a:"Daikin, Mitsubishi Electric, Samsung, LG, Arçelik, Vestel, Bosch, Beko, Toshiba ve diğer tüm split, salon ve kaset tipi klima markalarına uzman teknik kadromuzla yetkin olarak servis veriyoruz." },
+    { q:"Arızalarda parça garantisi veriyor musunuz?", a:"Evet. Servis kapsamında onarılan veya değiştirilen tüm orijinal yedek parçalar Sakarya Beyaz Eşya Kombi Klima Servisi 1 yıl işçilik ve parça garantisi altındadır. İşlem sonrası yazılı teknik servis formu düzenlenir." },
+    { q:"Hangi cihazlar için servis veriyorsunuz?", a:"Klima, kombi, çamaşır makinesi, bulaşık makinesi, buzdolabı, kurutma makinesi ve küçük ev aletlerinin arıza tamiri, bakımı ve montajı için 7/24 hizmet veriyoruz." },
+    { q:"Hangi markalara servis veriyorsunuz?", a:"Daikin, Mitsubishi, Samsung, LG, Arçelik, Bosch, Beko, Vestel, Siemens, DemirDöküm, Baymak, Vaillant, Toshiba, Buderus, Profilo ve diğer tüm marka ve modellere uzman teknik kadromuzla yetkin olarak servis veriyoruz." },
   ];
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#1E293B] font-sans">
-      <title>{`${districtName} ${neighborhoodName} Klima Servisi | 7/24 Bakım & Tamir`}</title>
-      <meta name="description" content={`${districtName} ilçesi ${neighborhoodName} mahallesinde her marka klima için 7/24 acil tamir, periyodik ilaçlı bakım, montaj ve R32/R410A gaz dolumu.`} />
+      <title>{`${districtName} ${neighborhoodName} Beyaz Eşya, Kombi & Klima Servisi | 7/24 Bakım & Tamir`}</title>
+      <meta name="description" content={`${districtName} ilçesi ${neighborhoodName} mahallesinde Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı ve Kurutma Makinesi için 7/24 acil tamir, bakım ve montaj servisi.`} />
       
       {/* ━━━ 1. PREMİUM HERO BÖLÜMÜ ━━━ */}
       <section className="bg-[#0F172A] text-white pt-36 pb-20 md:pt-40 relative overflow-hidden border-b border-white/5">

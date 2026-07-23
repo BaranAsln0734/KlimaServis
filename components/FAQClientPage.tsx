@@ -13,45 +13,46 @@ interface FAQItem {
 const FAQ_DATA: FAQItem[] = [
   {
     category: "Genel",
-    question: "Klima bakımı ne sıklıkla yapılmalıdır?",
-    answer: "Sağlıklı bir hava kalitesi, maksimum enerji verimliliği ve cihaz ömrünü korumak adına klimaların yılda en az iki kez (ilkbahar ve sonbahar aylarında, yani yaz ve kış sezonu başlangıcında) periyodik bakımdan geçmesi önerilir."
-  },
-  {
-    category: "Genel",
-    question: "Klimanın soğutmamasının en yaygın sebepleri nelerdir?",
-    answer: "Klimanın soğutmamasının temel sebepleri arasında iç ünite filtrelerinin tıkanması, R32 veya R410A soğutucu gazının eksilmesi (gaz sızıntısı), kompresör veya fan motoru arızaları ile dış ünitenin aşırı güneş altında kalması/hava sirkülasyonunun kesilmesi yer alır."
+    question: "Hangi cihazlar için servis hizmeti veriyorsunuz?",
+    answer: "Sakarya genelinde Klima (Split, Kaset, VRF), Kombi (Ateşleme, Kart, Petek), Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Küçük Ev Aletleri (Süpürge, Ütü, Kahve Makinesi) için 7/24 mobil teknik servis sunmaktayız."
   },
   {
     category: "Servis",
-    question: "Klima gaz dolumu ne zaman yapılmalıdır?",
-    answer: "Klima gazı normal şartlarda tükenen bir madde değildir. Ancak boru tesisatındaki aşınmalar, kaynak noktalarındaki çatlaklar veya rekor bağlantı gevşemeleri nedeniyle gaz sızıntısı meydana geldiğinde gaz eksilir. Teknik ekibimiz gaz kaçağını tespit edip onardıktan sonra gaz dolumu gerçekleştirir."
+    question: "Çamaşır ve bulaşık makinelerinde parça değişimi garantili mi?",
+    answer: "Evet, firmamız bünyesinde yapılan tüm çamaşır ve bulaşık makinesi tamirlerinde (amortisör, motor kayışı, sirkülasyon pompası, anakart vb.) orijinal yedek parça kullanılarak 1 yıl süreyle resmi garanti verilir."
+  },
+  {
+    category: "Bakım",
+    question: "Kombi ve klima bakımı ne sıklıkla yapılmalıdır?",
+    answer: "Klima ve kombi sistemlerinin yılda en az bir kez periyodik bakımdan geçmesi önerilir. Düzenli bakım doğalgaz ve elektrik tüketimini %30 oranında düşürür ve cihazınızın ömrünü uzatır."
+  },
+  {
+    category: "Servis",
+    question: "Buzdolabı soğutmama arızasına ne kadar sürede müdahale ediyorsunuz?",
+    answer: "Gıdalarınızın bozulma riskine karşı buzdolabı arızalarında mobil nöbetçi araçlarımız ortalama 30 dakika ile 1 saat içerisinde Sakarya genelindeki adresinize ulaşır."
   },
   {
     category: "Montaj",
-    question: "Klima montajında konum seçimi neden önemlidir?",
-    answer: "İç ünitenin doğrudan üzerinize üflemeyeceği, oda içinde hava sirkülasyonunun en homojen dağılacağı bir konum seçilmelidir. Dış ünite ise kolayca servis verilebilen, direkt güneş ışığından uzak ve rahat hava alıp atabileceği bir noktaya monte edilmelidir."
+    question: "Klima montajında vakumlama yapılması şart mıdır?",
+    answer: "Evet, kesinlikle şarttır. Boru hattındaki hava ve nem tahliye edilmeden gaz verildiğinde asit oluşur ve kompresör sargıları yanar. Ekiplerimiz her montajda minimum 20 dakika vakumlama yapmaktadır."
   },
   {
     category: "Servis",
     question: "Servis sonrasında yapılan işlemler garantili mi?",
-    answer: "Evet, Sakarya Uzman Klima olarak gerçekleştirdiğimiz tüm arıza tespit, parça değişimi ve teknik müdahaleler, orijinal yedek parça ve işçilik dahil olmak üzere 1 yıl süreyle servis garantimiz altındadır."
+    answer: "Evet, Sakarya Uzman Klima & Beyaz Eşya Servisi olarak gerçekleştirdiğimiz tüm arıza tespiti, parça değişimi ve tamir işlemleri 1 yıl işçilik ve parça garantimiz altındadır."
   },
   {
     category: "Bakım",
-    question: "Klima bakımı faturalarımı etkiler mi?",
-    answer: "Evet, kesinlikle etkiler. Kirli filtreler ve tıkanmış serpantinler klimanın havayı çekmesini zorlaştırır. Bu durum kompresörün daha fazla çalışmasına ve elektrik faturasının %20 ila %30 oranında artmasına neden olur. Temiz bir klima ise minimum elektrikle maksimum verim sağlar."
+    question: "Kurutma makinesi neden çamaşırları nemli bırakır?",
+    answer: "Kurutma makinesinin nemli bırakması genellikle tiftik filtresi tıkanıklığı, kondanser kirliliği, ısı pompası gaz eksikliği veya nem sensör arızasından kaynaklanır. Yerinde bakımla sorun çözülür."
   },
   {
-    category: "Montaj",
-    question: "Klima sökerken gazı boşa gider mi?",
-    answer: "Hayır. Uzman teknisyenlerimiz klima söküm (demontaj) işleminden önce sistemi çalıştırarak gazı dış ünite kompresörüne toplar (gaz toplama işlemi) ve vanaları kapatır. Bu sayede klimanızın gazı boşa gitmeden güvenle yeni yerine taşınabilir."
-  },
-  {
-    category: "Bakım",
-    question: "Klima temizliğini kendim yapabilir miyim?",
-    answer: "İç ünitenin plastik kapağını açarak toz filtrelerini musluk altında yıkayıp kurutabilirsiniz. Bu işlemi 2 haftada bir yapmanız önerilir. Ancak evaporatör dezenfeksiyonu, ilaçlı serpantin temizliği, dış ünite yıkaması ve gaz basıncı kontrolleri gibi derinlemesine bakım işlemleri profesyonel ekipmanlar gerektirir."
+    category: "Servis",
+    question: "Küçük ev aletleri (Süpürge, Ütü) için adresinizden servis alabilir miyiz?",
+    answer: "Elektrikli süpürge motor arızası, robot süpürge bataryası ve ütü rezistans arızalarında adresinizden teslim alıp veya yerinde ekonomik onarım yapmaktayız."
   }
 ];
+
 
 const CATEGORIES = [
   { id: "ALL", name: "Tüm Sorular", icon: HelpCircle },

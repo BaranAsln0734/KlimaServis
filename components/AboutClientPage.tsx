@@ -8,25 +8,25 @@ import { Compass, TrendingUp, ShieldCheck, Activity, Cpu, Lightbulb, Zap, Calend
 const VALUES = [
   {
     title: "Konfor ve Süreklilik",
-    desc: "Evler, ofisler ve endüstriyel alanlar başta olmak üzere yaşam alanlarınızdaki ideal iklimlendirme konforunu, 7/24 kesintisiz saha teknik servis desteğimizle güvence altına alıyoruz.",
+    desc: "Ev ve iş yerlerinizdeki iklimlendirme ve beyaz eşya konforunu, 7/24 kesintisiz saha teknik servis desteğimizle güvence altına alıyoruz.",
     icon: Activity,
     color: "from-sky-400 to-blue-600"
   },
   {
     title: "Güven ve Şeffaflık",
-    desc: "Sakarya Uzman Klima olarak, klima montajı, periyodik bakım, gaz şarjı ve arıza onarım işlemlerimizin her aşamasında şeffaf fiyatlandırmayı ve teknik dürüstlüğü esas alıyoruz.",
+    desc: "Sakarya Beyaz Eşya Kombi Klima Servisi olarak, tüm tamir, bakım ve yedek parça değişim işlemlerimizin her aşamasında şeffaf fiyatlandırmayı ve teknik dürüstlüğü esas alıyoruz.",
     icon: ShieldCheck,
     color: "from-teal-400 to-emerald-600"
   },
   {
     title: "Teknik Derinlik",
-    desc: "Sektördeki tüm global ve yerli klima markalarının split, kaset, VRF/VRV ve merkezi Chiller sistemlerine hakim, TSE standartlarında belgelendirilmiş profesyonel ekiplerle hizmet veriyoruz.",
+    desc: "Sektördeki tüm global ve yerli Klima, Kombi ve Beyaz Eşya markalarının tüm modellerine hakim, sertifikalı ve tecrübeli profesyonel ekiplerle hizmet veriyoruz.",
     icon: Cpu,
     color: "from-blue-500 to-indigo-600"
   },
   {
     title: "Çevreye Saygı",
-    desc: "Yeni nesil çevre dostu R32 gaz uygulamaları, yüksek enerji verimliliği sağlayan inverter klima montajları ve enerji tasarruf analizleriyle sürdürülebilir bir gelecek için çalışıyoruz.",
+    desc: "Çevre dostu soğutucu gaz uygulamaları, yüksek enerji verimliliği sağlayan cihaz bakımları ve enerji tasarrufu odaklı çözümlerle sürdürülebilir bir gelecek için çalışıyoruz.",
     icon: Lightbulb,
     color: "from-cyan-400 to-sky-600"
   }
@@ -67,15 +67,15 @@ export default function AboutClientPage() {
             </motion.div>
             
             <h1 className="font-black text-white tracking-tight uppercase text-4xl sm:text-5xl md:text-7xl leading-[0.95]">
-              Yaşam Alanlarınıza <br />
+              İklimlendirme & <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#0284C7]">
-                Konfor ve Ferahlık
+                Beyaz Eşya Konforu
               </span> <br />
-              Katıyoruz
+              Uzman Ellerinde
             </h1>
             <div className="w-20 h-1.5 bg-[#0EA5E9] rounded-full" />
             <p className="text-gray-300 text-sm sm:text-lg leading-relaxed max-w-2xl font-medium">
-              Sakarya Uzman Klima İklimlendirme Servisi olarak, konut ve ticari alanlarınızın mevsim şartlarından bağımsız, her zaman ideal sıcaklıkta kalması için dünya standartlarında mühendislik çözümleri sunuyoruz.
+              Sakarya Uzman Klima & Beyaz Eşya Servisi olarak; Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Küçük Ev Aletleriniz için 7/24 profesyonel teknik servis ve yerinde garantili müdahale sunuyoruz.
             </p>
           </div>
         </div>
@@ -114,31 +114,32 @@ export default function AboutClientPage() {
           {/* Narrative Info (Left Column) */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
-              <span className="text-[#0EA5E9] font-black uppercase tracking-widest block text-xs md:text-sm">Sakarya Uzman Klima İklimlendirme Servisi</span>
+              <span className="text-[#0EA5E9] font-black uppercase tracking-widest block text-xs md:text-sm">Sakarya Uzman Klima & Beyaz Eşya Servisi</span>
               <h2 className="font-black text-gray-900 tracking-tight uppercase text-3xl sm:text-5xl leading-none">
-                İklimlendirme ve Konforun <br />Güvenilir Adresi
+                İklimlendirme ve Ev Teknolojilerinin <br />Güvenilir Adresi
               </h2>
             </div>
             
             <p className="font-semibold text-gray-700 text-base sm:text-lg leading-relaxed">
-              10 yılı aşkın sektörel tecrübemiz ile Sakarya merkezli olarak hizmet sunan Sakarya Uzman Klima; Adapazarı, Serdivan, Sapanca başta olmak üzere şehrin 16 ilçesinde 7/24 hızlı mobil servis ekibiyle klima montajı, bakımı ve arıza onarımında profesyonel çözüm ortağınızdır.
+              10 yılı aşkın sektörel tecrübemiz ile Sakarya merkezli olarak hizmet sunan firmamız; Adapazarı, Serdivan, Sapanca, Hendek ve şehrin tüm 16 ilçesinde 7/24 hızlı mobil servis filosuyla Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Küçük Ev Aletlerinde garantili servis çözümleri sunmaktadır.
             </p>
             
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed font-semibold">
-              Sektördeki tüm lider klima markalarında (Daikin, Mitsubishi Electric, Samsung, LG, Arçelik, Vestel, Bosch, Toshiba, Beko vb.) orijinal yedek parça desteği, profesyonel BTU keşfi, bakır borulama, R32 çevre dostu gaz dolumu ve garantili kompresör onarımı yapmaktayız. Evinizde ve iş yerinizde konforun kesintisiz sürmesi en büyük önceliğimizdir.
+              Tüm lider markalarda (Daikin, Mitsubishi, Samsung, LG, Arçelik, Vestel, Bosch, Beko, Baymak, Demirdöküm vb.) orijinal yedek parça desteği, adrese özel keşif, periyodik ilaçlı yıkama bakımı, R32 gaz dolumu, kart tamiri ve 1 yıl resmi işçilik garantisiyle evinizde ve iş yerinizde konforun kesintisiz sürmesini sağlıyoruz.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               <div className="flex items-center gap-3 p-4 bg-white border border-gray-150 rounded-2xl shadow-xs">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                <span className="text-xs sm:text-sm font-bold text-gray-800">TSE Hizmet Yeterlilik Standartları</span>
+                <span className="text-xs sm:text-sm font-bold text-gray-800">ISO Kalite Standartlarında Teknik Müdahale</span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-white border border-gray-150 rounded-2xl shadow-xs">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                <span className="text-xs sm:text-sm font-bold text-gray-800">1 Yıl Servis & İşçilik Garantisi</span>
+                <span className="text-xs sm:text-sm font-bold text-gray-800">1 Yıl Parça & İşçilik Garantisi</span>
               </div>
             </div>
           </div>
+
 
           {/* Premium Image Composite Stack (Right Column) */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
@@ -242,9 +243,9 @@ export default function AboutClientPage() {
                     <div className="w-12 h-12 rounded-2xl bg-[#0EA5E9]/10 text-[#0EA5E9] flex items-center justify-center">
                       <Compass className="w-6 h-6" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">İdeal İklimlendirme Standartları</h3>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Kesintisiz Yaşam & İklimlendirme Standartları</h3>
                     <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-medium">
-                      Sakarya ve çevre illerdeki konut ve ticari alanların, iklimlendirme sistemleri kaynaklı herhangi bir konfor kaybı yaşamaması için hızlı, dürüst ve yüksek standartlı klima servis hizmetleri sunmaktır. Teknik kadromuzu sürekli eğiterek servis kalitemizi en üst düzeyde korumayı amaçlayyoruz.
+                      Sakarya ve çevre ilçelerdeki konut ve ticari alanlarda kullanılan Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Ev Aletlerinin arızalarında konfor kaybı yaşanmaması için hızlı, dürüst ve yüksek standartlı teknik servis hizmetleri sunmaktır. Ekiplerimizi sürekli eğiterek servis kalitemizi en üst düzeyde koruyoruz.
                     </p>
                   </motion.div>
                 )}
@@ -261,9 +262,9 @@ export default function AboutClientPage() {
                     <div className="w-12 h-12 rounded-2xl bg-[#0EA5E9]/10 text-[#0EA5E9] flex items-center justify-center">
                       <TrendingUp className="w-6 h-6" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Sakarya'nın Lider Klima Servisi Olmak</h3>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Sakarya'nın Lider Teknik Servis Markası Olmak</h3>
                     <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-medium">
-                      İklimlendirme ve klima teknolojileri servis alanında, Sakarya genelinde en çok tercih edilen, müşteri odaklı ve güvenilen butik servis markası olmaktır. Gelişen teknolojiye (çevre dostu gazlar, akıllı klimalar) hızla uyum sağlayarak sektöre öncülük etmeye devam etmektir.
+                      İklimlendirme, kombi ve beyaz eşya servis alanında, Sakarya genelinde en çok tercih edilen, müşteri odaklı ve en güvenilen mobil teknik servis markası olmaktır. Gelişen akıllı cihaz teknolojilerine hızla uyum sağlayarak sektöre öncülük etmeye devam etmektir.
                     </p>
                   </motion.div>
                 )}
@@ -280,9 +281,9 @@ export default function AboutClientPage() {
                     <div className="w-12 h-12 rounded-2xl bg-[#0EA5E9]/10 text-[#0EA5E9] flex items-center justify-center">
                       <ShieldCheck className="w-6 h-6" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Yüksek Standartlı Teknik Hizmet</h3>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Yüksek Standartlı Garantili Servis</h3>
                     <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-medium">
-                      Servis talebinden montaj ve periyodik bakıma kadar tüm iklimlendirme süreçlerimizde hata payını sıfıra indirmeyi hedefliyoruz. Orijinal yedek parça kullanımı, şeffaf ücretlendirme, garantili işçilik ve çevre dostu gaz dolum süreçleri, kalite politikamızın temel yapı taşlarıdır.
+                      Servis talebinden montaj ve arıza onarımlarına kadar tüm süreçlerimizde hata payını sıfıra indirmeyi hedefliyoruz. Orijinal yedek parça kullanımı, şeffaf ücretlendirme, 1 yıl resmi garanti ve adreste aynı gün müdahale, kalite politikamızın temel yapı taşlarıdır.
                     </p>
                   </motion.div>
                 )}

@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin, ArrowRight, PhoneCall, Clock, ShieldCheck, CheckCircle2,
   ChevronDown, Snowflake, Wrench, Droplets, Zap, Wind, Star,
-  Phone, MessageCircle, Navigation, Home, Check, AlertCircle, FileText, Thermometer
+  Phone, MessageCircle, Navigation, Home, Check, AlertCircle, FileText, Thermometer, Flame, Cpu
 } from "lucide-react";
+import UrgencyCountdownBanner from "@/components/UrgencyCountdownBanner";
+import TroubleshootingWizard from "@/components/TroubleshootingWizard";
 
 /* ─── Types ─── */
 interface DistrictSection {
@@ -46,7 +48,6 @@ const getDistrictPath = (n: string) => {
   return `${capitalizedSlug}-Klima-Servisi`;
 };
 
-/* ─── Static Sakarya İlçe Veritabanı ─── */
 const DISTRICT_DB: Record<string, {
   eta: string;
   neighborhoods: string[];
@@ -57,10 +58,12 @@ const DISTRICT_DB: Record<string, {
     eta: "Merkez",
     neighborhoods: ["Cumhuriyet","Mithatpaşa","İstiklal","Karaosman","Semerciler","Camii Kebir","Papuççular","Çark","Orta","Tepebaşı","Yenidoğan","Şeker","Korucuk","Güneşler","Esentepe","Kırkpınar","Yeniköy","Dağyolu"],
     services: [
-      { icon: Wrench,    title: "Klima Arıza Tamiri", content: "Adapazarı'nda her marka klima için 7/24 arıza servisi. Kompresör, fan motoru, elektronik kart ve gaz kaçağı sorunlarında aynı gün müdahale.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Bakım",     content: "Yılda 2 kez filtre temizliği, serpantin yıkama ve gaz basınç kontrolü ile klimanız en verimli halinde çalışır. Bakımlı klima %30 daha az enerji harcar.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "R32 / R410A Gaz Dolumu", content: "Orijinal ve belgeli soğutucu gazlarla gaz dolumu yapıyoruz. Sızdırmazlık testi, tahliye ve tam şarj hizmetleri mevcuttur.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",       content: "TSE standartlarında bakır boru hattı, drenaj ve elektrik bağlantısıyla doğru montaj. Tüm montajlarda 1 yıl işçilik garantisi.", accent: "#10B981" },
+      { icon: Wrench,      title: "Klima Arıza & Gaz Dolumu",  content: "Adapazarı'nda her marka klimada soğutmama, gaz kaçağı, fan ve kart arızalarına yerinde 7/24 mobil servis.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Kombi Bakım & Petek Temizliği", content: "Adapazarı'nda kombi basınç sorunları, ateşleme arızası ve petek temizleme hizmeti ile yakıt tasarrufu.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Çamaşır Makinesi Tamir Servisi", content: "Sıkma yapmayan, su boşaltmayan ve sesli çalışan çamaşır makinelerine aynı gün garantili müdahale.", accent: "#10B981" },
+      { icon: Droplets,    title: "Bulaşık Makinesi Servisi",  content: "Bulaşıkların lekeli kalması, su almaması ve fıskiye tıkanıklıklarına adreste orijinal parçayla çözüm.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Buzdolabı & Kurutma Makinesi", content: "Buzdolabının alt soğutmaması ve kurutma makinesinin nemli bırakması arızalarında garantili tamir.", accent: "#EC4899" },
+      { icon: Zap,         title: "Garantili Montaj & Ev Aletleri", content: "TSE standartlarında bakır borulu klima montajı, gaz toplama ve küçük ev aletleri teknik onarımı.", accent: "#06B6D4" },
     ],
     whyUs: ["Adapazarı merkezi konumundan en hızlı saha müdahalesi","7/24 acil nöbetçi teknik ekip","Daikin, Mitsubishi, Samsung, LG, Arçelik tüm markalar","1 yıl işçilik + parça garantisi","Orijinal yedek parça stoğu"],
   },
@@ -68,10 +71,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~18 dk",
     neighborhoods: ["Arabacıalanı","Çiftlik","Dağdibi","Emek","Fevzi Çakmak","Gazi","Hızırtepe","Kemalpaşa","Kırmızıtoprak","Kurtköy","Mimarsinan","Mithatpaşa","Orhangazi","Serdivan Merkez","Sinanoğlu","Tepekum","Üniversite","Yeni"],
     services: [
-      { icon: Wrench,    title: "Serdivan Klima Arıza Servisi", content: "Serdivan'da konut, site ve işyeri klimaları için 7/24 arıza servisi. Ortalama 18 dakikada kapınızdayız.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Bakım",               content: "Serdivan'da yıllık klima bakımı için randevu alın. Anlaşmalı müşterilerimiz öncelikli servis hizmetinden yararlanır.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                    content: "Serdivan bölgesinde R32 ve R410A gaz dolumu ve sızdırmazlık testi yapıyoruz.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                  content: "Serdivan'daki yeni binalarda ve site rezidanslarında klima montajı yapıyoruz.", accent: "#10B981" },
+      { icon: Wrench,      title: "Serdivan Klima Arıza & Gaz", content: "Serdivan'da konut ve site klimaları için 7/24 arıza servisi. Ortalama 18 dakikada adresteyiz.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Serdivan Kombi & Isıtma Servisi", content: "Serdivan'da kombi yıllık bakımı, esanjör temizliği ve radyatör yıkaması 1 yıl garantili.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Serdivan Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi kazan ve motor arızalarında Serdivan evlerinize adreste hizmet veriyoruz.", accent: "#10B981" },
+      { icon: Droplets,    title: "Serdivan Bulaşık Makinesi Tamiri", content: "Su sızdıran ve kirli bırakan bulaşık makinelerinde orijinal parça garantili müdahale.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Buzdolabı & Kurutma Servisi", content: "Serdivan rezidanslarında buzdolabı soğutmama ve motor kilitlenme arızalarına hızlı müdahale.", accent: "#EC4899" },
+      { icon: Zap,         title: "Montaj & Küçük Ev Aletleri", content: "Serdivan'da site ve binalara bakır borulamalı klima montajı ve ev aletleri servisi.", accent: "#06B6D4" },
     ],
     whyUs: ["Serdivan'a 18 dakikada ulaşan mobil ekip","7/24 acil klima servisi","Tüm marka ve modellerde deneyim","1 yıl garanti"],
   },
@@ -79,10 +84,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~20 dk",
     neighborhoods: ["Camili","Çukurhisar","Derbent","Erenler Merkez","Gündoğdu","Işıklar","Karapınar","Kuzuluk","Mithatpaşa","Mollafenari","Osmaniye","Sinan","Şenlikköy","Yenimahalle","Yeşiltepe","Zafer"],
     services: [
-      { icon: Wrench,    title: "Erenler Klima Arıza Tamiri",  content: "Erenler'de her marka klimada arıza tespiti ve onarım. Samsung, LG, Daikin, Mitsubishi dahil tüm markalarda yerinde servis.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Bakım",              content: "Klima ömrünü ve verimini artırmak için Erenler'de yıllık periyodik bakım veriyoruz.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                   content: "R32 ve R410A gazları için gaz dolumu ve sızdırmazlık testleri yapıyoruz.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montaj & Söküm",         content: "Erenler'de klima kurulumu ve söküm için randevu alabilirsiniz.", accent: "#10B981" },
+      { icon: Wrench,      title: "Erenler Klima Arıza & Bakım", content: "Erenler ilçesinde klimada soğutmama, kompresör ve gaz kaçağı arızalarında aynı gün müdahale.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Erenler Kombi & Petek Servisi", content: "Kombi ateşleme yapmama ve petek altlarının soğuk kalması problemlerine garantili çözüm.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Erenler Çamaşır Makinesi Tamiri", content: "Erenler'de çamaşır makinesi pompa tıkanıklığı ve motor arızalarına yerinde servis.", accent: "#10B981" },
+      { icon: Droplets,    title: "Erenler Bulaşık Makinesi Servisi", content: "Bulaşık makinesi yıkama motoru ve rezistans arızalarında hızlı parça değişimi.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Erenler Buzdolabı Servisi", content: "No-Frost buzdolaplarında defrost ve gaz kaçağı arızalarına adreste müdahale.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima & Cihaz Montajı", content: "Erenler'de klima montajı, gaz toplama ve küçük ev aletleri teknik onarımı.", accent: "#06B6D4" },
     ],
     whyUs: ["Erenler'e 20 dakikada mobil ekip","7/24 acil servis","Tüm marka ve modeller","1 yıl garanti"],
   },
@@ -90,10 +97,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~22 dk",
     neighborhoods: ["Arifiye Merkez","Geyve Caddesi","İstasyon","Karaçay","Kemaliye","Kırkpınar","Kocapınar","Küplü","Nüfus","Orta","Pelitçik","Seyrantepe","Yazlık"],
     services: [
-      { icon: Wrench,    title: "Arifiye Klima Arıza Servisi", content: "Arifiye'de konut ve ticari alanlarda klima bakımı ve arıza servisi. Ekibimiz 22 dakikada ulaşır.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Bakım",              content: "Arifiye'de yıllık klima bakımı için bizi arayın.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                   content: "Arifiye'de R32 ve R410A gaz dolumu hizmetleri sunuyoruz.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                 content: "Arifiye'de yeni klima kurulumu için uzman ekibimizi arayın.", accent: "#10B981" },
+      { icon: Wrench,      title: "Arifiye Klima Servis & Gaz", content: "Arifiye'de klima arıza tespiti, R32/R410A gaz dolumu ve serpantin yıkama hizmetleri.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Arifiye Kombi & Petek Yıkama", content: "Kombi periyodik bakımı ve kimyasal radyatör petek temizliği ile yakıt tasarrufu.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Arifiye Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi su boşaltmama ve kart arızalarında 22 dakikada adreste servis.", accent: "#10B981" },
+      { icon: Droplets,    title: "Arifiye Bulaşık Makinesi Servisi", content: "Bulaşık makinesinin su almaması ve deterjan çözmemesi arızalarına garantili tamir.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Arifiye Buzdolabı Servisi", content: "Buzdolabı soğutucu bölme ısınması ve fan motoru arızalarında yerinde çözüm.", accent: "#EC4899" },
+      { icon: Zap,         title: "Montaj & Demontaj Servisi", content: "Arifiye'de standartlara uygun vakumlu klima montajı ve ev aletleri servisi.", accent: "#06B6D4" },
     ],
     whyUs: ["Arifiye'ye 22 dakikada ulaşım","7/24 acil hat","Orijinal yedek parça","1 yıl garanti"],
   },
@@ -101,10 +110,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~35 dk",
     neighborhoods: ["Ballıkaya","Çamlıca","Çengeller","Dağkadı","Derbent","Doğançay","Eşme","Hüseyinli","Kıran","Kireçocağı","Mahmudiye","Maşukiye","Merkez","Nüzhetiye","Sümbüllü","Şerefiye","Uzunkum","Yangıköy"],
     services: [
-      { icon: Wrench,    title: "Sapanca Klima Arıza & Bakım",  content: "Sapanca'da tatil ve daimi konutlar için 7/24 klima servisi. Maşukiye, Uzunkum dahil tüm bölgelere aynı gün servis.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Sezonal Klima Bakımı",          content: "Yaz sezonu öncesi klima bakımını yaptırarak sezon boyunca konforunuzu yaşayın.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                    content: "Sapanca bölgesinde R32 ve R410A gaz dolumu ve sızdırmazlık testleri yapıyoruz.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Montaj & Söküm",                content: "Sapanca'da yazlık ve daimi konutlara klima montajı ve söküm hizmetleri.", accent: "#10B981" },
+      { icon: Wrench,      title: "Sapanca Klima Arıza & Gaz", content: "Sapanca, Maşukiye ve Uzunkum villa ve müstakil konutları için 7/24 klima arıza ve gaz şarjı.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Sapanca Kombi & Petek Bakımı", content: "Sapanca konutlarında kış öncesi kombi bakımı ve petek temizliği ile sorunsuz ısınma.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Sapanca Çamaşır Makinesi Tamiri", content: "Sapanca yazlık ve konutlarında çamaşır makinesi arızalarına adreste hızlı müdahale.", accent: "#10B981" },
+      { icon: Droplets,    title: "Sapanca Bulaşık Makinesi Servisi", content: "Bulaşık makinesi su sızıntısı ve yıkama arızalarında aynı gün yerinde servis.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Sapanca Buzdolabı Servisi", content: "Buzdolabının dondurmaması ve sesli çalışmasında orijinal parça değişimli tamir.", accent: "#EC4899" },
+      { icon: Zap,         title: "Montaj & Sezon Hazırlığı", content: "Sapanca'da yazlık konut iklimlendirme ve beyaz eşya sezon açılış bakımları.", accent: "#06B6D4" },
     ],
     whyUs: ["Sapanca'ya 35 dakikada mobil ekip","Yazlık ve daimi konut uzmanlığı","7/24 acil servis","1 yıl garanti"],
   },
@@ -112,10 +123,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~45 dk",
     neighborhoods: ["Ağaçlı","Akçay","Balcı","Bardakçı","Beşköprü","Çubuklu","Dallıca","Dereköy","Doğançay","Erikli","Fevziye","Geriş","Göçbeyli","Hamidiye","Hendek Merkez","Kavacık","Kayabaşı","Köprübaşı","Kuzuluk","Lalahan","Nüzhetiye","Pazar","Ramazan","Sazlıca","Sofular","Toygarlı"],
     services: [
-      { icon: Wrench,    title: "Hendek Klima Teknik Servisi",  content: "Hendek ilçesinde klima arıza servisi, bakım ve montaj. Merkez ve köy mahallelerine dahil tüm Hendek bölgesine mobil servis.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Klima Bakımı",        content: "Hendek'te klima bakımı için randevu alın. Filtre temizliği ve sistem kontrolü ile klimanızın verimini artırın.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                    content: "Hendek'te soğutucu gaz dolumu hizmeti veriyoruz.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montaj Hizmeti",          content: "Hendek'te yeni klima alacaklar için profesyonel montaj. Sanayi OSB ve konut alanlarına özel çözümler.", accent: "#10B981" },
+      { icon: Wrench,      title: "Hendek Klima Teknik Servisi", content: "Hendek merkez, OSB ve bağlı köylere klima arıza, bakım ve gaz dolumu servisi.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Hendek Kombi & Isıtma Servisi", content: "Hendek'te kombi bakımı, kart tamiri ve kimyasal radyatör petek temizliği.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Hendek Çamaşır Makinesi Servisi", content: "Çamaşır makinesi sıkmama ve su boşaltmama sorunlarına Hendek'te adreste tamir.", accent: "#10B981" },
+      { icon: Droplets,    title: "Hendek Bulaşık Makinesi Tamiri", content: "Bulaşık makinesi temiz yıkamama ve su ısıtmama arızalarına yerinde çözüm.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Hendek Buzdolabı Servisi", content: "Buzdolabı gaz kaçak tespiti ve kompresör değişimlerinde 1 yıl garantili servis.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima & Cihaz Montajı", content: "Hendek'te sanayi ve konut alanlarına bakır borulamalı klima montajı.", accent: "#06B6D4" },
     ],
     whyUs: ["Hendek'e 45 dakikada ulaşan ekip","Tüm köy ve mahallelere servis","7/24 acil hat","1 yıl garanti"],
   },
@@ -123,10 +136,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~45 dk",
     neighborhoods: ["Akçakoca","Aydınpınar","Balkaya","Beyören","Doğançay","Düzağaç","Ekşioğlu","Erikli","Gündüzler","Güneşli","Hatipler","Karasu Merkez","Kılavuzlar","Kurtköy","Küçükköy","Merkez","Ovayurt","Sarıyer","Tekkeönü","Yeşilova"],
     services: [
-      { icon: Wrench,    title: "Karasu Klima Arıza Servisi",     content: "Karasu'da sahil konutları ve işyerleri için 7/24 klima servisi. Tuzlu hava etkisine karşı özel bakım çözümleri sunuyoruz.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Dış Ünite Bakımı & Temizliği",    content: "Karasu'nun sahil iklimi dış ünitelerde korozyona yol açabilir. Serpantin temizliği ve koruyucu bakım ile klimanızı koruyun.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                      content: "Karasu'da R32 ve R410A gaz dolumu hizmetleri sunuyoruz.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                   content: "Karasu'da yazlık sitelere klima montajı. Randevu için bizi arayın.", accent: "#10B981" },
+      { icon: Wrench,      title: "Karasu Klima Arıza & Gaz", content: "Karasu sahil sitelerinde klima soğutmama, gaz kaçağı ve dış ünite paslanma bakımı.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Karasu Kombi & Petek Servisi", content: "Karasu konutlarında kombi periyodik bakımı ve radyatör tesisat temizliği.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Karasu Çamaşır Makinesi Tamiri", content: "Karasu yazlık ve evlerinde çamaşır makinesi arızalarına adreste müdahale.", accent: "#10B981" },
+      { icon: Droplets,    title: "Karasu Bulaşık Makinesi Servisi", content: "Bulaşık makinesi su sızıntısı ve program takılması arızalarına yerinde çözüm.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Karasu Buzdolabı Servisi", content: "Sahil iklimine özel buzdolabı motor bakımı ve gaz dolumu hizmetleri.", accent: "#EC4899" },
+      { icon: Zap,         title: "Yazlık Montaj & Demontaj", content: "Karasu'da yazlık sitelere klima montajı, sökümü ve sezon bakımları.", accent: "#06B6D4" },
     ],
     whyUs: ["Karasu sahil bölgesi uzmanlığı","Tuzlu hava etkisine karşı özel bakım","7/24 acil servis","1 yıl garanti"],
   },
@@ -134,10 +149,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~55 dk",
     neighborhoods: ["Akçakese","Alifuatpaşa","Ballıca","Çaltı","Çelik","Değirmendere","Geyik","Hüseyinli","Karaçay","Kayışlar","Kerpe","Kocaali Merkez","Kumkışlak","Ortaköy","Pazar","Sarıyar","Sultanlı","Tığcılar"],
     services: [
-      { icon: Wrench,    title: "Kocaali Klima Servisi",    content: "Kocaali ilçesinde 7/24 klima arıza servisi. Sahil bölgesi konutları ve yazlıklara özel klima hizmetleri.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Bakım",           content: "Özellikle yaz sezonu başında yapılan bakımlar sezon boyunca sorunsuz çalışma garantisi sağlar.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                content: "Kocaali bölgesinde R32 ve R410A gaz dolumu.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Montaj Hizmetleri",         content: "Kocaali'de yazlık ve konutlara klima montajı.", accent: "#10B981" },
+      { icon: Wrench,      title: "Kocaali Klima Arıza & Gaz", content: "Kocaali merkez ve sahil mahallelerine klima arıza, gaz dolumu ve bakım servisi.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Kocaali Kombi & Isıtma", content: "Kocaali'de kombi yıllık bakımı ve radyatör petek yıkama hizmetleri.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Kocaali Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi su boşaltma ve sıkma arızalarında Kocaali'de yerinde müdahale.", accent: "#10B981" },
+      { icon: Droplets,    title: "Kocaali Bulaşık Makinesi Servisi", content: "Bulaşık makinesinin kirli yıkaması ve kart arızalarında adreste tamir.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Kocaali Buzdolabı Servisi", content: "Buzdolabının alt soğutmaması ve sensör arızalarında orijinal parça garantisi.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima Montaj & Ev Aletleri", content: "Kocaali'de konutlara klima montajı ve küçük ev aletleri teknik desteği.", accent: "#06B6D4" },
     ],
     whyUs: ["Kocaali'ye 55 dakikada ulaşım","Sahil konutları uzmanlığı","7/24 acil hat","1 yıl garanti"],
   },
@@ -145,10 +162,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~60 dk",
     neighborhoods: ["Adatepe","Akçakese","Altıntaş","Aşağı Kızılca","Beşpınar","Büyük Kızılca","Çakıllar","Duralıbey","Göktepe","Güneşli","Kadıköy","Kaynarca Merkez","Kılçık","Kocagöl","Kuzucu","Taşburun"],
     services: [
-      { icon: Wrench,    title: "Kaynarca Klima Teknik Servisi", content: "Kaynarca ilçesinde klima arıza, bakım ve montaj hizmetleri.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Klima Bakımı",                   content: "Kaynarca'da yıllık klima bakımı için bizi arayın.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                     content: "R32 ve R410A gaz dolumu için Kaynarca'ya servis veriyoruz.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                  content: "Kaynarca'da konut ve işyerlerine klima montajı.", accent: "#10B981" },
+      { icon: Wrench,      title: "Kaynarca Klima Arıza & Gaz", content: "Kaynarca ilçesinde klima arıza tespiti, R32/R410A gaz şarjı ve bakım servisi.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Kaynarca Kombi & Petek Bakımı", content: "Kaynarca'da kombi yıllık bakımı ve petek temizliği ile yakıt tasarrufu.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Kaynarca Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi kazan ve bilya arızalarında adreste 1 yıl garantili servis.", accent: "#10B981" },
+      { icon: Droplets,    title: "Kaynarca Bulaşık Makinesi Servisi", content: "Bulaşık makinesi su almama ve rezistans arızalarında adreste çözüm.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Kaynarca Buzdolabı Servisi", content: "Buzdolabı soğutmama ve karlanma arızalarına Kaynarca'da adreste servis.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima Montaj & Demontaj", content: "Kaynarca'da konut ve işyerlerine bakır borulamalı klima kurulumu.", accent: "#06B6D4" },
     ],
     whyUs: ["Kaynarca'ya 60 dakikada ulaşım","7/24 acil hat","Orijinal yedek parça","1 yıl garanti"],
   },
@@ -156,10 +175,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~30 dk",
     neighborhoods: ["Aziziye","Bağlar","Bayramoğlu","Çaybaşı","Doğancı","Ferizli Merkez","Göktepe","Hamidiye","Kadı","Kışla","Köybucağı","Nüzhetiye","Orhan","Osmaniye","Selimiye","Servi","Turpçular"],
     services: [
-      { icon: Wrench,    title: "Ferizli Klima Teknik Servisi", content: "Ferizli'de klima arıza servisi ve bakım hizmetleri. Merkezden ~30 dakikada ulaşan ekibimiz aynı gün çözüm sunar.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Klima Bakım & Temizliği",      content: "Ferizli'de filtre temizliği ve periyodik bakım için randevu alabilirsiniz.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                   content: "Ferizli bölgesinde R32 ve R410A gaz dolumu hizmetleri.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                 content: "Ferizli'de yeni klima kurulumu için bizi arayın, aynı gün montaj imkânı.", accent: "#10B981" },
+      { icon: Wrench,      title: "Ferizli Klima Arıza & Gaz", content: "Ferizli'de klima arıza servisi, R32/R410A gaz şarjı ve ilaçlı serpantin yıkama.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Ferizli Kombi & Petek Yıkama", content: "Ferizli'de kombi bakımı ve kalorifer radyatör temizliği hizmeti.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Ferizli Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi sıkmama ve kart arızalarına Ferizli'de aynı gün müdahale.", accent: "#10B981" },
+      { icon: Droplets,    title: "Ferizli Bulaşık Makinesi Servisi", content: "Bulaşık makinesi yıkama motoru ve fıskiye tıkanıklıklarında adreste tamir.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Ferizli Buzdolabı Servisi", content: "Buzdolabının dondurucu bölme kar yapması ve soğutmaması sorunlarına çözüm.", accent: "#EC4899" },
+      { icon: Zap,         title: "Garantili Klima Montajı", content: "Ferizli'de yeni binalara vakumlu klima montajı ve ev aletleri servisi.", accent: "#06B6D4" },
     ],
     whyUs: ["Ferizli'ye 30 dakikada ulaşım","Aynı gün servis","7/24 acil hat","1 yıl garanti"],
   },
@@ -167,10 +188,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~28 dk",
     neighborhoods: ["Ballıhisar","Çakmaklı","Çeltikçi","Dağkadı","Dikilitaş","Erenler","Güney","Hamidiye","Kayabaşı","Kızılcaören","Söğütlü Merkez","Yenice"],
     services: [
-      { icon: Wrench,    title: "Söğütlü Klima Servisi",  content: "Söğütlü'de klima arıza ve bakım servisi. Merkezden ~28 dakikada en hızlı çözümü sunarız.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Klima Bakımı",            content: "Söğütlü'de sezonal klima bakımı için randevu alın.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",              content: "Söğütlü'de R32 ve R410A gaz dolumu.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",           content: "Söğütlü'de konut ve işyerlerine klima montajı.", accent: "#10B981" },
+      { icon: Wrench,      title: "Söğütlü Klima Arıza & Gaz", content: "Söğütlü'de klima arıza ve gaz şarjı. Merkezden 28 dakikada mobil ekibimiz adrestedir.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Söğütlü Kombi & Petek Servisi", content: "Söğütlü'de kombi yıllık bakımı ve petek yıkanması ile yüksek ısınma verimi.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Söğütlü Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi su tahliye ve motor sorunlarında adreste tamir hizmeti.", accent: "#10B981" },
+      { icon: Droplets,    title: "Söğütlü Bulaşık Makinesi Servisi", content: "Bulaşık makinesinin lekeli bırakması ve su ısıtmama sorunlarına garantili müdahale.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Söğütlü Buzdolabı Servisi", content: "Buzdolabı alt bölme ısınması ve kompresör arızalarına yerinde müdahale.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima Montaj & Deplase", content: "Söğütlü'de konut ve fabrikalara bakır borulamalı klima kurulumu.", accent: "#06B6D4" },
     ],
     whyUs: ["Söğütlü'ye 28 dakikada ulaşım","7/24 acil hat","Orijinal yedek parça","1 yıl garanti"],
   },
@@ -178,10 +201,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~55 dk",
     neighborhoods: ["Ağaçlı","Aydınpınar","Çark","Dağkadı","Derbent","Doğançay","Geyve Merkez","Güneşli","Hamidiye","Hisarköy","İhsaniye","Kavaklı","Kızılcaören","Mahmudiye","Nüzhetiye","Pazar","Sarıyer","Taşburun","Yenice"],
     services: [
-      { icon: Wrench,    title: "Geyve Klima Teknik Servisi", content: "Geyve ilçesinde klima arıza servisi ve bakım. Dağlık coğrafyasıyla Geyve'nin tüm mahallelerine mobil servis aracımızla ulaşıyoruz.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Bakım",             content: "Geyve'de klima bakımı için randevu alın. Kış öncesi ısıtma kontrolleri dahildir.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                  content: "Geyve bölgesinde R32 ve R410A gaz dolumu.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",               content: "Geyve'de yeni klima kurulumu için bizi arayın.", accent: "#10B981" },
+      { icon: Wrench,      title: "Geyve Klima Arıza & Bakım", content: "Geyve'nin tüm mahalle ve köylerine 7/24 klima arıza, gaz dolumu ve ilaçlı bakım.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Geyve Kombi & Petek Yıkama", content: "Geyve'de kış öncesi kombi bakımı ve radyatör tesisat temizliği ile tasarruf.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Geyve Çamaşır Makinesi Tamiri", content: "Geyve ilçesinde çamaşır makinesi arızalarına adreste 1 yıl garantili müdahale.", accent: "#10B981" },
+      { icon: Droplets,    title: "Geyve Bulaşık Makinesi Servisi", content: "Bulaşık makinesinin su almaması ve deterjan kutusu arızalarında adreste tamir.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Geyve Buzdolabı Servisi", content: "Buzdolabının dondurmaması ve motor röle arızalarında adreste servis.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima Montaj Hizmetleri", content: "Geyve'de her türlü bina ve yapıya uygun profesyonel klima montajı.", accent: "#06B6D4" },
     ],
     whyUs: ["Geyve'nin tüm mahallelerine servis","7/24 acil hat","Dağlık arazi deneyimi","1 yıl garanti"],
   },
@@ -189,10 +214,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~50 dk",
     neighborhoods: ["Ahmediye","Akmeşe","Alpagut","Bektaşlı","Çifteler","Çifte Köprü","Dağkadı","Doğançay","Erikli","Göktepe","Güneşli","Hürriyet","Kazımiye","Kuşça","Kutluca","Mahmudiye","Pamukova Merkez","Selimiye","Sultandere","Yenice"],
     services: [
-      { icon: Wrench,    title: "Pamukova Klima Servisi",  content: "Pamukova ilçesinde klima arıza servisi, bakım ve montaj hizmetleri.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Klima Bakımı",             content: "Pamukova'da klima bakımı için randevu alabilirsiniz. Konut ve tarımsal işletmeler için servis.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",               content: "Pamukova'da R32 ve R410A gaz dolumu.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",            content: "Pamukova ilçesinde klima montajı için randevu alın.", accent: "#10B981" },
+      { icon: Wrench,      title: "Pamukova Klima Arıza & Gaz", content: "Pamukova ilçesinde klima arıza tespiti, R32/R410A gaz şarjı ve serpantin yıkama.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Pamukova Kombi & Isıtma Servisi", content: "Pamukova'da kombi bakımı ve petek yıkaması ile kış boyunca yüksek verim.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Pamukova Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi sıkmama ve ses yapma arızalarına Pamukova'da yerinde tamir.", accent: "#10B981" },
+      { icon: Droplets,    title: "Pamukova Bulaşık Makinesi Servisi", content: "Bulaşık makinesinin kirli çıkarması ve su tahliye arızalarına adreste çözüm.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Pamukova Buzdolabı Servisi", content: "Buzdolabı soğutmaması ve gaz kaçaklarında Pamukova'da 1 yıl garantili servis.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima & Cihaz Montajı", content: "Pamukova'da konut ve işletmelere bakır borulamalı klima kurulumu.", accent: "#06B6D4" },
     ],
     whyUs: ["Pamukova'ya 50 dakikada ulaşım","7/24 acil hat","Tarım bölgesi deneyimi","1 yıl garanti"],
   },
@@ -200,10 +227,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~70 dk",
     neighborhoods: ["Beypınar","Boyalıca","Çeltikdere","Dere","Deydinler","Eğrikaya","Gökçedere","Hacıyakup","Hamidiye","Kaymakam","Kılıçlı","Kırantepe","Köprübaşı","Kuzluca","Mahmudiye","Ortaca","Sarıbeyler","Taraklı Merkez","Yalnızçam","Yeşilova"],
     services: [
-      { icon: Wrench,    title: "Taraklı Klima Teknik Servisi", content: "Sakarya'nın tarihi ilçesi Taraklı'da klima arıza servisi ve bakım. Tüm köy ve mahallelere ulaşan mobil ekibimizle hizmetinizdeyiz.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Klima Bakımı",                  content: "Taraklı'da klima bakımı için randevu alabilirsiniz.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                    content: "Taraklı'da R32 ve R410A gaz dolumu.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                 content: "Taraklı'da konut ve işyerlerine klima montajı.", accent: "#10B981" },
+      { icon: Wrench,      title: "Taraklı Klima Arıza & Gaz", content: "Tarihi Taraklı ilçemizde ve tüm köylerinde 7/24 klima arıza, gaz dolumu ve bakım.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Taraklı Kombi & Petek Servisi", content: "Taraklı konutlarında kombi periyodik bakımı ve radyatör temizliği hizmeti.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Taraklı Çamaşır Makinesi Tamiri", content: "Taraklı'da çamaşır makinesi arızalarında adreste 1 yıl parça garantili servis.", accent: "#10B981" },
+      { icon: Droplets,    title: "Taraklı Bulaşık Makinesi Servisi", content: "Bulaşık makinesinin temiz yıkamaması ve su kaçırmasında adreste çözüm.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Taraklı Buzdolabı Servisi", content: "Buzdolabının dondurmaması ve motor çalışmaması arızalarında adreste tamir.", accent: "#EC4899" },
+      { icon: Zap,         title: "Tarihi Yapı Klima Montajı", content: "Taraklı tarihi evlerinde hassas borulama ve estetik klima montajı.", accent: "#06B6D4" },
     ],
     whyUs: ["Taraklı'nın tüm köylerine servis","7/24 acil hat","Tarihi yapı deneyimi","1 yıl garanti"],
   },
@@ -211,10 +240,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~40 dk",
     neighborhoods: ["Ağaçlı","Aksu","Balcı","Beşköprü","Çay","Çukurhisar","Dağdibi","Değirmendere","Doğançay","Duman","Erikli","Fevziye","Göktepe","Güneşli","Hamidiye","Işıklar","Kadıköy","Karaburun","Kavaklı","Kuyumcu","Mahmudiye","Nüzhetiye","Ortaköy","Pazar","Selimiye","Sultanlı","Taşburun","Yenice"],
     services: [
-      { icon: Wrench,    title: "Akyazı Klima Arıza Servisi",   content: "Akyazı ilçesinde klima arıza tespiti ve onarım. Merkezden ~40 dakikada ulaşan ekibimiz aynı gün çözüm sağlar.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Periyodik Bakım Hizmeti",        content: "Akyazı'da tarımsal işletmeler ve konutlar için özel bakım planları oluşturuyoruz.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                    content: "Akyazı'da R32 ve R410A gaz dolumu ve sızdırmazlık testi.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                 content: "Akyazı'da tüm mahalle ve bağlı köylere klima montajı.", accent: "#10B981" },
+      { icon: Wrench,      title: "Akyazı Klima Arıza & Gaz Dolumu", content: "Akyazı merkez ve bağlı tüm köylerinde klimada soğutmama, gaz kaçağı ve kart tamiri.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Akyazı Kombi & Petek Temizliği", content: "Akyazı'da kombi bakımı, kart onarımı ve radyatör peteklerinin yıkanması ile tasarruf.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Akyazı Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi sıkmama ve su boşaltmama sorunlarına Akyazı'da adreste tamir.", accent: "#10B981" },
+      { icon: Droplets,    title: "Akyazı Bulaşık Makinesi Servisi", content: "Bulaşık makinesinin lekeli bırakması ve su ısıtmama sorunlarına garantili müdahale.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Akyazı Buzdolabı & Kurutma", content: "Buzdolabı soğutmama ve kurutma makinesinin nemli bırakması arızalarında yerinde tamir.", accent: "#EC4899" },
+      { icon: Zap,         title: "Akyazı Klima & Cihaz Montajı", content: "Akyazı'da tüm mahalle ve köylere bakır borulamalı vakumlu klima kurulumu.", accent: "#06B6D4" },
     ],
     whyUs: ["Akyazı'nın tüm mahallelerine servis","7/24 acil hat","Tarım & konut uzmanlığı","1 yıl garanti"],
   },
@@ -222,10 +253,12 @@ const DISTRICT_DB: Record<string, {
     eta: "~35 dk",
     neighborhoods: ["Bahçeköy","Bağlarbaşı","Bekirler","Boyalıca","Çaltı","Çeltikçi","Dağkadı","Dikmen","Düzköy","Güneşli","Hamidiye","Karapürçek Merkez","Kavaklı","Kızılcaören","Köprübaşı","Mahmudiye","Sarıyer","Selimiye","Yenice"],
     services: [
-      { icon: Wrench,    title: "Karapürçek Klima Teknik Servisi", content: "Karapürçek ilçesinde klima arıza servisi ve bakım. Adapazarı merkezinden ~35 dakikada ulaşan ekibimizle hızlı çözüm.", accent: "#EF4444" },
-      { icon: Snowflake, title: "Klima Bakımı",                     content: "Karapürçek'te sezonal klima bakımı ve filtre temizliği için randevu alın.", accent: "#0EA5E9" },
-      { icon: Droplets,  title: "Gaz Dolumu",                       content: "Karapürçek'te R32 ve R410A gaz dolumu.", accent: "#8B5CF6" },
-      { icon: Zap,       title: "Klima Montajı",                    content: "Karapürçek'te konut ve işyerlerine klima montajı için bizi arayın.", accent: "#10B981" },
+      { icon: Wrench,      title: "Karapürçek Klima Arıza & Gaz", content: "Karapürçek'te klima arıza servisi, R32/R410A gaz şarjı ve ilaçlı serpantin temizliği.", accent: "#0EA5E9" },
+      { icon: Flame,       title: "Karapürçek Kombi & Isıtma Servisi", content: "Karapürçek'te kombi yıllık bakımı ve kalorifer radyatör petek temizliği.", accent: "#F59E0B" },
+      { icon: ShieldCheck, title: "Karapürçek Çamaşır Makinesi Tamiri", content: "Çamaşır makinesi su boşaltma ve sıkma arızalarında Karapürçek'te adreste tamir.", accent: "#10B981" },
+      { icon: Droplets,    title: "Karapürçek Bulaşık Makinesi Servisi", content: "Bulaşık makinesi yıkama motoru ve rezistans arızalarında yerinde çözüm.", accent: "#8B5CF6" },
+      { icon: Snowflake,   title: "Karapürçek Buzdolabı Servisi", content: "Buzdolabı soğutmama ve karlanma arızalarına Karapürçek'te adreste servis.", accent: "#EC4899" },
+      { icon: Zap,         title: "Klima Montaj & Ev Aletleri", content: "Karapürçek'te konut ve işyerlerine klima montajı ve ev aletleri servisi.", accent: "#06B6D4" },
     ],
     whyUs: ["Karapürçek'e 35 dakikada ulaşım","7/24 acil hat","Orijinal yedek parça","1 yıl garanti"],
   },
@@ -264,59 +297,66 @@ export default function DistrictClientPage({
   };
 
   const FAQS = [
-    { q: `${locativeName} klima servisi kaç saat içinde gelir?`, a: `Adapazarı merkezimizden ${db.eta} içinde ${locativeName} ulaşan mobil teknik ekibimiz 7/24 hizmet vermektedir. Acil durumlarda öncelikli yönlendirme yapılmaktadır.` },
-    { q: `${districtName}'da hangi klima markaları için servis veriyorsunuz?`, a: "Daikin, Mitsubishi Electric, Samsung, LG, Arçelik, Bosch, Vestel, Gree, Midea, Toshiba, Fujitsu, Panasonic dahil tüm marka ve modellerde yetkili servis düzeyinde hizmet veriyoruz." },
-    { q: `Klima gaz dolumu ${locativeName} ne kadar sürer?`, a: "Gaz dolumu işlemi ortalama 45-90 dakika sürmektedir. Sızdırmazlık testi, tahliye ve tam şarj dahil tüm işlemler tek seferde tamamlanır." },
-    { q: `${districtName}'da klima bakımı ücreti nedir?`, a: "Klima bakım ücreti cihazın tipi, markası ve yapılacak işlem kapsamına göre değişmektedir. Keşif ziyareti ücretsizdir, yerinde kontrol sonrası net fiyat verilir." },
-    { q: `${locativeName} klima montajı için ne kadar önceden randevu alınmalı?`, a: "Randevu 1-2 iş günü öncesinden alınması yeterlidir. Yoğun sezonlarda (Mayıs–Eylül) daha erken rezervasyon önerilir." },
+    { q: `${locativeName} servis ekibiniz kaç dakikada adrese gelir?`, a: `Adapazarı merkez lokasyonumuzdan ${db.eta} içinde ${locativeName} ulaşan mobil teknik araçlarımız 7/24 kesintisiz hizmet vermektedir.` },
+    { q: `${districtName}'da hangi cihaz markalarına hizmet veriyorsunuz?`, a: "Daikin, Mitsubishi, Samsung, LG, Arçelik, Beko, Bosch, Siemens, Vaillant, Baymak, Demirdöküm ve E.C.A dahil tüm iklimlendirme, kombi ve beyaz eşya markalarında uzmanız." },
+    { q: `Kombi bakımı ve petek temizliği ${locativeName} ne kadar sürer?`, a: "Kombi periyodik bakımı ve ilaçlı kimyasal petek yıkama işlemi ortalama 60-90 dakika sürer ve ısı verimini %30 artırır." },
+    { q: `Çamaşır ve bulaşık makinesi tamirinde parça garantisi var mı?`, a: "Evet. Değiştirdiğimiz tüm motor, pompa, kart ve rezistans parçaları 1 Yıl İşçilik ve Parça Garanti Belgesi ile teslim edilmektedir." },
+    { q: `Buzdolabı ve klimada yerinde arıza tespiti ve gaz şarjı yapılır mı?`, a: "Tam donanımlı mobil araçlarımızda vakum pompaları ve R32, R410A, R600A gaz tüpleri hazır bulunmaktadır. Arıza tespiti ve gaz şarjı aynı gün adreste tamamlanır." },
   ];
 
   /* ─── Informative text sections ─── */
   const INFO_SECTIONS = [
     {
       step: "01",
-      title: `${districtName} İklimlendirme & Klima Kullanım Rehberi`,
+      title: `${districtName} İklimlendirme, Kombi & Beyaz Eşya Kullanım Rehberi`,
       icon: Thermometer,
       accent: "#0EA5E9",
-      content: `${districtName} ilçesinde yaz aylarında yaşanan nemli sıcaklar ve kış aylarındaki sert soğuklar, iklimlendirme sistemlerinin düzenli çalışmasını kritik hale getirmektedir. Doğru BTU kapasitesi seçilmeyen veya filtresi tıkanmış klimalar kompresörü aşırı zorlayarak %40'a varan fazla elektrik tüketir. ${locativeName} uzman teknik ekibimiz, mekanınızın metrekare, cephe ve izolasyon değerlerine göre en yüksek verimlilik sağlayacak klima kullanım tavsiyelerini sunmaktadır.`
+      content: `${districtName} ilçesinde yaz aylarındaki yüksek nem ve sıcaklıklar ile kış aylarındaki sert soğuklar, evlerdeki iklimlendirme, kombi ve beyaz eşyaların kesintisiz çalışmasını zorunlu kılar. Tıkanmış klima filtreleri veya kireçlenmiş kombi petekleri %40'a varan fazla enerji tüketir. ${locativeName} uzman teknik ekibimiz, mekanınızın kapasite ve kullanım değerlerine göre en yüksek verimlilik sağlayacak kullanım tavsiyelerini sunmaktadır.`
     },
     {
       step: "02",
-      title: `${locativeName} Yerinde Adım Adım Klima Servis Süreci`,
+      title: `${locativeName} Yerinde Adım Adım Mobil Servis Süreci`,
       icon: FileText,
       accent: "#10B981",
-      content: `Servis talebiniz oluşturulduğu andan itibaren mobil aracımız ${districtName} sınırlarına ortalama ${db.eta} süre içinde ulaşır. 1. Dijital ölçüm cihazlarıyla arıza ve gaz seviyesi tespiti -> 2. Şeffaf fiyat ve işlem bilgilendirmesi -> 3. Orijinal yedek parça ve antibakteriyel ilaçlama ile onarım -> 4. 1 Yıl İşçilik Garantili servis belgesinin teslimi.`
+      content: `Servis talebiniz oluşturulduğu andan itibaren mobil aracımız ${districtName} sınırlarına ortalama ${db.eta} süre içinde ulaşır. 1. Dijital test cihazlarıyla arıza ve performans tespiti -> 2. Şeffaf fiyatlandırma ve detaylı bilgilendirme -> 3. Orijinal yedek parça ve antibakteriyel ilaçlama ile yerinde tamir -> 4. 1 Yıl İşçilik Garantili resmi servis belgesinin teslimi.`
     },
     {
       step: "03",
-      title: "Antibakteriyel İlaçlı Bakım ve Hijyen Standartları",
+      title: "Antibakteriyel İlaçlı Klima & Hijyenik Kombi Bakımı",
       icon: Snowflake,
       accent: "#8B5CF6",
-      content: "Bakımsız klimaların evaporatör serpantinlerinde biriken toz, küf ve mantarlar lejyoner hastalığı gibi solunum yolu rahatsızlıklarına davetiye çıkarır. Sakarya Uzman Klima olarak periyodik bakımlarda yalnızca TSE onaylı antibakteriyel dezenfektan ilaçlar kullanır, iç ünitenin filtre, drenaj tavası ve fan çarkını ilk günkü hijyen seviyesine getiririz."
+      content: "Klimalarda biriken küf ve tozlar solunum yolu rahatsızlıklarına, kombilerde ise yanma odası kirliliği yüksek yakıt faturasına yol açar. Periyodik bakımlarda TSE onaylı ilaçlarla klima serpantin temizliği, drenaj dezenfeksiyonu ile kombi brülör ve radyatör petek yıkamaları yapılır."
     },
     {
       step: "04",
-      title: "Sık Karşılaşılan Arızalar ve Çözüm Yöntemlerimiz",
+      title: "Çamaşır, Bulaşık Makinesi & Buzdolabı Arıza Çözümleri",
       icon: AlertCircle,
       accent: "#F59E0B",
-      content: "Klimanızın su akıtması (tıkalı drenaj borusu veya gaz eksikliği), üfleyip soğutmaması (kondanser kirliliği, R32/R410A gaz kaçağı), kötü koku yayması veya sinyal ışıklarının yanıp sönmesi gibi durumlarda yetkin teknisyenlerimiz yerinde tam teşekküllü müdahale ederek cihazınızı güvenle yeniden devreye alır."
+      content: "Çamaşır makinesinin sıkmaması, bulaşık makinesinin lekeli yıkaması veya buzdolabının soğutmaması gibi arızalara tam donanımlı mobil servis araçlarımızla adreste müdahale ediyoruz. Elektronik kart tamiri, motor kömürü ve gaz kaçak şarjları aynı gün tamamlanır."
     },
     {
       step: "05",
-      title: `${districtName} Garantili Yedek Parça & Teknik Güvence`,
+      title: "Kurutma Makinesi, Ev Aletleri & Montaj Hizmetleri",
+      icon: Zap,
+      accent: "#06B6D4",
+      content: `${districtName} genelinde kurutma makinesi nem filtre değişimi, küçük ev aletleri rezistans onarımları ile standartlara uygun bakır borulamalı vakumlu klima montaj, demontaj ve deplase işlemleri güvenle gerçekleştirilmektedir.`
+    },
+    {
+      step: "06",
+      title: `${districtName} Garantili Orijinal Parça & 1 Yıl Teknik Güvence`,
       icon: ShieldCheck,
       accent: "#EC4899",
-      content: `${locativeName} gerçekleştirilen kompresör, fan motoru, ana kart, 4 yollu vana ve sensör değişimlerinin tamamında %100 orijinal yedek parçalar kullanılır. Yapılan tüm tamir ve bakım işlemleri Sakarya Uzman Klima tarafından 1 Yıl İşçilik ve Parça Garanti Belgesi ile kayıt altına alınmaktadır.`
+      content: `${locativeName} gerçekleştirilen kompresör, fan motoru, kombi devirdaim pompası, çamaşır makinesi kazanı, buzdolabı rölesi ve elektronik kart değişimlerinin tamamında %100 orijinal yedek parçalar kullanılır. Yapılan tüm teknik müdahaleler Sakarya Beyaz Eşya Kombi Klima Servisi tarafından 1 Yıl Resmi İşçilik ve Parça Garanti Belgesi ile kayıt altına alınmaktadır.`
     }
   ];
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] font-sans text-[#1E293B]">
-      <title>{`${districtName} Klima Servisi | 7/24 Bakım, Montaj & Tamir`}</title>
-      <meta name="description" content={`${districtName} ilçesinde her marka klima için 7/24 acil servis, periyodik bakım, R32/R410A gaz dolumu ve montaj hizmetleri.`} />
+      <title>{`${districtName} Beyaz Eşya, Kombi & Klima Servisi | 7/24 Bakım, Montaj & Tamir`}</title>
+      <meta name="description" content={`${districtName} ilçesinde Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı ve Kurutma Makinesi için 7/24 acil servis, periyodik bakım ve montaj hizmetleri.`} />
 
       {/* ━━━ HERO ━━━ */}
-      <section className="relative pt-36 pb-28 md:pt-40 bg-[#0F172A] text-white overflow-hidden">
+      <section className="relative pt-44 pb-36 md:pt-52 md:pb-44 bg-[#0F172A] text-white overflow-hidden">
         <div className="absolute inset-0 bg-topo-waves pointer-events-none opacity-25" />
         <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-[#0EA5E9]/10 blur-[140px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-[300px] h-[200px] bg-[#38BDF8]/6 blur-[80px] rounded-full pointer-events-none" />
@@ -346,11 +386,11 @@ export default function DistrictClientPage({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="font-black text-white uppercase leading-none text-4xl sm:text-5xl md:text-6xl tracking-tight"
+                className="font-black text-white uppercase leading-none text-3.5xl sm:text-4.5xl md:text-5.5xl tracking-tight"
               >
                 {districtName}<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8]">
-                  Klima Servisi
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8] mt-2 block">
+                  Beyaz Eşya, Kombi & Klima Servisi
                 </span>
               </motion.h1>
 
@@ -360,8 +400,7 @@ export default function DistrictClientPage({
                 transition={{ delay: 0.2 }}
                 className="text-gray-300 font-semibold text-sm leading-relaxed max-w-xl"
               >
-                {locativeName} 7/24 acil klima arıza tamiri, periyodik bakım, R32/R410A gaz dolumu
-                ve klima montajı hizmetleri. Merkezden <span className="text-[#0EA5E9] font-black">{db.eta}</span> ulaşıyoruz.
+                {locativeName} 7/24 acil Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Ev Aletleri arıza tamiri, bakım ve montaj servis hizmetleri. Merkezden <span className="text-[#0EA5E9] font-black">{db.eta}</span> ulaşıyoruz.
               </motion.p>
 
               <motion.div
@@ -418,17 +457,23 @@ export default function DistrictClientPage({
         </div>
       </section>
 
+      {/* ━━━ URGENCY COUNTDOWN BANNER ━━━ */}
+      <UrgencyCountdownBanner districtName={districtName} />
+
       {/* ━━━ HİZMETLER ━━━ */}
       <section className="max-w-[1300px] mx-auto px-6 md:px-10 py-20">
         <div className="text-center mb-12">
           <span className="text-[#0EA5E9] font-black text-xs uppercase tracking-widest block mb-2">Hizmetlerimiz</span>
           <h2 className="font-black text-gray-900 text-2xl md:text-4xl uppercase tracking-tight">
-            {districtName}'da Klima Hizmetleri
+            {districtName}'da Mobil Teknik Servis Hizmetleri<br />
+            <span className="text-[#0EA5E9] text-xl md:text-3xl mt-1.5 block font-extrabold">
+              (Klima, Kombi & Beyaz Eşya)
+            </span>
           </h2>
           <div className="w-12 h-1.5 bg-[#0EA5E9] mx-auto rounded-full mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {db.services.map((svc, i) => {
             const Icon = svc.icon;
             return (
@@ -469,11 +514,11 @@ export default function DistrictClientPage({
             </div>
             <span className="text-[#0EA5E9] font-black text-xs uppercase tracking-widest block mb-2">Uzman Rehberi</span>
             <h2 className="font-black text-gray-900 text-2xl md:text-4xl uppercase tracking-tight">
-              {districtName} Klima Servis & Hizmet Detayları
+              {districtName} Beyaz Eşya, Kombi & Klima Servis & Hizmet Detayları
             </h2>
             <div className="w-16 h-1.5 bg-[#0EA5E9] mx-auto rounded-full mt-4" />
             <p className="text-gray-500 font-semibold text-xs sm:text-sm mt-4 leading-relaxed">
-              {locativeName} klima bakımı, arıza teşhisi, gaz şarjı ve montaj süreçlerinde sunduğumuz kalite standartları.
+              {locativeName} Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı ve Kurutma Makinesi bakımı, arıza teşhisi ve montaj süreçlerinde sunduğumuz kalite standartları.
             </p>
           </div>
 
@@ -538,12 +583,15 @@ export default function DistrictClientPage({
             <div className="lg:col-span-4 space-y-4">
               <span className="text-[#0EA5E9] font-black text-xs uppercase tracking-widest block">Hizmet Noktaları</span>
               <h2 className="font-black text-gray-900 text-2xl md:text-3xl uppercase tracking-tight">
-                {districtName} Mahallelerinde<br />Klima Servisi
+                {districtName} Mahallelerinde<br />
+                <span className="text-[#0EA5E9] text-xl md:text-2xl mt-1 block font-extrabold">
+                  Klima, Kombi & Beyaz Eşya Servisi
+                </span>
               </h2>
               <div className="w-12 h-1.5 bg-[#0EA5E9] rounded-full" />
               <p className="text-gray-500 font-semibold text-sm leading-relaxed">
                 {locativeName} tüm mahallelere aynı gün hızlı servis garantisi veriyoruz.
-                Detaylı mahalle klima servis sayfasına gitmek için aşağıdaki mahalle adına tıklayabilirsiniz.
+                Detaylı mahalle teknik servis sayfasına gitmek için aşağıdaki mahalle adına tıklayabilirsiniz.
               </p>
               <a
                 href="tel:08500000000"
@@ -594,7 +642,7 @@ export default function DistrictClientPage({
               <span className="text-[#0EA5E9] font-black text-xs uppercase tracking-widest block mb-3">Neden Biz?</span>
               <h3 className="font-black text-white text-xl md:text-2xl uppercase tracking-tight mb-6">
                 {districtName} İçin Doğru<br />
-                <span className="text-[#0EA5E9]">Klima Servisi Seçimi</span>
+                <span className="text-[#0EA5E9]">Teknik Servis Seçimi</span>
               </h3>
               <div className="space-y-4 mb-8">
                 {db.whyUs.map((item, i) => (
@@ -608,10 +656,10 @@ export default function DistrictClientPage({
               </div>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Tüm Markalar", val: "Daikin, Samsung, LG +" },
+                  { label: "Tüm Markalar", val: "Daikin, Samsung, Bosch +" },
                   { label: "Garanti", val: "1 Yıl İşçilik" },
                   { label: "Acil Servis", val: "7/24 Hizmet" },
-                  { label: "Enerji Sınıfı", val: "A+++ Uzmanı" },
+                  { label: "Saha Ekibi", val: "Mobil Araçlar" },
                 ].map((item, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-3">
                     <div className="text-[#0EA5E9] text-[9px] font-black uppercase tracking-widest mb-1">{item.label}</div>
@@ -629,7 +677,7 @@ export default function DistrictClientPage({
                 <PhoneCall className="w-5 h-5 text-[#0EA5E9]" />
               </div>
               <div>
-                <h3 className="font-black text-gray-900 text-base uppercase tracking-tight">{districtName} Servis Talebi</h3>
+                <h3 className="font-black text-gray-900 text-base uppercase tracking-tight">{districtName} Servis & Teklif Talebi</h3>
                 <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Sizi geri arayalım</span>
               </div>
             </div>
@@ -656,7 +704,7 @@ export default function DistrictClientPage({
                     <label className="block text-[10px] font-black uppercase tracking-wider text-gray-400 mb-2">Hizmet Türü</label>
                     <select value={formService} onChange={e => setFormService(e.target.value)} className="w-full px-4 py-3.5 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:border-[#0EA5E9] focus:bg-white text-gray-800 font-semibold text-sm transition-all cursor-pointer">
                       <option value="">Seçin...</option>
-                      {["Klima Arıza Tamiri","Periyodik Bakım","Gaz Dolumu","Klima Montajı","Klima Söküm","Filtre Temizliği","Fiyat Teklifi"].map(s => <option key={s} value={s}>{s}</option>)}
+                      {["Klima Arıza & Gaz Dolumu","Kombi Bakım & Petek Temizliği","Çamaşır Makinesi Tamiri","Bulaşık Makinesi Servisi","Buzdolabı & Kurutma Makinesi","Küçük Ev Aletleri Servisi","Garantili Montaj","Fiyat Teklifi"].map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                   </div>
                   {formStatus === "error" && <p className="text-red-500 text-xs font-bold bg-red-50 border border-red-100 rounded-xl px-4 py-3">Hata oluştu. Lütfen telefonu arayın.</p>}
@@ -675,7 +723,7 @@ export default function DistrictClientPage({
         <div className="max-w-[1300px] mx-auto px-6 md:px-10">
           <div className="text-center mb-12">
             <span className="text-[#0EA5E9] font-black text-xs uppercase tracking-widest block mb-2">Sıkça Sorulan Sorular</span>
-            <h2 className="font-black text-gray-900 text-2xl md:text-3xl uppercase tracking-tight">{districtName} Klima Servisi SSS</h2>
+            <h2 className="font-black text-gray-900 text-2xl md:text-3xl uppercase tracking-tight">{districtName} Beyaz Eşya, Kombi & Klima Servisi SSS</h2>
             <div className="w-12 h-1.5 bg-[#0EA5E9] mx-auto rounded-full mt-4" />
           </div>
           <div className="max-w-3xl mx-auto space-y-3">
@@ -722,11 +770,11 @@ export default function DistrictClientPage({
         <div className="max-w-[1300px] mx-auto px-6 md:px-10 relative z-10 text-center">
           <Snowflake className="w-10 h-10 text-[#0EA5E9]/40 mx-auto mb-4" />
           <h3 className="font-black text-white text-2xl md:text-3xl uppercase tracking-tight mb-3">
-            {districtName}'da Klima Problemi mi?
+            {districtName}'da Cihazınız mı Arızalandı?
           </h3>
           <p className="text-gray-300 font-semibold text-sm leading-relaxed mb-8 max-w-xl mx-auto">
-            {locativeName} 7/24 hizmet veren uzman teknik ekibimizi hemen arayın.
-            Aynı gün müdahale, 1 yıl işçilik garantisi.
+            {locativeName} 7/24 hizmet veren Klima, Kombi & Beyaz Eşya uzman teknik ekibimizi hemen arayın.
+            Aynı gün adreste müdahale, 1 yıl işçilik garantisi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="tel:08500000000" className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#0EA5E9] text-white font-black uppercase tracking-wider text-xs hover:bg-[#0284C7] transition-all shadow-lg shadow-sky-500/20 hover:-translate-y-0.5">

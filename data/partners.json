@@ -1,42 +1,66 @@
 {
-  "title": "Tüm Marka ve Modellere Uzman Klima Servisi",
-  "subtitle": "Hizmet Verdiğimiz Klima Markaları",
+  "title": "Tüm Beyaz Eşya, Kombi ve Klima Markalarında Yerinde Garantili Servis",
+  "subtitle": "HER MARKA & MODELDE UZMANLIK",
   "list": [
     {
       "name": "Daikin",
-      "logo": "https://logo.clearbit.com/daikin.com"
+      "logo": "https://www.google.com/s2/favicons?domain=daikin.com&sz=128"
     },
     {
       "name": "Mitsubishi Electric",
-      "logo": "https://logo.clearbit.com/mitsubishielectric.com"
+      "logo": "https://www.google.com/s2/favicons?domain=mitsubishielectric.com&sz=128"
     },
     {
       "name": "Samsung",
-      "logo": "https://logo.clearbit.com/samsung.com"
+      "logo": "https://www.google.com/s2/favicons?domain=samsung.com&sz=128"
     },
     {
       "name": "LG",
-      "logo": "https://logo.clearbit.com/lg.com"
+      "logo": "https://www.google.com/s2/favicons?domain=lg.com&sz=128"
     },
     {
       "name": "Arçelik",
-      "logo": "https://logo.clearbit.com/arcelik.com.tr"
+      "logo": "https://www.google.com/s2/favicons?domain=arcelik.com.tr&sz=128"
     },
     {
       "name": "Bosch",
-      "logo": "https://logo.clearbit.com/bosch.com"
-    },
-    {
-      "name": "Vestel",
-      "logo": "https://logo.clearbit.com/vestel.com.tr"
-    },
-    {
-      "name": "Toshiba",
-      "logo": "https://logo.clearbit.com/toshiba.com"
+      "logo": "https://www.google.com/s2/favicons?domain=bosch-home.com.tr&sz=128"
     },
     {
       "name": "Beko",
-      "logo": "https://logo.clearbit.com/beko.com"
+      "logo": "https://www.google.com/s2/favicons?domain=beko.com.tr&sz=128"
+    },
+    {
+      "name": "Vestel",
+      "logo": "https://www.google.com/s2/favicons?domain=vestel.com.tr&sz=128"
+    },
+    {
+      "name": "Siemens",
+      "logo": "https://www.google.com/s2/favicons?domain=siemens-home.bsh-group.com&sz=128"
+    },
+    {
+      "name": "DemirDöküm",
+      "logo": "https://www.google.com/s2/favicons?domain=demirdokum.com.tr&sz=128"
+    },
+    {
+      "name": "Baymak",
+      "logo": "https://www.google.com/s2/favicons?domain=baymak.com.tr&sz=128"
+    },
+    {
+      "name": "Vaillant",
+      "logo": "https://www.google.com/s2/favicons?domain=vaillant.com.tr&sz=128"
+    },
+    {
+      "name": "Toshiba",
+      "logo": "https://www.google.com/s2/favicons?domain=toshiba-aircon.com.tr&sz=128"
+    },
+    {
+      "name": "Buderus",
+      "logo": "https://www.google.com/s2/favicons?domain=buderus.com.tr&sz=128"
+    },
+    {
+      "name": "Profilo",
+      "logo": "https://www.google.com/s2/favicons?domain=profilo.com.tr&sz=128"
     }
   ]
 }

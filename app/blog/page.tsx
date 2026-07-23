@@ -34,37 +34,59 @@ const POSTS: Post[] = [
     img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80",
   },
   {
+    slug: "kombi-bakimi-ve-petek-temizligi",
+    title: "Kombi Bakımı ve Petek Temizliği Nasıl Yapılır? Yakıt Tasarrufu İpuçları",
+    desc: "Doğalgaz faturanız yüksek geliyorsa peteklerde çamurlaşma ve hava birikmesi olabilir. Kombi bakımı ve petek temizliği ile %25'e varan yakıt tasarrufu sağlayın.",
+    date: "15 Temmuz 2026",
+    readTime: "8 Dk Okuma",
+    category: "Kombi & Isıtma",
+    icon: Thermometer,
+    accent: "#F59E0B",
+    img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    slug: "camasir-makinesi-sikma-yapmiyor-neden",
+    title: "Çamaşır Makinesi Sıkma Yapmıyor ve Su Boşaltmıyor: 5 Adımda Çözüm",
+    desc: "Çamaşır makineniz suyu tahliye etmiyor veya kazan dönmüyorsa pompa filtresi tıkanıklığı veya kayış kopması olabilir. Adım adım kontrol rehberi.",
+    date: "10 Temmuz 2026",
+    readTime: "6 Dk Okuma",
+    category: "Beyaz Eşya",
+    icon: Wrench,
+    accent: "#10B981",
+    img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    slug: "buzdolabi-sogutmuyor-motor-calisiyor",
+    title: "Buzdolabı Neden Soğutmaz? Gaz Kaçağı ve Sensör Arızası Belirtileri",
+    desc: "Buzdolabının dondurucu kısmı soğutuyor ama alt kısım ılık mı? Fan motoru, nTC sensör ve rezistans arızalarında yapılması gereken teknik müdahaleler.",
+    date: "05 Temmuz 2026",
+    readTime: "9 Dk Okuma",
+    category: "Beyaz Eşya",
+    icon: Droplets,
+    accent: "#06B6D4",
+    img: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80",
+  },
+  {
     slug: "klima-sogutmuyor-neden",
     title: "Klima Soğutmuyor: En Sık 8 Neden ve Çözümü",
     desc: "Klima çalışıyor ama soğutmuyor mu? Gaz eksikliği, kirli filtre, termostat arızası veya kompresör problemi olabilir. Adım adım kontrol listesi ile sorunu tespit edin.",
-    date: "12 Temmuz 2026",
+    date: "01 Temmuz 2026",
     readTime: "11 Dk Okuma",
     category: "Arıza & Tanı",
     icon: Thermometer,
     accent: "#EF4444",
-    img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80",
   },
   {
-    slug: "klima-gaz-dolumu-ne-zaman-gerekir",
-    title: "Klima Gaz Dolumu Ne Zaman Gerekir? R32 ve R410A Farkı",
-    desc: "Klimanızın soğutucu gaz seviyesi düştüğünde verimlilik ciddi oranda azalır. R32 ve R410A gazları arasındaki farklar, gaz dolumu işlemi ve sonrasında dikkat edilmesi gerekenler.",
-    date: "05 Temmuz 2026",
-    readTime: "4 Dk Okuma",
-    category: "Gaz & Kimyasal",
-    icon: Droplets,
+    slug: "bulasik-makinesi-temiz-yikamiyor",
+    title: "Bulaşık Makinesi Bulaşıkları Lekeli ve Kirli Bırakıyor: Nedenleri",
+    desc: "Fıskiye tıkanıklığı, deterjan gözü arızası ve rezistans kireçlenmesi bulaşıkların puslu çıkmasına neden olur. Çözüm yöntemleri ve bakım önerileri.",
+    date: "25 Haziran 2026",
+    readTime: "7 Dk Okuma",
+    category: "Beyaz Eşya",
+    icon: Wrench,
     accent: "#8B5CF6",
-    img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    slug: "klima-su-akitiyor-neden",
-    title: "Klima Su Akıtıyor: Nedenleri ve Evde Yapılabilecekler",
-    desc: "İç üniteden su damlaması en sık karşılaşılan klima sorunlarından biridir. Tıkalı tahliye borusu, aşırı soğuma veya yanlış montaj kaynaklı olabilir. Detaylı tanı rehberi.",
-    date: "28 Haziran 2026",
-    readTime: "9 Dk Okuma",
-    category: "Arıza & Tanı",
-    icon: Droplets,
-    accent: "#06B6D4",
-    img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "inverter-klima-ile-klasik-klima-farki",
@@ -87,50 +109,17 @@ const POSTS: Post[] = [
     icon: Wrench,
     accent: "#10B981",
     img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    slug: "klimam-kac-btu-olmali",
-    title: "Klimam Kaç BTU Olmalı? Oda Alanına Göre Kapasite Seçimi",
-    desc: "Küçük kapasiteli klima ısıtamaz, büyük kapasiteli enerji israf eder. Alan, tavan yüksekliği ve güneş maruziyetine göre doğru BTU hesabı nasıl yapılır?",
-    date: "01 Haziran 2026",
-    readTime: "8 Dk Okuma",
-    category: "Enerji Tasarrufu",
-    icon: Wind,
-    accent: "#0EA5E9",
-    img: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    slug: "klima-temizligi-evde-nasil-yapilir",
-    title: "Klima Filtresi ve İç Ünite Temizliği Evde Nasıl Yapılır?",
-    desc: "Aylık filtre temizliği klimanın hem verimliliğini hem de ömrünü uzatır. Güvenli ve etkili iç ünite temizliği için adım adım görsel rehber.",
-    date: "22 Mayıs 2026",
-    readTime: "5 Dk Okuma",
-    category: "Bakım & Servis",
-    icon: Snowflake,
-    accent: "#06B6D4",
-    img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    slug: "daikin-mitsubishi-samsung-klima-karsilastirma",
-    title: "Daikin, Mitsubishi ve Samsung Klima Karşılaştırması 2026",
-    desc: "Sakarya'da en çok tercih edilen klima markaları arasında güvenilirlik, enerji sınıfı, servis ağı ve fiyat/performans kriterlerine göre kapsamlı karşılaştırma.",
-    date: "15 Mayıs 2026",
-    readTime: "12 Dk Okuma",
-    category: "Marka & Model",
-    icon: Star,
-    accent: "#F59E0B",
-    img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
-  },
+  }
 ];
 
 const CATEGORIES = [
   { key: "Tümü",            icon: BookOpen,   color: "bg-[#0F172A] text-white border-[#0F172A]" },
   { key: "Bakım & Servis",  icon: Wrench,     color: "bg-[#0EA5E9]/10 text-[#0EA5E9] border-[#0EA5E9]/20" },
   { key: "Arıza & Tanı",    icon: Thermometer,color: "bg-red-50 text-red-600 border-red-200" },
-  { key: "Gaz & Kimyasal",  icon: Droplets,   color: "bg-violet-50 text-violet-600 border-violet-200" },
-  { key: "Enerji Tasarrufu",icon: Zap,        color: "bg-amber-50 text-amber-600 border-amber-200" },
-  { key: "Montaj & Kurulum",icon: Wrench,     color: "bg-emerald-50 text-emerald-600 border-emerald-200" },
-  { key: "Marka & Model",   icon: Star,       color: "bg-orange-50 text-orange-600 border-orange-200" },
+  { key: "Kombi & Isıtma",  icon: Thermometer,color: "bg-amber-50 text-amber-600 border-amber-200" },
+  { key: "Beyaz Eşya",      icon: Wrench,     color: "bg-emerald-50 text-emerald-600 border-emerald-200" },
+  { key: "Enerji Tasarrufu",icon: Zap,        color: "bg-violet-50 text-violet-600 border-violet-200" },
+  { key: "Montaj & Kurulum",icon: Wrench,     color: "bg-cyan-50 text-cyan-600 border-cyan-200" },
 ];
 
 const ACCENT_CAT: Record<string, string> = {
@@ -204,8 +193,8 @@ export default function Blog() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#0EA5E9] font-black text-xs tracking-widest uppercase mb-6"
           >
-            <Snowflake className="w-4 h-4 animate-pulse" />
-            Klima Bilgi Merkezi
+            <BookOpen className="w-4 h-4 animate-pulse" />
+            Teknik Servis Bilgi Merkezi
           </motion.div>
 
           <motion.h1
@@ -215,8 +204,8 @@ export default function Blog() {
             className="font-black text-white uppercase leading-none text-4xl sm:text-5xl md:text-6xl tracking-tight mb-4"
           >
             Uzman Rehberler<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8]">
-              & Resimli Blog
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8] mt-2 block">
+              & Teknik Blog
             </span>
           </motion.h1>
 
@@ -226,8 +215,7 @@ export default function Blog() {
             transition={{ delay: 0.2 }}
             className="text-gray-300 font-semibold text-sm sm:text-base leading-relaxed max-w-2xl mx-auto"
           >
-            Klima bakımı, arıza tespiti, doğru kapasite seçimi ve enerji tasarrufu hakkında
-            uzman ekibimizin hazırladığı kapsamlı ve resimli rehberler.
+            Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı ve Kurutma Makinesi arıza tespiti, bakımı ve tasarruf yöntemleri hakkında teknik ekibimizin rehberleri.
           </motion.p>
 
           {/* Stats */}
@@ -474,7 +462,7 @@ export default function Blog() {
               <span className="text-[#0EA5E9]">Hemen Danışın</span>
             </h2>
             <p className="text-gray-500 font-semibold text-sm leading-relaxed">
-              Klimanız hakkında aklınıza takılan teknik soruları uzman teknisyenlerimize sorabilir,
+              Klima, Kombi veya Beyaz Eşyanız hakkında aklınıza takılan tüm teknik soruları uzman teknisyenlerimize sorabilir,
               ücretsiz ön tanı ve fiyat teklifi alabilirsiniz.
             </p>
           </div>

@@ -14,103 +14,269 @@ interface ServiceDetail {
 }
 
 const SERVICES_DATA: { [key: string]: ServiceDetail } = {
-  "ariza-servis-7-24": {
-    title: "Klima Arıza Servisi",
-    slug: "ariza-servis-7-24",
+  "camasir-makinesi-ariza-servisi": {
+    title: "Çamaşır Makinesi Arıza Servisi",
+    slug: "camasir-makinesi-ariza-servisi",
     iconName: "activity",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop",
-    intro: "Sakarya Uzman Klima olarak, klimanızda oluşan beklenmedik arızalara, 7 gün 24 saat kesintisiz çalışan tam donanımlı mobil acil servis ekiplerimizle anında müdahale ediyoruz. Klimanızın verimli ve güvenli çalışmasını engelleyen kart arızaları, kompresör kilitlenmeleri ve fan motoru problemlerinde yanınızdayız.",
-    whyRequired: "Klimada giderilmeyen küçük arızalar, kompresörün aşırı ısınmasına ve kalıcı olarak yanmasına sebep olabilir. Bu durum cihazınızı tamamen kullanılamaz hale getirerek yüksek maliyetli yenileme gerektirebilir.",
+    image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop",
+    intro: "Çamaşır makineniz su almıyor, sıkma yapmıyor, sesli çalışıyor veya su sızdırıyorsa uzman teknik ekibimiz orijinal yedek parça garantisiyle aynı gün yerinde tamir hizmeti sunar.",
+    whyRequired: "Çamaşır makinesi arızaları zamanında giderilmediğinde motor yanması, kazan bilyası dağılması veya evi su basması gibi büyük hasarlara yol açabilir.",
     scope: [
-      { title: "7/24 Mobil Acil Servis", desc: "Hafta sonu veya geç saat fark etmeksizin acil teknik servis ihtiyaçlarınızda aynı gün yerinde hizmet." },
-      { title: "Kapsamlı Arıza Teşhisi", desc: "Elektronik kontrol kartı, sensörler ve mekanik aksamlar gelişmiş cihazlarla taranarak arızanın kaynağı netleştirilir." },
-      { title: "Garantili Yedek Parça Değişimi", desc: "Değiştirilen tüm fan motorları, sensörler ve elektronik kartlar 1 yıl resmi işçilik ve yedek parça garantimiz kapsamındadır." }
+      { title: "Motor ve Kazan Tamiri", desc: "Kazan bilyası, amortisör, kayış ve motor kömürü değişimleri yerinde yapılır." },
+      { title: "Pompa ve Kart Onarımı", desc: "Su tahliye pompası tıkanıklığı ve elektronik kart arızaları orijinal parçalarla giderilir." },
+      { title: "Deterjan ve Rezistans Bakımı", desc: "Kireçlenen ısıtıcı rezistanslar değiştirilerek yıkama kalitesi ilk günkü seviyesine getirilir." }
     ],
     benefits: [
-      "Hızlı ve yerinde arıza teşhisi ile zaman kaybını en aza indiriyoruz.",
-      "Orijinal yedek parçalar sayesinde klimanızın ömrünü uzatıyoruz.",
-      "1 Yıl resmi servis garantisi ile güvence altında olmanızı sağlıyoruz.",
-      "Deneyimli teknik ekibimiz sayesinde kesin çözümler sunuyoruz."
+      "Aynı gün adreste hızlı arıza tespiti ve tamir.",
+      "1 Yıl parça ve işçilik garantisi.",
+      "Orijinal ve sertifikalı yedek parça kullanımı.",
+      "Sıkma ve yıkama performansının yenilenmesi."
     ],
     faqs: [
-      { q: "Klima neden su akıtır?", a: "İç ünitenin drenaj borusunun tıkanması, filtrelerin aşırı kirlenmesi sonucu evaporatörün buz tutması veya gaz eksikliği iç üniteden su sızmasına yol açabilir." },
-      { q: "Kompresör arızası nasıl anlaşılır?", a: "Klima çalışmasına rağmen sadece hava üflüyor ve soğutma yapmıyorsa, dış üniteden anormal sesler geliyorsa veya sigorta attırıyorsa kompresör arızalanmış olabilir." },
-      { q: "Değiştirilen parçalar garantili midir?", a: "Evet, servisimiz bünyesinde yapılan tüm parça değişimleri ve işçilikler 1 yıl süreyle garantilidir." }
+      { q: "Çamaşır makinesi neden çok gürültülü sıkma yapar?", a: "Kazan bilyalarının (rulman) aşınması veya amortisörlerin patlaması sıkma esnasında şiddetli sarsıntı ve gürültüye sebep olur." },
+      { q: "Makine suyu boşaltmıyorsa ne yapılmalı?", a: "Pompa filtresinde bozuk para veya yabancı cisim birikmiş olabilir. Filtre temizlendikten sonra sorun sürüyorsa pompa motoru değiştirilir." },
+      { q: "Tamir garantili midir?", a: "Evet, servisimiz tarafından değiştirilen tüm parçalar 1 yıl garanti kapsamındadır." }
+    ]
+  },
+  "bulasik-makinesi-ariza-servisi": {
+    title: "Bulaşık Makinesi Arıza Servisi",
+    slug: "bulasik-makinesi-ariza-servisi",
+    iconName: "shield-check",
+    image: "https://images.unsplash.com/photo-1585837575652-267c041d77d4?q=80&w=800&auto=format&fit=crop",
+    intro: "Bulaşık makineniz iyi yıkamıyor, lekeli bırakıyor, su ısıtmıyor veya kurutma yapmıyorsa 7/24 mobil teknik servisimizle sorunsuz çözümler sağlıyoruz.",
+    whyRequired: "Tıkalı fıskiyeler veya arızalı sirkülasyon pompaları bulaşıkların hijyensiz kalmasına ve bakteri üretmesine sebep olur.",
+    scope: [
+      { title: "Sirkülasyon Pompası Tamiri", desc: "Yıkama basıncını sağlayan motor ve pompa aksamı yenilenir veya tamir edilir." },
+      { title: "Isıtıcı NTC & Rezistans", desc: "Suyun istenen dereceye ulaşmasını sağlayan rezistans ve sıcaklık sensörleri değiştirilir." },
+      { title: "Fıskiye ve Kart Temizliği", desc: "Tıkanan alt ve üst fıskiyeler temizlenir, elektronik anakart test edilir." }
+    ],
+    benefits: [
+      "Bulaşıklarda lekesiz ve pırıl pırıl yıkama garantisi.",
+      "Düşük su ve elektrik tüketimi verimliliği.",
+      "Aynı gün adrese servis desteği.",
+      "1 Yıl işçilik ve yedek parça garantisi."
+    ],
+    faqs: [
+      { q: "Bulaşık makinesi neden kurutma yapmaz?", a: "NTC sensörü arızası veya rezistans arızası nedeniyle su ısınmazsa bulaşıklar ıslak kalır." },
+      { q: "Tablet deterjan erimiyorsa sebebi nedir?", a: "Deterjan kutusu kapağı arızalı olabilir veya su sıcaklığı yeterli dereceye ulaşmıyordur." },
+      { q: "Servis süresi ne kadardır?", a: "Arızaların %90'ı adreste aynı gün 1-2 saat içinde çözüme kavuşturulur." }
+    ]
+  },
+  "buzdolabi-ariza-servisi": {
+    title: "Buzdolabı Arıza Servisi",
+    slug: "buzdolabi-ariza-servisi",
+    iconName: "zap",
+    image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop",
+    intro: "Buzdolabınız soğutmuyor, buzlanma yapıyor, motoru sürekli çalışıyor veya gaz kaçağı varsa gıdalarınız bozulmadan acil mobil ekibimiz adresi ziyaret eder.",
+    whyRequired: "Buzdolabı arızaları gıdaların hızla bozulmasına ve yüksek maddi kayıplara sebep olan en kritik ev aleti arızalarındandır.",
+    scope: [
+      { title: "Kompresör (Motor) Değişimi", desc: "Sıkışan veya yanan motorlar orijinal sıfır kompresörle değiştirilerek sistem vakumlanır ve gaz şarjı yapılır." },
+      { title: "No-Frost Defrost Tamiri", desc: "Buzlanmayı önleyen rezistans, bi-metal termostat ve sensörler kontrol edilir." },
+      { title: "Gaz Kaçak Tespiti & Şarjı", desc: "R600a ve R134a gaz sızıntıları kaynakla giderilip hassas terazili gaz dolumu gerçekleştirilir." }
+    ],
+    benefits: [
+      "Gıdalarınız bozulmadan acil hızlı müdahale.",
+      "Garantili motor ve gaz şarjı işlemleri.",
+      "Sessiz ve verimli kompresör performansı.",
+      "Tüm No-Frost ve Gardırop tipi dolaplarda uzmanlık."
+    ],
+    faqs: [
+      { q: "Buzdolabının alt kısmı neden soğutmaz?", a: "No-Frost hava kanallarının buzlanması veya damper motoru arızası üstten alta soğuk hava akışını engeller." },
+      { q: "Motor çok sıcak ve sürekli çalışıyorsa?", a: "Gaz eksikliği veya termostat arızası nedeniyle dolap istenen dereceye ulaşamadığı için motor durmadan çalışır." },
+      { q: "Gaz dolumu garantili midir?", a: "Kaçak testi yapılıp sızıntı kaynaklandıktan sonra yapılan gaz dolumları 1 yıl garantilidir." }
+    ]
+  },
+  "kombi-ariza-servisi": {
+    title: "Kombi Arıza Servisi",
+    slug: "kombi-ariza-servisi",
+    iconName: "cpu",
+    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop",
+    intro: "Kombiniz sıcak su vermiyor, petekleri ısıtmıyor, basınç düşürüyor veya ateşleme yapmıyorsa sertifikalı kombi teknisyenlerimizle 7/24 güvenli servis sunuyoruz.",
+    whyRequired: "Kombi arızaları kış aylarında konfor kaybına ve gaz kaçakları ile aşırı yüksek doğalgaz faturalarına yol açabilir.",
+    scope: [
+      { title: "Anakart & İyonizasyon Tamiri", desc: "Ateşleme yapmayan veya hata kodu veren kombilerin elektronik kartları onarılır." },
+      { title: "Devirdaim Pompası & Üç Yollu Vana", desc: "Peteklere sıcak su sirkülasyonunu sağlayan pompa ve vana bakımları yapılır." },
+      { title: "Eşanjör & Petek Temizliği", desc: "Kireçlenen plakalı eşanjörler ve petekler özel ilacımızla yıkanarak ısı verimi artırılır." }
+    ],
+    benefits: [
+      "Doğalgaz faturalarında hissedilir tasarruf.",
+      "7/24 Kesintisiz sıcak su ve petek ısınma garantisi.",
+      "Sertifikalı ve uzman teknik kadro.",
+      "1 Yıl resmi işçilik ve parça garantisi."
+    ],
+    faqs: [
+      { q: "Kombi bar basıncı neden sürekli düşer?", a: "Genleşme tankı havası bitmiş olabilir veya tesisatta mikro su kaçağı mevcuttur." },
+      { q: "Peteklerin altı soğuk üstü sıcaksa?", a: "Petek içinde çamurlaşma birikmiştir. Tesisat yıkanarak sirke ve kimyasal bakımla temizlenmelidir." },
+      { q: "Kombi su akıtıyorsa ne yapılmalı?", a: "Emniyet valfi açmış olabilir. Kombiyi kapatıp servis çağırmanız önerilir." }
+    ]
+  },
+  "klima-arizasi-servisi": {
+    title: "Klima Arızası Servisi",
+    slug: "klima-arizasi-servisi",
+    iconName: "compass",
+    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop",
+    intro: "Sakarya genelinde klimanız soğutmuyor, ısıtmıyor, su akıtıyor veya sesli çalışıyorsa 7/24 tam donanımlı mobil araçlarımızla yerinde arıza tespiti ve tamir hizmeti sağlıyoruz.",
+    whyRequired: "Giderilmeyen klima arızaları kompresör sıkışmasına ve elektrik aksamında yanmalara yol açarak yüksek maliyet oluşturabilir.",
+    scope: [
+      { title: "Kompresör ve Kart Tamiri", desc: "İnverter anakart onarımları ve kompresör kapasitör değişimleri yapılır." },
+      { title: "Gaz Kaçak Onarımı & Dolum", desc: "R32 ve R410A soğutucu gaz sızıntıları giderilerek hassas şarj yapılır." },
+      { title: "Drenaj Temizliği & Hijyen", desc: "İç ünite su akıtma problemleri ve antibakteriyel hava filtresi hijyeni sağlanır." }
+    ],
+    benefits: [
+      "Aynı gün 30 dakikada acil yerinde müdahale.",
+      "Orijinal yedek parça ve 1 yıl servis garantisi.",
+      "Tüm marka ve modellerde uzman teknik altyapı.",
+      "%30'a varan enerji verimliliği artışı."
+    ],
+    faqs: [
+      { q: "Klima neden su akıtır?", a: "Drenaj hortumu tıkanıklığı veya evaporatörün buz tutması iç üniteden su sızmasına sebep olur." },
+      { q: "Klima neden soğutmaz?", a: "Gaz eksikliği, kompresör arızası veya filtre tıkanıklığı soğutmayı engeller." },
+      { q: "Servis garantisi var mı?", a: "Tüm parça değişimlerimiz ve işçiliklerimiz 1 yıl garantilidir." }
+    ]
+  },
+  "kucuk-ev-aletleri-ariza-servisi": {
+    title: "Küçük Ev Aletleri Arıza Servisi",
+    slug: "kucuk-ev-aletleri-ariza-servisi",
+    iconName: "briefcase",
+    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800&auto=format&fit=crop",
+    intro: "Süpürge, mikser, kahve makinesi, ütü, robot süpürge ve diğer küçük ev aletlerinizdeki motor, kablo ve rezistans arızalarını garantili şekilde onarıyoruz.",
+    whyRequired: "Arızalı küçük ev aletleri elektrik kaçakları ve kablo yanmaları sebebiyle ev güvenliği açısından risk oluşturabilir.",
+    scope: [
+      { title: "Süpürge Motoru & Filtre", desc: "Emiş gücü düşen süpürgelerde motor ve HEPA filtre değişimleri yapılır." },
+      { title: "Kahve & Çay Makinesi", desc: "Rezistans, termostat ve su pompası arızaları tamir edilir." },
+      { title: "Ütü & Mikser Onarımı", desc: "Buhar vermeyen ütüler ve dişli sıran mikserler yenilenir." }
+    ],
+    benefits: [
+      "Cihazlarınızı yenisini almaktan çok daha uygun fiyata kurtarma imkanı.",
+      "Orijinal yedek parça desteği.",
+      "Hızlı teslimat ve test garantisi.",
+      "Güvenli ve garantili teknik servis hizmeti."
+    ],
+    faqs: [
+      { q: "Robot süpürge batarya değişimi yapılıyor mu?", a: "Evet, tüm marka robot süpürgelerin batarya ve fırça motoru değişimleri yapılmaktadır." },
+      { q: "Ütü neden buhar vermez?", a: "Kireçlenme veya buhar valfi arızası nedeniyle buhar kanalları tıkanmış olabilir." },
+      { q: "Tamir ne kadar sürer?", a: "Küçük ev aletleri arızaları genellikle 1-2 iş günü içinde tamamlanır." }
+    ]
+  },
+  "kurutma-makinesi-ariza-servisi": {
+    title: "Kurutma Makinesi Arıza Servisi",
+    slug: "kurutma-makinesi-ariza-servisi",
+    iconName: "sparkles",
+    image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop",
+    intro: "Kurutma makineniz çamaşırları nemli bırakıyor, ısıtmıyor, koku yapıyor veya kayış koparmışsa ısı pompalı ve yoğuşmalı tüm modellerde uzman servis sağlıyoruz.",
+    whyRequired: "Filtre ve kondanser bakımı yapılmayan kurutma makineleri aşırı ısınarak yangın riski oluşturabilir ve çamaşırları yıpratır.",
+    scope: [
+      { title: "Isı Pompası & Gaz Şarjı", desc: "Isı pompalı kurutma makinelerinde gaz dolumu ve kompresör kontrolleri yapılır." },
+      { title: "Kayış & Kasnak Değişimi", desc: "Kazan dönmüyorsa kopan kayış ve yıpranan kasnak aksamı yenilenir." },
+      { title: "Kondanser & Sensör Temizliği", desc: "Nem sensörleri ve filtrelenen tiftik kanalları derinlemesine temizlenir." }
+    ],
+    benefits: [
+      "Çamaşırlarınızda yıpranmasız, mis kokulu ve tam kurutma.",
+      "Düşük enerji tüketimi.",
+      "Garantili parça ve işçilik servisi.",
+      "Aynı gün yerinde müdahale imkanı."
+    ],
+    faqs: [
+      { q: "Kurutma makinesi neden ısıtmaz?", a: "Isı pompası gazı bitmiş olabilir veya rezistans termostatı atmış olabilir." },
+      { q: "Kazan dönüyor ama çamaşırlar ıslak çıkıyorsa?", a: "Tiftik filtresi ve kondanser tıkalı olduğundan sıcak hava tahliye edilemiyordur." },
+      { q: "Servis garantiniz var mı?", a: "Evet, tüm kurutma makinesi arıza tamirleri 1 yıl garanti kapsamındadır." }
+    ]
+  },
+  // Backward compatibility alias keys:
+  "ariza-servis-7-24": {
+    title: "Klima Arızası Servisi",
+    slug: "klima-arizasi-servisi",
+    iconName: "compass",
+    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop",
+    intro: "Sakarya genelinde klimanız soğutmuyor, ısıtmıyor, su akıtıyor veya sesli çalışıyorsa 7/24 tam donanımlı mobil araçlarımızla yerinde arıza tespiti ve tamir hizmeti sağlıyoruz.",
+    whyRequired: "Giderilmeyen klima arızaları kompresör sıkışmasına ve elektrik aksamında yanmalara yol açarak yüksek maliyet oluşturabilir.",
+    scope: [
+      { title: "Kompresör ve Kart Tamiri", desc: "İnverter anakart onarımları ve kompresör kapasitör değişimleri yapılır." },
+      { title: "Gaz Kaçak Onarımı & Dolum", desc: "R32 ve R410A soğutucu gaz sızıntıları giderilerek hassas şarj yapılır." },
+      { title: "Drenaj Temizliği & Hijyen", desc: "İç ünite su akıtma problemleri ve antibakteriyel hava filtresi hijyeni sağlanır." }
+    ],
+    benefits: [
+      "Aynı gün 30 dakikada acil yerinde müdahale.",
+      "Orijinal yedek parça ve 1 yıl servis garantisi.",
+      "Tüm marka ve modellerde uzman teknik altyapı.",
+      "%30'a varan enerji verimliliği artışı."
+    ],
+    faqs: [
+      { q: "Klima neden su akıtır?", a: "Drenaj hortumu tıkanıklığı veya evaporatörün buz tutması iç üniteden su sızmasına sebep olur." },
+      { q: "Klima neden soğutmaz?", a: "Gaz eksikliği, kompresör arızası veya filtre tıkanıklığı soğutmayı engeller." },
+      { q: "Servis garantisi var mı?", a: "Tüm parça değişimlerimiz ve işçiliklerimiz 1 yıl garantilidir." }
     ]
   },
   "periyodik-kontrol": {
-    title: "Klima Periyodik Bakımı",
-    slug: "periyodik-kontrol",
-    iconName: "shield-check",
-    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop",
-    intro: "Klimanızın performansını artıran, enerji tüketimini %30'a varan oranda düşüren ve yaşam alanınızdaki hava kalitesini maksimuma çıkaran koruyucu bakım hizmetleri sunuyoruz. Sağlığınızı ve cihazınızın ömrünü korumak için yılda iki kez klima bakımı yaptırmanız önerilir.",
-    whyRequired: "Bakımsız klimaların evaporatör ve filtrelerinde biriken tozlar, bakteriler ve küfler zamanla Lejyoner hastalığı gibi ciddi solunum yolu enfeksiyonlarına yol açabilir. Ayrıca tıkanmış serpantinler kompresörü yorarak elektrik tüketimini ciddi oranda artırır.",
+    title: "Kombi Arıza Servisi",
+    slug: "kombi-ariza-servisi",
+    iconName: "cpu",
+    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop",
+    intro: "Kombiniz sıcak su vermiyor, petekleri ısıtmıyor, basınç düşürüyor veya ateşleme yapmıyorsa sertifikalı kombi teknisyenlerimizle 7/24 güvenli servis sunuyoruz.",
+    whyRequired: "Kombi arızaları kış aylarında konfor kaybına ve gaz kaçakları ile aşırı yüksek doğalgaz faturalarına yol açabilir.",
     scope: [
-      { title: "İlaçlı Serpantin Temizliği", desc: "İç ünite evaporatörü ve dış ünite kondanseri, klimaya özel antibakteriyel kimyasal ilaçlarla yıkanarak dezenfekte edilir." },
-      { title: "Filtre ve Drenaj Temizliği", desc: "Toz filtreleri yıkanır, drenaj tavası ve tahliye hortumu temizlenerek su akıtma riskleri önceden engellenir." },
-      { title: "Elektriksel Parametre Testleri", desc: "Kompresör çekilen akım değerleri, fan motoru hız kontrolü ve bağlantı klemenslerinin sıkılığı kontrol edilir." },
-      { title: "Gaz Basınç Kontrolü", desc: "Klimanın soğutucu akışkan (gaz) seviyesi ölçülerek performans testi yapılır." }
+      { title: "Anakart & İyonizasyon Tamiri", desc: "Ateşleme yapmayan veya hata kodu veren kombilerin elektronik kartları onarılır." },
+      { title: "Devirdaim Pompası & Üç Yollu Vana", desc: "Peteklere sıcak su sirkülasyonunu sağlayan pompa ve vana bakımları yapılır." },
+      { title: "Eşanjör & Petek Temizliği", desc: "Kireçlenen plakalı eşanjörler ve petekler özel ilacımızla yıkanarak ısı verimi artırılır." }
     ],
     benefits: [
-      "Yaşam alanlarınızda temiz, steril ve sağlıklı bir hava sirkülasyonu sağlar.",
-      "Elektrik faturalarında %25 ila %35 oranında tasarruf elde edilmesini garantiler.",
-      "Klimanızın kompresör ve fan ömrünü maksimum seviyede tutar.",
-      "Beklenmedik pahalı arızaların önüne erkenden geçilmesini sağlar."
+      "Doğalgaz faturalarında hissedilir tasarruf.",
+      "7/24 Kesintisiz sıcak su ve petek ısınma garantisi.",
+      "Sertifikalı ve uzman teknik kadro.",
+      "1 Yıl resmi işçilik ve parça garantisi."
     ],
     faqs: [
-      { q: "Klima bakımı ne sıklıkla yapılmalıdır?", a: "Sağlıklı bir hava kalitesi ve yüksek verim için yaz ve kış sezonu başlangıcı olmak üzere yılda en az iki kez periyodik bakım yaptırılması tavsiye edilir." },
-      { q: "Klima temizliğini kendim yapabilir miyim?", a: "Kendi başınıza sadece toz filtrelerini yıkayabilirsiniz. Ancak serpantinlerin kimyasal ilaçla yıkanması ve gaz ölçümleri teknik bilgi ve ekipman gerektirir." },
-      { q: "Bakımda kullanılan ilaçlar sağlığa zararlı mıdır?", a: "Hayır. Kullandığımız dezenfektanlar klimalar için özel üretilmiş, biyobozunur ve durulama sonrası havaya karışmayan sertifikalı ürünlerdir." }
+      { q: "Kombi bar basıncı neden sürekli düşer?", a: "Genleşme tankı havası bitmiş olabilir veya tesisatta mikro su kaçağı mevcuttur." },
+      { q: "Peteklerin altı soğuk üstü sıcaksa?", a: "Petek içinde çamurlaşma birikmiştir. Tesisat yıkanarak sirke ve kimyasal bakımla temizlenmelidir." },
+      { q: "Kombi su akıtıyorsa ne yapılmalı?", a: "Emniyet valfi açmış olabilir. Kombiyi kapatıp servis çağırmanız önerilir." }
     ]
   },
   "klima-montaj": {
-    title: "Klima Montaj & Deplase",
-    slug: "klima-montaj",
-    iconName: "cpu",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop",
-    intro: "Split, kaset, salon tipi ve VRF/VRV klima sistemlerinin mühendislik standartlarına uygun montaj, demontaj ve yer değiştirme (deplase) işlemlerini gerçekleştiriyoruz. Doğru konumlandırma ve garantili bakır boru tesisatıyla cihazınızdan maksimum verim almanızı sağlıyoruz.",
-    whyRequired: "Hatalı monte edilen klimalar, drenaj eğimsizliği nedeniyle su akıtabilir, vakum yapılmaması durumunda sistem içinde kalan hava nedeniyle kompresör arızasına yol açabilir ve verimsiz çalışarak yüksek elektrik tüketebilir.",
+    title: "Çamaşır Makinesi Arıza Servisi",
+    slug: "camasir-makinesi-ariza-servisi",
+    iconName: "activity",
+    image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop",
+    intro: "Çamaşır makineniz su almıyor, sıkma yapmıyor, sesli çalışıyor veya su sızdırıyorsa uzman teknik ekibimiz orijinal yedek parça garantisiyle aynı gün yerinde tamir hizmeti sunar.",
+    whyRequired: "Çamaşır makinesi arızaları zamanında giderilmediğinde motor yanması, kazan bilyası dağılması veya evi su basması gibi büyük hasarlara yol açabilir.",
     scope: [
-      { title: "Profesyonel Konumlandırma", desc: "İç ünitenin doğrudan insan üzerine üflemeyeceği, dış ünitenin ise hava sirkülasyonu rahat olan en doğru konuma monte edilmesi sağlanır." },
-      { title: "Gaz Toplama (Demontaj)", desc: "Söküm işlemi öncesinde cihaz çalıştırılarak gazı dış ünite kompresörüne kayıpsız toplanır ve vanalar kapatılır." },
-      { title: "Nizami Bakır Borulama", desc: "Marka standartlarına uygun kalınlıkta bakır boru, drenaj hortumu ve sinyalizasyon kablosu estetik kanallarla çekilir." },
-      { title: "Sistem Vakumlama", desc: "Montaj sonrasında bakır boruların içindeki hava ve nem vakum pompasıyla çekilerek kompresörün sağlığı korunur." }
+      { title: "Motor ve Kazan Tamiri", desc: "Kazan bilyası, amortisör, kayış ve motor kömürü değişimleri yerinde yapılır." },
+      { title: "Pompa ve Kart Onarımı", desc: "Su tahliye pompası tıkanıklığı ve elektronik kart arızaları orijinal parçalarla giderilir." },
+      { title: "Deterjan ve Rezistans Bakımı", desc: "Kireçlenen ısıtıcı rezistanslar değiştirilerek yıkama kalitesi ilk günkü seviyesine getirilir." }
     ],
     benefits: [
-      "Vakumlama işlemi sayesinde kompresörün aşınmasını ve arızalanmasını önlüyoruz.",
-      "Klimanızın gazını havaya salmadan, kayıpsız bir şekilde taşıyoruz.",
-      "Terazili ve sağlam montaj ile gürültü ve titreşim risklerini sıfıra indiriyoruz.",
-      "Mekana en uygun konumlandırma ile homojen bir hava dağılımı sağlıyoruz."
+      "Aynı gün adreste hızlı arıza tespiti ve tamir.",
+      "1 Yıl parça ve işçilik garantisi.",
+      "Orijinal ve sertifikalı yedek parça kullanımı.",
+      "Sıkma ve yıkama performansının yenilenmesi."
     ],
     faqs: [
-      { q: "Klima sökülürken içindeki gaz kaybolur mu?", a: "Hayır. Teknisyenlerimiz sökümden önce gaz toplama işlemi yaparak klimanın kendi soğutucu akışkanını dış üniteye hapseder ve vanaları kilitler." },
-      { q: "Klima montajında vakumlama neden zorunludur?", a: "Vakumlama, tesisat içindeki nemi ve havayı temizler. Nem temizlenmezse gazla birleşerek asit oluşturur ve kompresör sargılarını yakabilir." },
-      { q: "Dış ünite nereye monte edilmelidir?", a: "Dış ünite, güneş ışığını doğrudan uzun süre almayan, hava giriş çıkışının engellenmediği ve servis verilebilmesi kolay olan sağlam zemin veya konsollara asılmalıdır." }
+      { q: "Çamaşır makinesi neden çok gürültülü sıkma yapar?", a: "Kazan bilyalarının (rulman) aşınması veya amortisörlerin patlaması sıkma esnasında şiddetli sarsıntı ve gürültüye sebep olur." },
+      { q: "Makine suyu boşaltmıyorsa ne yapılmalı?", a: "Pompa filtresinde bozuk para veya yabancı cisim birikmiş olabilir. Filtre temizlendikten sonra sorun sürüyorsa pompa motoru değiştirilir." },
+      { q: "Tamir garantili midir?", a: "Evet, servisimiz tarafından değiştirilen tüm parçalar 1 yıl garanti kapsamındadır." }
     ]
   },
   "gaz-dolumu": {
-    title: "Gaz Dolumu & BTU Keşfi",
-    slug: "gaz-dolumu",
+    title: "Buzdolabı Arıza Servisi",
+    slug: "buzdolabi-ariza-servisi",
     iconName: "zap",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop",
-    intro: "Gaz seviyesi düşmüş veya kaçak nedeniyle gazı tamamen boşalmış klimaların hassas sızıntı tespiti, kaçak onarımı ve çevre dostu R32 / R410A gaz şarjı işlemlerini yapıyoruz. Ayrıca odanız için en doğru BTU klima kapasitesini analiz ediyoruz.",
-    whyRequired: "Eksik gazla çalışan klimalar, evaporatörde karlanma yapar ve soğutma/ısıtma verimi düşer. Kompresör soğuyamadığı için sürekli aşırı yük altında çalışır ve bir süre sonra yanarak kalıcı hasar görür.",
+    image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop",
+    intro: "Buzdolabınız soğutmuyor, buzlanma yapıyor, motoru sürekli çalışıyor veya gaz kaçağı varsa gıdalarınız bozulmadan acil mobil ekibimiz adresi ziyaret eder.",
+    whyRequired: "Buzdolabı arızaları gıdaların hızla bozulmasına ve yüksek maddi kayıplara sebep olan en kritik ev aleti arızalandırır.",
     scope: [
-      { title: "Hassas Gaz Kaçak Tespiti", desc: "Gaz dolumundan önce sistem azot gazı ile basınçlandırılarak köpük ve elektronik kaçak dedektörleriyle sızıntı noktası belirlenir." },
-      { title: "Gaz Kaçağı Onarımı", desc: "Tespit edilen bakır boru çatlakları, rekor bağlantıları veya kaynak noktaları profesyonelce onarılır." },
-      { title: "Gramajlı R32 / R410A Şarjı", desc: "Üretici kataloğundaki gramaj değerlerine uygun olarak hassas terazilerle klima gaz şarjı yapılır." },
-      { title: "BTU Kapasite Keşfi", desc: "Odanın metrekaresi, cephesi, pencere alanları ve kişi sayısı hesaplanarak en uygun BTU kapasitesi belirlenir." }
+      { title: "Kompresör (Motor) Değişimi", desc: "Sıkışan veya yanan motorlar orijinal sıfır kompresörle değiştirilerek sistem vakumlanır ve gaz şarjı yapılır." },
+      { title: "No-Frost Defrost Tamiri", desc: "Buzlanmayı önleyen rezistans, bi-metal termostat ve sensörler kontrol edilir." },
+      { title: "Gaz Kaçak Tespiti & Şarjı", desc: "R600a ve R134a gaz sızıntıları kaynakla giderilip hassas terazili gaz dolumu gerçekleştirilir." }
     ],
     benefits: [
-      "Kaçak onarılmadan gaz basılmayarak paranızın boşa gitmesi engellenir.",
-      "Doğru gaz seviyesi ile klimanızdan maksimum soğutma performansı alırsınız.",
-      "Kompresörün aşırı ısınması engellenerek ömrü korunur.",
-      "Doğru BTU seçimi ile elektrik tüketimini dengeleyebilirsiniz."
+      "Gıdalarınız bozulmadan acil hızlı müdahale.",
+      "Garantili motor ve gaz şarjı işlemleri.",
+      "Sessiz ve verimli kompresör performansı.",
+      "Tüm No-Frost ve Gardırop tipi dolaplarda uzmanlık."
     ],
     faqs: [
-      { q: "Klima gazı kendi kendine biter mi?", a: "Hayır. Klima gazı kapalı devre bir sistemdir. Gazın eksilmesi ancak tesisatta veya rekorlarda bir gaz kaçağı (sızıntı) olması durumunda gerçekleşir." },
-      { q: "R32 gazı ile R410A gazı arasındaki fark nedir?", a: "R32 yeni nesil çevre dostu bir gazdır, küresel ısınma potansiyeli R410A'ya göre %68 daha düşüktür ve enerji verimliliği daha yüksektir." },
-      { q: "Klima gazının eksildiğini nasıl anlarız?", a: "Klimanın üfleme sıcaklığı yetersiz kalır, iç ünitedeki ince bakır boruda karlanma/buzlanma görülür veya dış ünite boru bağlantılarında yağlanma fark edilir." }
+      { q: "Buzdolabının alt kısmı neden soğutmaz?", a: "No-Frost hava kanallarının buzlanması veya damper motoru arızası üstten alta soğuk hava akışını engeller." },
+      { q: "Motor çok sıcak ve sürekli çalışıyorsa?", a: "Gaz eksikliği veya termostat arızası nedeniyle dolap istenen dereceye ulaşamadığı için motor durmadan çalışır." },
+      { q: "Gaz dolumu garantili midir?", a: "Kaçak testi yapılıp sızıntı kaynaklandıktan sonra yapılan gaz dolumları 1 yıl garantilidir." }
     ]
   }
 };
@@ -232,8 +398,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <ServiceDetailClientPage
         slug={hizmet}
         service={service}
-        allServices={Object.values(SERVICES_DATA)}
+        allServices={Array.from(new Map(Object.values(SERVICES_DATA).map(item => [item.slug, item])).values())}
       />
+
     </>
   );
 }

@@ -63,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/iletisim',
     '/blog',
     '/hesaplama-araclari',
-    '/guc-ihtiyac-analizi',
+    '/hizmetler/ariza-teshis-sihirbazi',
     '/gizlilik-politikasi',
     '/kullanim-kosullari',
     '/kvkk',

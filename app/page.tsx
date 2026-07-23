@@ -15,6 +15,8 @@ interface ServiceItem {
 }
 
 import { TESTIMONIALS_DATA } from "@/data/testimonials";
+import UrgencyCountdownBanner from "@/components/UrgencyCountdownBanner";
+import TroubleshootingWizard from "@/components/TroubleshootingWizard";
 
 import { 
   ArrowRight, 
@@ -307,20 +309,25 @@ function LogoCarousel({ partners }: { partners: { name: string; logo: string }[]
         }
       `}</style>
 
-      <div className="marquee-container gap-16" suppressHydrationWarning={true}>
+      <div className="marquee-container gap-6" suppressHydrationWarning={true}>
         {duplicatedPartners.map((partner, index) => (
           <div 
             key={index}
-            className="flex items-center justify-center w-[260px] h-28 bg-white border border-gray-150 rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#0EA5E9]/20 transition-all duration-300 shrink-0 hover:scale-105"
+            className="flex items-center gap-4 px-6 py-4 bg-white border border-gray-150 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-[#0EA5E9]/30 transition-all duration-300 shrink-0 hover:scale-105"
             suppressHydrationWarning={true}
           >
-            <img 
-              src={partner.logo} 
-              alt={partner.name} 
-              className="max-w-[200px] max-h-[80px] w-auto h-auto object-contain mix-blend-multiply" 
-              loading="lazy" 
-              suppressHydrationWarning={true}
-            />
+            <div className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center p-2 shrink-0">
+              <img 
+                src={partner.logo} 
+                alt={partner.name} 
+                className="w-full h-full object-contain" 
+                loading="lazy" 
+                suppressHydrationWarning={true}
+              />
+            </div>
+            <span className="font-black text-gray-900 text-sm tracking-tight uppercase whitespace-nowrap">
+              {partner.name}
+            </span>
           </div>
         ))}
       </div>
@@ -331,14 +338,14 @@ function LogoCarousel({ partners }: { partners: { name: string; logo: string }[]
 function CertificatesCarousel() {
   const certs = [
     {
-      title: "TSE Belgesi",
-      desc: "Türk Standartları Enstitüsü Hizmet Yeterlilik Belgesi",
-      code: "TSE-HYB",
+      title: "MYK Belgesi",
+      desc: "Mesleki Yeterlilik Kurumu Sertifikalı Uzman Ekipler",
+      code: "MYK-HYB",
       colorClass: "border-blue-100 hover:border-blue-300 bg-blue-50/10",
       svg: (
         <svg viewBox="0 0 100 100" className="w-16 h-16 text-blue-800">
-          <polygon points="30,10 70,10 90,30 90,70 70,90 30,90 10,70 10,30" fill="none" stroke="currentColor" strokeWidth="6" />
-          <text x="50" y="58" textAnchor="middle" fontSize="24" fontWeight="900" fontFamily="sans-serif" fill="currentColor" letterSpacing="1">TSE</text>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" />
+          <path d="M 32 52 L 45 65 L 68 38" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     },
@@ -433,61 +440,91 @@ function CertificatesCarousel() {
   );
 }
 
+function AnimatedCounter({ 
+  targetValue, 
+  prefix = "", 
+  suffix = "" 
+}: { 
+  targetValue: number; 
+  prefix?: string; 
+  suffix?: string; 
+}) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const duration = 2200;
+          const startTime = performance.now();
+
+          const animate = (currentTime: number) => {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            const currentCount = Math.floor(easeProgress * targetValue);
+            setCount(currentCount);
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setCount(targetValue);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [targetValue, hasAnimated]);
+
+  return (
+    <div ref={ref} className="font-black text-[#0EA5E9] text-xl md:text-2xl leading-none">
+      {prefix}
+      {count.toLocaleString("tr-TR")}
+      {suffix}
+    </div>
+  );
+}
+
 // ─── Blog-based "Bilgi Merkezi" preview for homepage ────────────────────────
-const STATIC_BLOG_POSTS = [
+const STATIC_BLOG_POSTS: BlogPostPreview[] = [
   {
-    slug: "klima-bakim-neden-onemli",
-    title: "Klima Bakımı Neden Bu Kadar Önemli? Uzman Tavsiyeleri",
-    desc: "Düzenli klima bakımı hem enerji tasarrufu sağlar hem de cihazınızın ömrünü uzatır. Bakımsız klimaların yol açtığı sorunlar ve çözümleri.",
-    category: "Klima Bakımı",
-    readTime: "6 Dk Okuma",
-    date: "18 Haziran 2026",
-    img: "/images/akanenerji/hizmet-jenerator-servis.jpg",
-  },
-  {
-    slug: "klima-gaz-dolumu-ne-zaman",
-    title: "Klimam Soğutmuyor: Gaz Dolumu Gerekli mi?",
-    desc: "Klimanızın soğutma performansı düştüyse, gaz kaçağı olabilir. Gaz dolumunun ne zaman gerekli olduğunu ve nasıl anlaşılacağını açıklıyoruz.",
-    category: "Arıza Giderme",
-    readTime: "5 Dk Okuma",
-    date: "12 Haziran 2026",
-    img: "/images/akanenerji/hizmet-kiralama.jpg",
-  },
-  {
-    slug: "klima-montaj-rehberi",
-    title: "Klima Montajında Dikkat Edilmesi Gereken 7 Kritik Nokta",
-    desc: "Doğru klima montajı hem verimi hem de güvenliği doğrudan etkiler. Profesyonel montaj sırasında gözetilmesi gereken kritik detaylar.",
-    category: "Montaj",
+    slug: "klima-bakimi-ne-zaman-yapilir",
+    title: "Klima Bakımı Ne Zaman Yapılır? Mevsimlik Bakım Rehberi",
+    desc: "Klimanızın verimli çalışması ve sağlığınız için yılda en az iki kez ilaçlı bakım yaptırmanız gerekir. Filtre temizliği ve hijyen adımları.",
+    category: "Bakım & Servis",
     readTime: "7 Dk Okuma",
-    date: "05 Haziran 2026",
-    img: "/images/akanenerji/hizmet-jenerator-kiralama-new.png",
+    date: "18 Temmuz 2026",
+    img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80",
   },
   {
-    slug: "btu-hesaplama-rehberi",
-    title: "Odanız İçin Kaç BTU'luk Klima Lazım? BTU Hesabı",
-    desc: "Oda metrekaresi, tavan yüksekliği ve güneş alımına göre doğru klima kapasitesini nasıl hesaplarsınız? Adım adım BTU rehberi.",
-    category: "Kapasite Hesabı",
+    slug: "kombi-bakimi-ve-petek-temizligi",
+    title: "Kombi Bakımı ve Petek Temizliği Nasıl Yapılır?",
+    desc: "Doğalgaz faturanız yüksek geliyorsa peteklerde çamurlaşma olabilir. Kombi bakımı ve petek temizliği ile %25'e varan yakıt tasarrufu.",
+    category: "Kombi & Isıtma",
     readTime: "8 Dk Okuma",
-    date: "28 Mayıs 2026",
-    img: "/images/akanenerji/blog-kva-hesap.jpg",
+    date: "15 Temmuz 2026",
+    img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=800&q=80",
   },
   {
-    slug: "vrf-vrv-sistemleri-nedir",
-    title: "VRF ve VRV Klima Sistemleri Nedir? Avantajları",
-    desc: "Büyük binalarda merkezi iklimlendirme için kullanılan VRF/VRV sistemlerinin özellikleri, avantajları ve kurulum sürecine dair detaylı rehber.",
-    category: "VRF Sistemleri",
-    readTime: "9 Dk Okuma",
-    date: "15 Mayıs 2026",
-    img: "/images/akanenerji/hizmet-jenerator-yedek-parca-v3.png",
-  },
-  {
-    slug: "klima-kotu-koku-nedenleri",
-    title: "Klimadan Kötü Koku Geliyor: Nedenleri ve Çözümü",
-    desc: "Klimadan gelen küf ve hoş olmayan kokuların sebebi ne? Filtrelerin kirlenmesi ve bakım ihmalinin yol açtığı sonuçlar ve kalıcı çözümler.",
-    category: "Klima Bakımı",
-    readTime: "4 Dk Okuma",
-    date: "08 Mayıs 2026",
-    img: "/images/akanenerji/blog-hararet.jpg",
+    slug: "camasir-makinesi-sikma-yapmiyor-neden",
+    title: "Çamaşır Makinesi Sıkma Yapmıyor ve Su Boşaltmıyor",
+    desc: "Çamaşır makineniz suyu tahliye etmiyor veya kazan dönmüyorsa pompa filtresi tıkanıklığı veya kayış kopması olabilir. Adım adım çözüm.",
+    category: "Beyaz Eşya",
+    readTime: "6 Dk Okuma",
+    date: "10 Temmuz 2026",
+    img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -508,7 +545,7 @@ function InfoCenterSection() {
     fetch("/api/posts?t=" + Date.now(), { cache: "no-store" })
       .then((r) => r.json())
       .then((data: Array<{ slug: string; title: string; excerpt?: string; date?: string; category?: string; imageUrl?: string }>) => {
-        if (Array.isArray(data)) {
+        if (Array.isArray(data) && data.length > 0) {
           const nowStr = new Date().toISOString().split('T')[0];
           const activeData = data.filter(p => !p.date || p.date <= nowStr);
 
@@ -517,9 +554,9 @@ function InfoCenterSection() {
             title: p.title,
             desc: p.excerpt ?? "",
             category: p.category ?? "Genel",
-            readTime: "3 Dk Okuma",
-            date: typeof p.date === "string" ? p.date.split("-").reverse().join(" ") : "",
-            img: p.imageUrl ?? "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600&auto=format&fit=crop"
+            readTime: "5 Dk Okuma",
+            date: typeof p.date === "string" ? p.date.split("-").reverse().join(" / ") : "",
+            img: p.imageUrl && p.imageUrl.startsWith("http") ? p.imageUrl : "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
           }));
           setPosts(formatted);
         }
@@ -530,26 +567,17 @@ function InfoCenterSection() {
       });
   }, []);
 
-  // Deterministically shuffle posts based on the current day of the month so they cycle daily
   const visiblePosts = useMemo(() => {
-    if (posts.length === 0) return [];
-    const day = new Date().getDate(); // 1 to 31
-    const shuffled = [...posts];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = (day * (i + 1)) % (i + 1);
-      const temp = shuffled[i];
-      shuffled[i] = shuffled[j];
-      shuffled[j] = temp;
-    }
-    return shuffled.slice(0, 3);
+    if (!posts || posts.length === 0) return STATIC_BLOG_POSTS;
+    return posts.slice(0, 3);
   }, [posts]);
 
   const categoryColors: Record<string, string> = {
-    "Klima Bakımı": "bg-blue-50 text-blue-600 border border-blue-100",
-    "Arıza Giderme": "bg-red-50 text-red-600 border border-red-100",
-    "Montaj": "bg-green-50 text-green-600 border border-green-100",
-    "Kapasite Hesabı": "bg-amber-50 text-amber-600 border border-amber-100",
-    "VRF Sistemleri": "bg-purple-50 text-purple-600 border border-purple-100",
+    "Bakım & Servis": "bg-blue-50 text-blue-600 border border-blue-100",
+    "Kombi & Isıtma": "bg-amber-50 text-amber-600 border border-amber-100",
+    "Beyaz Eşya": "bg-emerald-50 text-emerald-600 border border-emerald-100",
+    "Arıza & Tanı": "bg-red-50 text-red-600 border border-red-100",
+    "Montaj & Kurulum": "bg-purple-50 text-purple-600 border border-purple-100",
     "Genel": "bg-gray-50 text-gray-600 border border-gray-100",
   };
 
@@ -781,42 +809,70 @@ function HizmetlerSection({ services: _services }: { services: ServiceItem[] }) 
 
   const galleryItems = [
     {
-      title: "Klima Arıza Servisi",
-      subtitle: "7/24 Mobil Acil Teknik Servis",
-      tag: "Arıza",
-      href: "/hizmetler/ariza-servis-7-24",
-      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=900&auto=format&fit=crop",
-      desc: "Klimanız arızalandığında Sakarya genelinde 7/24 mobil ekibimizle en kısa sürede yerinde müdahale sağlıyoruz. Isıtma-soğutma arızaları, kompresör sorunları ve elektrik arızalarında hızlı çözüm.",
-      items: ["7/24 Acil Mobil Servis", "Aynı Gün Müdahale", "Tüm Marka ve Modeller"]
+      title: "Çamaşır Makinesi Arıza Servisi",
+      subtitle: "Motor, Kazan & Pompa Tamiri",
+      tag: "Çamaşır",
+      href: "/hizmetler/camasir-makinesi-ariza-servisi",
+      img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=900&auto=format&fit=crop",
+      desc: "Çamaşır makineniz su almıyor, sıkma yapmıyor, sesli çalışıyor veya su sızdırıyorsa uzman teknik ekibimiz orijinal yedek parça garantisiyle aynı gün yerinde tamir hizmeti sunar.",
+      items: ["Kazan & Motor Tamiri", "Pompa & Kart Onarımı", "1 Yıl Parça Garantisi"]
     },
     {
-      title: "Klima Periyodik Bakımı",
-      subtitle: "Filtre Temizleme & Sistem Kontrolü",
-      tag: "Bakım",
-      href: "/hizmetler/periyodik-kontrol",
-      img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=900&auto=format&fit=crop",
-      desc: "Klimanızın verimini artırmak ve uzun ömürlü çalışmasını sağlamak için filtre temizliği, gaz basınç kontrolü ve genel sistem bakımı hizmetleri.",
-      items: ["Filtre Temizleme & Değişimi", "Gaz Basınç Kontrolü", "Yıllık Bakım Anlaşması"]
+      title: "Bulaşık Makinesi Arıza Servisi",
+      subtitle: "Hijyenik & Lekesiz Yıkama",
+      tag: "Bulaşık",
+      href: "/hizmetler/bulasik-makinesi-ariza-servisi",
+      img: "https://images.unsplash.com/photo-1585837575652-267c041d77d4?q=80&w=900&auto=format&fit=crop",
+      desc: "Bulaşık makineniz iyi yıkamıyor, lekeli bırakıyor, su ısıtmıyor veya kurutma yapmıyorsa 7/24 mobil teknik servisimizle sorunsuz çözümler sağlıyoruz.",
+      items: ["Sirkülasyon Pompası Tamiri", "Rezistans & NTC Değişimi", "Fıskiye & Kart Bakımı"]
     },
     {
-      title: "Klima Montajı & Demontajı",
-      subtitle: "Profesyonel Kurulum & Söküm",
-      tag: "Montaj",
-      href: "/hizmetler/klima-montaj",
-      img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=900&auto=format&fit=crop",
-      desc: "Split, kaset, cassette ve VRF/VRV sistemlerinin profesyonel montajı. Doğru konumlama, bakır boru ve elektrik tesisatıyla garantili kurulum.",
-      items: ["Split & Kaset Klima Montajı", "VRF/VRV Sistem Kurulumu", "Garanti Kapsamında Montaj"]
+      title: "Buzdolabı Arıza Servisi",
+      subtitle: "Kompresör & Defrost Tamiri",
+      tag: "Buzdolabı",
+      href: "/hizmetler/buzdolabi-ariza-servisi",
+      img: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=900&auto=format&fit=crop",
+      desc: "Buzdolabınız soğutmuyor, buzlanma yapıyor, motoru sürekli çalışıyor veya gaz kaçağı varsa gıdalarınız bozulmadan acil mobil ekibimiz adresi ziyaret eder.",
+      items: ["Kompresör (Motor) Değişimi", "No-Frost Defrost Tamiri", "R600a/R134a Gaz Şarjı"]
     },
     {
-      title: "Gaz Dolumu & Bakım",
-      subtitle: "R32 / R410A / R22 Gaz Dolumu",
-      tag: "Gaz",
-      href: "/hizmetler/gaz-dolumu",
-      img: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=900&auto=format&fit=crop",
-      desc: "Klimanızın soğutma gazı bitmişse ya da gaz kaçağı yaşıyorsanız, sertifikalı teknisyenlerimiz uygun gaz tipini doldurarak sisteminizi optimum performansa kavuşturur.",
-      items: ["R32, R410A, R22 Gaz Dolumu", "Kaçak Tespiti & Giderimi", "Sertifikalı Teknisyen"]
+      title: "Kombi Arıza Servisi",
+      subtitle: "Ateşleme, Kart & Pompa Servisi",
+      tag: "Kombi",
+      href: "/hizmetler/kombi-ariza-servisi",
+      img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=900&auto=format&fit=crop",
+      desc: "Kombiniz sıcak su vermiyor, petekleri ısıtmıyor, basınç düşürüyor veya ateşleme yapmıyorsa sertifikalı kombi teknisyenlerimizle 7/24 güvenli servis sunuyoruz.",
+      items: ["Anakart & İyonizasyon Tamiri", "Üç Yollu Vana & Pompa", "Petek Temizliği & Bakım"]
     },
+    {
+      title: "Klima Arızası Servisi",
+      subtitle: "7/24 Acil İklimlendirme Destek",
+      tag: "Klima",
+      href: "/hizmetler/klima-arizasi-servisi",
+      img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=900&auto=format&fit=crop",
+      desc: "Sakarya genelinde klimanız soğutmuyor, ısıtmıyor, su akıtıyor veya sesli çalışıyorsa 7/24 tam donanımlı mobil araçlarımızla yerinde arıza tespiti ve tamir hizmeti sağlıyoruz.",
+      items: ["Inverter Kart & Kompresör", "R32/R410A Gaz Dolumu", "30 Dk Acil Mobil Servis"]
+    },
+    {
+      title: "Küçük Ev Aletleri Arıza Servisi",
+      subtitle: "Süpürge, Kahve Makinesi & Ütü",
+      tag: "Ev Aletleri",
+      href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi",
+      img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=900&auto=format&fit=crop",
+      desc: "Süpürge, mikser, kahve makinesi, ütü, robot süpürge ve diğer küçük ev aletlerinizdeki motor, kablo ve rezistans arızalarını garantili şekilde onarıyoruz.",
+      items: ["Süpürge Motoru & Filtre", "Kahve Makinesi Rezistansı", "Robot Süpürge Batarya"]
+    },
+    {
+      title: "Kurutma Makinesi Arıza Servisi",
+      subtitle: "Isı Pompası & Kayış Tamiri",
+      tag: "Kurutma",
+      href: "/hizmetler/kurutma-makinesi-ariza-servisi",
+      img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=900&auto=format&fit=crop",
+      desc: "Kurutma makineniz çamaşırları nemli bırakıyor, ısıtmıyor, koku yapıyor veya kayış koparmışsa ısı pompalı ve yoğuşmalı tüm modellerde uzman servis sağlıyoruz.",
+      items: ["Isı Pompası & Gaz Şarjı", "Kazan Kayışı & Kasnak", "Kondanser & Sensör Bakımı"]
+    }
   ];
+
 
   return (
     <section ref={sectionRef} className="py-20 bg-[#0F1923] relative overflow-hidden border-t border-white/5">
@@ -1056,81 +1112,104 @@ const STATIC_PROJECTS: Project[] = PROJECTS.map((p) => ({
 const STAGES = [
   {
     index: 0,
-    label: "Karşılama",
+    label: "Klima Servisi",
     badge: "Sakarya Uzman Klima · İklimlendirme Servisi",
-    title: "Konforunuz",
-    titleYellow: "Uzman Ellerinde",
-    desc: "Sakarya Uzman Klima olarak; tüm klima marka ve modellerinde montaj, bakım, arıza tamiri ve gaz dolumu hizmetleri sunuyoruz. Sakarya'nın güvenilir klima uzmanı.",
+    title: "Klima",
+    titleYellow: "Arıza & Bakım",
+    desc: "Inverter split, kaset ve VRF klima arızalarında 7/24 mobil araçlarımızla profesyonel müdahale, R32/R410A gaz dolumu ve ilaçlı periyodik bakım.",
     bg: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1920&auto=format&fit=crop",
-    btnText: "Hakkımızda",
-    btnHref: "/hakkimizda"
+    btnText: "Klima Hizmeti",
+    btnHref: "/hizmetler/klima-arizasi-servisi"
   },
   {
     index: 1,
-    label: "Arıza Servisi",
-    badge: "7/24 Hızlı Müdahale",
-    title: "Klima",
+    label: "Çamaşır Makinesi",
+    badge: "Garantili Adreste Tamir",
+    title: "Çamaşır Makinesi",
     titleYellow: "Arıza Servisi",
-    desc: "Klimanız bozulduğunda Adapazarı, Serdivan, Erenler ve tüm Sakarya ilçelerinde 7/24 mobil acil teknik ekibimizle aynı gün yerinde müdahale sağlıyoruz.",
-    bg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1920&auto=format&fit=crop",
-    btnText: "Hemen Ara",
-    btnHref: "tel:+905321234567"
+    desc: "Çamaşır makineniz sıkmada gürültü mü yapıyor, su mu boşaltmıyor veya tambur dönmüyor mu? Sakarya genelinde orijinal parça ve 1 yıl garantiyle aynı gün hizmet.",
+    bg: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=1920&auto=format&fit=crop",
+    btnText: "Çamaşır Makinesi Servisi",
+    btnHref: "/hizmetler/camasir-makinesi-ariza-servisi"
   },
   {
     index: 2,
-    label: "Bakım Servisi",
-    badge: "Koruyucu Periyodik Bakım",
-    title: "Klima",
-    titleYellow: "Bakım Servisi",
-    desc: "Klimanızın verimini artırmak ve uzun ömürlü çalışmasını sağlamak için filtre temizliği, gaz basınç kontrolü ve kapsamlı sistem bakımı yapıyoruz.",
-    bg: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1920&auto=format&fit=crop",
-    btnText: "Anlaşma Yap",
-    btnHref: "/iletisim"
+    label: "Bulaşık Makinesi",
+    badge: "Lekesiz Temizlik & Uzman Onarım",
+    title: "Bulaşık Makinesi",
+    titleYellow: "Arıza Servisi",
+    desc: "Bulaşık makineniz su ısıtmıyor, deterjanı eritmiyor, iyi yıkamıyor veya su mu akıtıyor? Sirkülasyon pompası ve anakart tamirinde yerinde çözüm.",
+    bg: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop",
+    btnText: "Bulaşık Makinesi Servisi",
+    btnHref: "/hizmetler/bulasik-makinesi-ariza-servisi"
   },
   {
     index: 3,
-    label: "Montaj & Demontaj",
-    badge: "Profesyonel Klima Kurulumu",
-    title: "Klima Montajı",
-    titleYellow: "& Demontajı",
-    desc: "Split, kaset ve VRF/VRV sistemlerinin profesyonel montajı. Doğru konumlama, bakır boru ve elektrik tesisatıyla garantili kurulum; yaz-kış optimum verim.",
-    bg: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1920&auto=format&fit=crop",
-    btnText: "Teklif İsteyin",
-    btnHref: "/iletisim"
+    label: "Buzdolabı Servisi",
+    badge: "30 Dk Acil Mobil Müdahale",
+    title: "Buzdolabı",
+    titleYellow: "Arıza Servisi",
+    desc: "Buzdolabınız soğutmuyor, buzlanma yapıyor veya motoru durmuyor mu? Gıdalarınız bozulmadan 30 dakikada nöbetçi mobil ekibimiz adrese ulaşır.",
+    bg: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=1920&auto=format&fit=crop",
+    btnText: "Buzdolabı Servisi",
+    btnHref: "/hizmetler/buzdolabi-ariza-servisi"
   },
   {
     index: 4,
-    label: "Gaz Dolumu & BTU",
-    badge: "Kapasite Analizi & Gaz Dolumu",
-    title: "BTU Analizi",
-    titleYellow: "& Gaz Dolumu",
-    desc: "Odası için doğru BTU değerini belirleyin; gaz kaçağı varsa anında tespit ve R32/R410A dolumu yapılır. Sertifikalı teknisyenlerle garantili hizmet.",
-    bg: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1920&auto=format&fit=crop",
-    btnText: "BTU Hesapla",
-    btnHref: "/hesaplama-araclari"
+    label: "Kombi Servisi",
+    badge: "7/24 Kesintisiz Isınma Güvencesi",
+    title: "Kombi",
+    titleYellow: "Arıza & Bakım",
+    desc: "Kombiniz sıcak su vermiyor, petekleri ısıtmıyor, basınç düşürüyor veya ateşleme yapmıyorsa sertifikalı kombi teknisyenlerimizle anında yerinde servis.",
+    bg: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1920&auto=format&fit=crop",
+    btnText: "Kombi Servisi",
+    btnHref: "/hizmetler/kombi-ariza-servisi"
+  },
+  {
+    index: 5,
+    label: "Kurutma Makinesi",
+    badge: "Isı Pompası & Kazan Kayışı",
+    title: "Kurutma Makinesi",
+    titleYellow: "Arıza Servisi",
+    desc: "Kurutma makineniz nemli bırakıyor, koku yapıyor veya tambur dönmüyorsa ısı pompalı ve yoğuşmalı tüm markalarda garantili tamir.",
+    bg: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=1920&auto=format&fit=crop",
+    btnText: "Kurutma Makinesi Servisi",
+    btnHref: "/hizmetler/kurutma-makinesi-ariza-servisi"
+  },
+  {
+    index: 6,
+    label: "Ev Aletleri Servisi",
+    badge: "Süpürge, Ütü & Kahve Makinesi",
+    title: "Küçük Ev Aletleri",
+    titleYellow: "Tamir Servisi",
+    desc: "Süpürge motoru, robot süpürge bataryası, ütü ve kahve makinesi arızalarında orijinal yedek parça garantisiyle ekonomik ve hızlı onarım.",
+    bg: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=1920&auto=format&fit=crop",
+    btnText: "Ev Aletleri Servisi",
+    btnHref: "/hizmetler/kucuk-ev-aletleri-ariza-servisi"
   }
 ];
 
+
 const FAQ_ITEMS = [
   {
-    question: "Klima bakımı ne sıklıkla yapılmalıdır?",
-    answer: "Sağlıklı bir hava kalitesi ve yüksek enerji verimliliği için klimaların yılda en az iki kez (yaz ve kış sezonu başlangıcında) periyodik bakımdan geçmesi önerilir."
+    question: "Klima ve kombi bakımı ne sıklıkla yapılmalıdır?",
+    answer: "Yüksek enerji verimliliği ve cihaz ömrü için klimaların yılda en az 2 kez (yaz ve kış öncesi), kombilerin ise yılda 1 kez periyodik bakımdan geçmesi önerilir."
   },
   {
-    question: "Klimanın soğutmamasının en yaygın sebepleri nelerdir?",
-    answer: "İç ünite filtrelerinin tıkanması, soğutucu gaz eksikliği (sızıntı), kompresör/fan motoru arızaları ile dış ünitenin aşırı ısınması en yaygın sebeplerdir."
+    question: "Çamaşır ve bulaşık makinesi arızalarında aynı gün servis veriyor musunuz?",
+    answer: "Evet, Adapazarı merkez depomuz ve Sakarya'nın 16 ilçesinde devrede olan mobil araçlarımız sayesinde arıza bildiriminizden sonra aynı gün adresinizde oluyoruz."
   },
   {
-    question: "Klima gaz dolumu ne zaman yapılmalıdır?",
-    answer: "Klima gazı normal şartlarda eksilmez. Ancak boru tesisatındaki rekor gevşemeleri veya kaynak çatlaklarından kaynaklanan sızıntılarda gaz azalır. Sızıntı onarıldıktan sonra dolum yapılır."
+    question: "Buzdolabı soğutmama ve ses yapma arızaları yerinde tamir edilebilir mi?",
+    answer: "Kompresör, gaz kaçağı, sensör ve kart arızalarının %90'dan fazlası donanımlı mobil servis araçlarımız sayesinde adreste aynı gün garantili olarak tamir edilir."
   },
   {
-    question: "Servis sonrasında yapılan işlemler garantili mi?",
-    answer: "Evet, Sakarya Uzman Klima bünyesinde yapılan arıza onarımları ve orijinal yedek parça değişimleri işçilik dahil 1 yıl süreyle resmi servis garantimiz altındadır."
+    question: "Yapılan arıza tamiri ve yedek parça değişimleri garantili mi?",
+    answer: "Evet, firmamız tarafından gerçekleştirilen tüm Klima, Kombi ve Beyaz Eşya arıza onarımları ile orijinal parça değişimleri 1 Yıl İşçilik ve Parça Garantisi altındadır."
   },
   {
-    question: "Klima montaj söküm işleminde gazı boşa gider mi?",
-    answer: "Hayır. Teknolojimiz ve söküm prosedürümüz sayesinde klima gazı dış ünite kompresörüne toplanır ve vanalar kapatılır. Böylece gaz kaybı yaşamadan klimanız sökülebilir."
+    question: "Kombide basınç düşmesi veya peteklerin ısınmaması neden olur?",
+    answer: "Tesisattaki su sızıntıları, genleşme tankı havasının eksilmesi veya sirkülasyon pompası tıkanıklıkları ısınma sorununa yol açar. Ekibimiz dijital cihazlarla sorunu adreste çözer."
   }
 ];
 
@@ -1143,7 +1222,8 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [serviceTab, setServiceTab] = useState<"konut" | "ticari">("konut");
+  const [serviceTab, setServiceTab] = useState<"beyaz-esya" | "klima-kombi">("beyaz-esya");
+
   const [hoveredKonut, setHoveredKonut] = useState(0);
   const [hoveredTicari, setHoveredTicari] = useState(0);
   const [testimonials, setTestimonials] = useState<any[]>(TESTIMONIALS_DATA.slice(0, 6));
@@ -1290,10 +1370,11 @@ export default function Home() {
   // Hero Slider Autoplay (automatically slide every 5 seconds)
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 5);
+      setActiveIndex((prev) => (prev + 1) % STAGES.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
 
   // Keyboard navigation
   useEffect(() => {
@@ -1393,7 +1474,7 @@ export default function Home() {
               <div className="space-y-1">
                 <h1 className="block">
                   <span className="block font-semibold uppercase tracking-[0.25em] text-[#0EA5E9] text-xs md:text-sm mb-2">
-                    {activeIndex === 0 ? "Sakarya Uzman Klima İklimlendirme Servisi" : STAGES[activeIndex].badge}
+                    {activeIndex === 0 ? "Sakarya Beyaz Eşya Kombi Klima Servisi" : STAGES[activeIndex].badge}
                   </span>
                   <span className="block font-black tracking-tight leading-[1.0] text-white text-[32px] sm:text-[46px] md:text-[68px] uppercase">
                     {STAGES[activeIndex].title}
@@ -1447,16 +1528,16 @@ export default function Home() {
         <div className="max-w-[1600px] mx-auto px-10 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
             {[
-              { icon: Wrench,      val: "7/24",    label: "Acil Klima Servisi" },
-              { icon: Snowflake,   val: "5.000+",  label: "Klima Servisi Tamamlandı" },
-              { icon: Droplets,    val: "R32/R410A",label: "Gaz Stoku Hazır" },
-              { icon: Gauge,       val: "A+++",    label: "Enerji Tasarrufu Uzmanı" },
+              { icon: Wrench,      val: <AnimatedCounter targetValue={7} suffix="/24" />, label: "Acil Mobil Teknik Servis" },
+              { icon: ShieldCheck, val: <AnimatedCounter targetValue={5000} suffix="+" />, label: "Başarılı Servis & Onarım" },
+              { icon: Settings,    val: <AnimatedCounter targetValue={100} prefix="%" />, label: "Orijinal Yedek Parça" },
+              { icon: Timer,       val: <AnimatedCounter targetValue={1} suffix=" Yıl" />, label: "Parça & İşçilik Garantisi" },
             ].map((stat, i) => {
               const Icon = stat.icon;
               return (
                 <div key={i} className="py-6 px-6 text-center flex flex-col items-center gap-2">
-                  <Icon className="w-5 h-5 text-primary/60" />
-                  <div className="font-black text-primary text-xl md:text-2xl leading-none">{stat.val}</div>
+                  <Icon className="w-5 h-5 text-[#0EA5E9]/70" />
+                  {stat.val}
                   <div className="text-white/40 text-[10px] uppercase tracking-widest font-bold">{stat.label}</div>
                 </div>
               );
@@ -1464,6 +1545,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* 1.6 URGENCY COUNTDOWN BANNER */}
+      <UrgencyCountdownBanner />
 
       {/* 2. BİZ KİMİZ (About Teaser & Resimli Farkı Yaşayın) */}
       <section id="giris" className="py-24 bg-white relative overflow-hidden">
@@ -1534,20 +1618,20 @@ export default function Home() {
               transition={{ duration: 0.8, ease: EASE }}
             >
               <div className="space-y-3">
-                <span className="text-[#0EA5E9] font-black uppercase tracking-widest text-xs block">Sakarya'nın Güvenilir Klima Uzmanı</span>
+                <span className="text-[#0EA5E9] font-black uppercase tracking-widest text-xs block">Sakarya'nın Güvenilir Servis Markası</span>
                 <h2 className="font-black text-dark-text uppercase tracking-tight leading-none text-3xl md:text-5xl">
-                  Sakarya Uzman Klima <br />
-                  <span className="text-[#0EA5E9] mt-2 block">İle Farkı Yaşayın</span>
+                  Sakarya Beyaz Eşya <br />
+                  <span className="text-[#0EA5E9] mt-2 block">Kombi & Klima Servisi</span>
                 </h2>
                 <div className="w-16 h-1.5 bg-[#0EA5E9] mt-4 rounded-full" />
               </div>
 
               <div className="space-y-4 text-gray-500 font-medium text-sm md:text-base leading-relaxed">
                 <p>
-                  Adapazarı merkezimizden tüm Sakarya ilçelerine uzanan geniş servis ağımızla klima montaj, bakım, arıza tamiri ve gaz dolumu hizmetleri sunuyoruz. 10 yılı aşkın sahaya dayanan tecrübemizle çözümsüz arıza bırakmıyoruz.
+                  Adapazarı merkezimizden tüm Sakarya ilçelerine uzanan geniş mobil servis ağımızla Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Ev Aletleri için arıza tamiri, bakım, montaj ve yedek parça hizmetleri sunuyoruz. 10 yılı aşkın sahaya dayanan tecrübemizle çözümsüz arıza bırakmıyoruz.
                 </p>
                 <p className="font-bold text-dark-text border-l-4 border-[#0EA5E9] pl-4 py-1 italic">
-                  En iyi bildiklerimiz; hızlı müdahale, uzman teknik analiz ve garantili işçiliktir.
+                  En iyi bildiklerimiz; hızlı müdahale, uzman teknik analiz ve 1 yıl garantili işçiliktir.
                 </p>
               </div>
 
@@ -1555,7 +1639,7 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
                 {[
                   { icon: Wrench, title: "7/24 Acil Destek", desc: "Acil arızalara anında mobil ekiplerle müdahale." },
-                  { icon: ShieldCheck, title: "TSE Standartı", desc: "Tüm süreçler resmi mühendislik standartlarında yürütülür." },
+                  { icon: ShieldCheck, title: "MYK Belgeli Uzmanlık", desc: "Tüm süreçler resmi mühendislik standartlarında yürütülür." },
                   { icon: Settings, title: "Orijinal Yedek Parça", desc: "Adapazarı depomuzda tüm markaların parçaları hazır." },
                   { icon: Timer, title: "Hızlı Saha Müdahalesi", desc: "Bildiriminizden sonra aynı gün kapınızdayız." },
                 ].map((feat, idx) => {
@@ -1595,26 +1679,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 🚀 ACİL KOMBİ SERVİSİ (Parallax Scroll Banner) */}
+      <section className="relative h-[480px] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Parallax Scroll Effect */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=1600&auto=format&fit=crop')",
+            backgroundAttachment: "fixed"
+          }}
+        />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-[#0F172A]/85 z-10" />
+        
+        {/* Content */}
+        <div className="max-w-[1600px] mx-auto px-6 md:px-10 relative z-20 text-center space-y-6 flex flex-col items-center justify-center">
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-500/40 text-amber-400 font-black text-xs tracking-widest uppercase text-center">
+            🔥 HIZLI KOMBİ SERVİSİ
+          </span>
+          <h2 className="text-white font-black uppercase tracking-tight text-3xl md:text-6xl leading-none text-center">
+            Acil Kombi Servisi <br />
+            <span className="text-amber-400 mt-2 block text-center">Aynı Gün Servis İmkanı</span>
+          </h2>
+          <p className="text-gray-300 max-w-2xl mx-auto font-medium text-xs md:text-base leading-relaxed text-center">
+            Kombiniz ısıtmıyor, sıcak su vermiyor veya arıza kodu mu veriyor? Sakarya genelinde 7/24 mobil araçlarımız ve sertifikalı kombi uzmanlarımızla aynı gün kapınızdayız.
+          </p>
 
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="tel:08503085454"
+              className="flex items-center gap-2.5 px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all hover:scale-105 shadow-xl shadow-amber-500/30"
+            >
+              <PhoneCall className="w-4 h-4 animate-bounce" />
+              Hemen Arayın: 0850 308 54 54
+            </a>
+            <a
+              href="https://wa.me/905321234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all hover:scale-105 shadow-xl shadow-emerald-600/30"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 h-4" viewBox="0 0 16 16">
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.949h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.592M7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.69-4.98c-.202-.1-1.195-.59-1.378-.657-.183-.067-.317-.1-.449.1-.132.2-.511.657-.626.78-.115.123-.23.138-.432.037-2.006-.897-3.27-2.007-4.153-3.524-.25-.43-.014-.663.22-.897.209-.208.432-.51.48-.684.048-.174.024-.326-.012-.426-.036-.1-.317-.765-.434-1.048-.115-.279-.23-.24-.317-.245-.083-.004-.178-.005-.272-.005a.52.52 0 0 0-.377.177C4.09 5.251 3.5 5.86 3.5 7.1c0 1.24.9 2.435 1.024 2.6 1.24 1.638 2.82 2.63 5.43 3.593.62.23 1.1.37 1.48.49.62.2 1.18.17 1.62.1.49-.07 1.4-.57 1.6-1.13.2-.56.2-1.04.14-1.13-.06-.1-.2-.17-.4-.27"/>
+              </svg>
+              WhatsApp Destek
+            </a>
+          </div>
+        </div>
+      </section>
 
 
       {/* 3. HİZMETLERİMİZ — Hover-Expanding Accordion Panels */}
       <section className="py-24 bg-white border-t border-gray-100">
+
         <div className="max-w-[1600px] mx-auto px-6 md:px-10">
           {/* Tab Header */}
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6">
             <div>
-              <span className="text-[#0EA5E9] font-black uppercase tracking-widest text-xs block mb-2">Hizmetlerimiz</span>
+              <span className="text-[#0EA5E9] font-black uppercase tracking-widest text-xs block mb-2">Çözüm Merkezimiz</span>
               <h2 className="font-black text-dark-text uppercase tracking-tight leading-none text-3xl md:text-5xl">
-                Ne Tür Klima<br />
-                <span className="text-[#0EA5E9] mt-2 block">Servisine</span> İhtiyacınız Var?
+                Hangi Cihazınız İçin<br />
+                <span className="text-[#0EA5E9] mt-2 block">Servis Arıyorsunuz?</span>
               </h2>
             </div>
             {/* Segment Tabs */}
             <div className="flex bg-gray-100 rounded-2xl p-1.5 gap-1 shrink-0">
               {([
-                { key: "konut", label: "🏠 Konut", desc: "Ev & Daire" },
-                { key: "ticari", label: "🏢 Ticari", desc: "İşyeri & Mağaza" },
+                { key: "beyaz-esya", label: "🧺 Beyaz Eşya Servisleri" },
+                { key: "klima-kombi", label: "❄️ Klima & Kombi Servisleri" },
               ] as const).map((tab) => (
                 <button
                   key={tab.key}
@@ -1631,11 +1763,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Konut Hizmetleri */}
+          {/* Beyaz Eşya Hizmetleri */}
           <AnimatePresence mode="wait">
-            {serviceTab === "konut" && (
+            {serviceTab === "beyaz-esya" && (
               <motion.div
-                key="konut"
+                key="beyaz-esya"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
@@ -1645,10 +1777,10 @@ export default function Home() {
                 {/* Desktop Version: Hover-Expanding Panels */}
                 <div className="hidden lg:flex w-full gap-5 h-[480px]">
                   {[
-                    { icon: Wrench, title: "Klima Arıza Tamiri", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/ariza-servis-7-24", tag: "7/24", img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Fan, title: "Periyodik Bakım", desc: "Yılda 2 kez filtre temizliği, gaz basınç ölçümü ve genel kontrol.", href: "/hizmetler/periyodik-kontrol", tag: "Önlem", img: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Snowflake, title: "Klima Montajı", desc: "Yeni alınan klimanın doğru konuma, garantili şekilde montajı.", href: "/hizmetler/klima-montaj", tag: "Kurulum", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Droplets, title: "Gaz Dolumu", desc: "R32 / R410A soğutucu gaz dolumu ve kaçak tespiti.", href: "/hizmetler/gaz-dolumu", tag: "Bakım", img: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Wrench, title: "Çamaşır Makinesi Servisi", desc: "Tambur dönmeme, sıkmada gürültü yapma ve su boşaltmama arızalarına yerinde müdahale.", href: "/hizmetler/camasir-makinesi-ariza-servisi", tag: "Çamaşır", img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop" },
+                    { icon: ShieldCheck, title: "Bulaşık Makinesi Servisi", desc: "Su ısıtmama, deterjan eritmeme, lekesiz yıkama pompası ve anakart onarımları.", href: "/hizmetler/bulasik-makinesi-ariza-servisi", tag: "Bulaşık", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Zap, title: "Buzdolabı Arıza Servisi", desc: "Kompresör değişimi, No-Frost defrost arızası ve gaz şarjı ile 30 dakikada nöbetçi servis.", href: "/hizmetler/buzdolabi-ariza-servisi", tag: "Buzdolabı", img: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Settings, title: "Kurutma Makinesi Servisi", desc: "Isı pompası gaz şarjı, kazan kayışı değişimi ve filtre nem sensörü bakımı.", href: "/hizmetler/kurutma-makinesi-ariza-servisi", tag: "Kurutma", img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     const isHovered = hoveredKonut === i;
@@ -1688,11 +1820,13 @@ export default function Home() {
                           </div>
                           
                           {/* Title */}
-                          <h3 className="font-black text-white text-base sm:text-lg uppercase tracking-tight whitespace-nowrap mb-1">
+                          <h3 className={`font-black text-white uppercase tracking-tight leading-tight transition-all duration-300 mb-1 ${
+                            isHovered ? "text-base sm:text-lg md:text-xl" : "text-xs sm:text-sm line-clamp-2"
+                          }`}>
                             {s.title}
                           </h3>
 
-                          {/* Description & CTA (Framer-like smooth show/hide) */}
+                          {/* Description & CTA */}
                           <div className={`overflow-hidden transition-all duration-500 ${
                             isHovered ? "max-h-32 opacity-100 mt-2" : "max-h-0 opacity-0"
                           }`}>
@@ -1712,10 +1846,10 @@ export default function Home() {
                 {/* Mobile & Tablet Version: Standard Grid Fallback */}
                 <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {[
-                    { icon: Wrench, title: "Klima Arıza Tamiri", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/ariza-servis-7-24", tag: "7/24", img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Fan, title: "Periyodik Bakım", desc: "Yılda 2 kez filtre temizliği, gaz basınç ölçümü ve genel kontrol.", href: "/hizmetler/periyodik-kontrol", tag: "Önlem", img: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Snowflake, title: "Klima Montajı", desc: "Yeni alınan klimanın doğru konuma, garantili şekilde montajı.", href: "/hizmetler/klima-montaj", tag: "Kurulum", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Droplets, title: "Gaz Dolumu", desc: "R32 / R410A soğutucu gaz dolumu ve kaçak tespiti.", href: "/hizmetler/gaz-dolumu", tag: "Bakım", img: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Wrench, title: "Çamaşır Makinesi Servisi", desc: "Tambur dönmeme, sıkmada gürültü yapma ve su boşaltmama arızalarına yerinde müdahale.", href: "/hizmetler/camasir-makinesi-ariza-servisi", tag: "Çamaşır", img: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop" },
+                    { icon: ShieldCheck, title: "Bulaşık Makinesi Servisi", desc: "Su ısıtmama, deterjan eritmeme, lekesiz yıkama pompası ve anakart onarımları.", href: "/hizmetler/bulasik-makinesi-ariza-servisi", tag: "Bulaşık", img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Zap, title: "Buzdolabı Arıza Servisi", desc: "Kompresör değişimi, No-Frost defrost arızası ve gaz şarjı ile 30 dakikada nöbetçi servis.", href: "/hizmetler/buzdolabi-ariza-servisi", tag: "Buzdolabı", img: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Settings, title: "Kurutma Makinesi Servisi", desc: "Isı pompası gaz şarjı, kazan kayışı değişimi ve filtre nem sensörü bakımı.", href: "/hizmetler/kurutma-makinesi-ariza-servisi", tag: "Kurutma", img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     return (
@@ -1753,9 +1887,9 @@ export default function Home() {
               </motion.div>
             )}
 
-            {serviceTab === "ticari" && (
+            {serviceTab === "klima-kombi" && (
               <motion.div
-                key="ticari"
+                key="klima-kombi"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
@@ -1765,10 +1899,10 @@ export default function Home() {
                 {/* Desktop Version: Hover-Expanding Panels */}
                 <div className="hidden lg:flex w-full gap-5 h-[480px]">
                   {[
-                    { icon: Wind, title: "VRF/VRV Sistemi Servisi", desc: "Çok iç üniteli ticari VRF klima sistemleri bakım ve arıza servisi.", href: "/hizmetler/ariza-servis-7-24", tag: "Ticari", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Thermometer, title: "Kaset Klima Servisi", desc: "Mağaza, ofis ve restoranlardaki kaset tipi klimaların bakım ve tamiri.", href: "/hizmetler/periyodik-kontrol", tag: "Ticari", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Gauge, title: "Enerji Analizi", desc: "A+++ enerji verimliliği analizi; gereksiz enerji tüketimini tespit et.", href: "/hesaplama-araclari", tag: "Tasarruf", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop" },
-                    { icon: ShieldCheck, title: "Bakım Sözleşmesi", desc: "Yıllık bakım kontratıyla işyerinizin klimaları sürekli kontrol altında.", href: "/iletisim", tag: "Anlaşma", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Snowflake, title: "Acil Klima Arıza Servisi", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/klima-arizasi-servisi", tag: "Klima", img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Thermometer, title: "Kombi Arıza & Bakım", desc: "Ateşleme arızası, sıcak su dalgalanması ve petek yıkama bakımları.", href: "/hizmetler/kombi-ariza-servisi", tag: "Kombi", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Wind, title: "Klima Montaj & Söküm", desc: "Garantili bakır borulama, gaz toplama ve vakumlu montaj hizmeti.", href: "/hizmetler/klima-montaj", tag: "Montaj", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Cpu, title: "Küçük Ev Aletleri Servisi", desc: "Süpürge motoru, robot süpürge bataryası ve ütü rezistans onarımları.", href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi", tag: "Ev Aletleri", img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800&auto=format&fit=crop" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     const isHovered = hoveredTicari === i;
@@ -1801,14 +1935,16 @@ export default function Home() {
                         </span>
 
                         {/* Content */}
-                        <div className="relative z-20 flex flex-col w-full text-white">
+                        <div className="relative z-20 flex flex-col w-full text-[#1E293B]">
                           {/* Icon */}
                           <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/10 shrink-0">
                             <Icon className="w-6 h-6 text-orange-500" />
                           </div>
                           
                           {/* Title */}
-                          <h3 className="font-black text-white text-base sm:text-lg uppercase tracking-tight whitespace-nowrap mb-1">
+                          <h3 className={`font-black text-white uppercase tracking-tight leading-tight transition-all duration-300 mb-1 ${
+                            isHovered ? "text-base sm:text-lg md:text-xl" : "text-xs sm:text-sm line-clamp-2"
+                          }`}>
                             {s.title}
                           </h3>
 
@@ -1832,10 +1968,10 @@ export default function Home() {
                 {/* Mobile & Tablet Version: Standard Grid Fallback */}
                 <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {[
-                    { icon: Wind, title: "VRF/VRV Sistemi Servisi", desc: "Çok iç üniteli ticari VRF klima sistemleri bakım ve arıza servisi.", href: "/hizmetler/ariza-servis-7-24", tag: "Ticari", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Thermometer, title: "Kaset Klima Servisi", desc: "Mağaza, ofis ve restoranlardaki kaset tipi klimaların bakım ve tamiri.", href: "/hizmetler/periyodik-kontrol", tag: "Ticari", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop" },
-                    { icon: Gauge, title: "Enerji Analizi", desc: "A+++ enerji verimliliği analizi; gereksiz enerji tüketimini tespit et.", href: "/hesaplama-araclari", tag: "Tasarruf", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop" },
-                    { icon: ShieldCheck, title: "Bakım Sözleşmesi", desc: "Yıllık bakım kontratıyla işyerinizin klimaları sürekli kontrol altında.", href: "/iletisim", tag: "Anlaşma", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Snowflake, title: "Acil Klima Arıza Servisi", desc: "Split ve inverter klimaların soğutmama, donma, su sızıntısı gibi tüm arızaları.", href: "/hizmetler/klima-arizasi-servisi", tag: "Klima", img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Thermometer, title: "Kombi Arıza & Bakım", desc: "Ateşleme arızası, sıcak su dalgalanması ve petek yıkama bakımları.", href: "/hizmetler/kombi-ariza-servisi", tag: "Kombi", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Wind, title: "Klima Montaj & Söküm", desc: "Garantili bakır borulama, gaz toplama ve vakumlu montaj hizmeti.", href: "/hizmetler/klima-montaj", tag: "Montaj", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" },
+                    { icon: Cpu, title: "Küçük Ev Aletleri Servisi", desc: "Süpürge motoru, robot süpürge bataryası ve ütü rezistans onarımları.", href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi", tag: "Ev Aletleri", img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=800&auto=format&fit=crop" },
                   ].map((s, i) => {
                     const Icon = s.icon;
                     return (
@@ -1877,7 +2013,7 @@ export default function Home() {
       </section>
 
 
-      {/* 🚀 ACİL KLİMA SERVİSİ (Parallax Banner) */}
+      {/* 🚀 ACİL KLİMA SERVİSİ (Parallax Banner - Orijinal Hali) */}
       <section className="relative h-[480px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax Effect */}
         <div 
@@ -1925,13 +2061,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Klima Markaları (Partnerler) */}
+
+
+      {/* Markalar (Partnerler) */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-[1600px] mx-auto px-6 md:px-10">
-          <div className="text-center mb-8">
-            <span className="font-black text-amber-700 tracking-widest uppercase block mb-1 text-[11px]">{partnersData.subtitle}</span>
-            <h2 className="font-black uppercase text-dark-text tracking-tight text-xl md:text-2xl">{partnersData.title}</h2>
-            <div className="w-10 h-1 bg-primary mx-auto mt-3" />
+          <div className="text-center mb-10 space-y-2">
+            <span className="font-black text-[#0EA5E9] tracking-widest uppercase block text-xs">{partnersData.subtitle}</span>
+            <h2 className="font-black uppercase text-dark-text tracking-tight text-2xl md:text-4xl max-w-3xl mx-auto leading-tight">{partnersData.title}</h2>
+            <div className="w-16 h-1.5 bg-[#0EA5E9] mx-auto mt-4 rounded-full" />
           </div>
           <LogoCarousel partners={partnersData.list} />
         </div>
@@ -1997,7 +2135,7 @@ export default function Home() {
                   </span>
                   <h3 className="text-2xl sm:text-3.5xl font-black text-white uppercase tracking-tight leading-tight">
                     Müşterilerimizin Gözünden <br />
-                    <span className="text-[#0EA5E9] mt-2 block">Sakarya Uzman Klima Güvencesi</span>
+                    <span className="text-[#0EA5E9] mt-2 block">Sakarya Beyaz Eşya Kombi Klima Servisi Güvencesi</span>
                   </h3>
                 </div>
 
@@ -2079,9 +2217,60 @@ export default function Home() {
           </div>
         </section>
 
-
       {/* 7. BİLGİ MERKEZİ — Blog Önizleme */}
       <InfoCenterSection />
+
+      {/* 🚀 ACİL BEYAZ EŞYA SERVİSİ (Parallax Scroll Banner) */}
+      <section className="relative h-[480px] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Parallax Scroll Effect */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=1600&auto=format&fit=crop')",
+            backgroundAttachment: "fixed"
+          }}
+        />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-[#0F172A]/85 z-10" />
+        
+        {/* Content */}
+        <div className="max-w-[1600px] mx-auto px-6 md:px-10 relative z-20 text-center space-y-6 flex flex-col items-center justify-center">
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-400 font-black text-xs tracking-widest uppercase text-center">
+            🧺 HIZLI BEYAZ EŞYA SERVİSİ
+          </span>
+          <h2 className="text-white font-black uppercase tracking-tight text-3xl md:text-6xl leading-none text-center">
+            Acil Beyaz Eşya Servisi <br />
+            <span className="text-emerald-400 mt-2 block text-center">Aynı Gün Servis İmkanı</span>
+          </h2>
+          <p className="text-gray-300 max-w-2xl mx-auto font-medium text-xs md:text-base leading-relaxed text-center">
+            Çamaşır makinesi, bulaşık makinesi veya buzdolabınız mı arızalandı? Gıdalarınız ve ev işleriniz aksamadan yerinde 1 yıl orijinal parça garantisiyle çözüyoruz.
+          </p>
+
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="tel:08503085454"
+              className="flex items-center gap-2.5 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all hover:scale-105 shadow-xl shadow-emerald-500/30"
+            >
+              <PhoneCall className="w-4 h-4 animate-bounce" />
+              Hemen Arayın: 0850 308 54 54
+            </a>
+            <a
+              href="https://wa.me/905321234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all hover:scale-105 shadow-xl shadow-emerald-600/30"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 h-4" viewBox="0 0 16 16">
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.949h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.592M7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.69-4.98c-.202-.1-1.195-.59-1.378-.657-.183-.067-.317-.1-.449.1-.132.2-.511.657-.626.78-.115.123-.23.138-.432.037-2.006-.897-3.27-2.007-4.153-3.524-.25-.43-.014-.663.22-.897.209-.208.432-.51.48-.684.048-.174.024-.326-.012-.426-.036-.1-.317-.765-.434-1.048-.115-.279-.23-.24-.317-.245-.083-.004-.178-.005-.272-.005a.52.52 0 0 0-.377.177C4.09 5.251 3.5 5.86 3.5 7.1c0 1.24.9 2.435 1.024 2.6 1.24 1.638 2.82 2.63 5.43 3.593.62.23 1.1.37 1.48.49.62.2 1.18.17 1.62.1.49-.07 1.4-.57 1.6-1.13.2-.56.2-1.04.14-1.13-.06-.1-.2-.17-.4-.27"/>
+              </svg>
+              WhatsApp Destek
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+
 
 
 
@@ -2098,7 +2287,7 @@ export default function Home() {
             </h2>
             <div className="w-16 h-1 bg-primary mx-auto mt-5" />
             <p className="text-gray-600 mt-4 max-w-xl mx-auto font-medium text-sm md:text-base leading-relaxed">
-              Tüm hizmetlerimiz TSE ve uluslararası ISO kalite standartlarına uygun olarak belgelendirilmiştir.
+              Tüm hizmetlerimiz uluslararası ISO kalite ve güvenlik standartlarına uygun olarak belgelendirilmiştir.
             </p>
           </div>
         </div>
@@ -2115,7 +2304,7 @@ export default function Home() {
               Sıkça Sorulan Sorular
             </span>
             <h2 className="font-black uppercase text-dark-text tracking-tight text-3xl md:text-5xl leading-none">
-              Klima Servisi <br />
+              Teknik Servis Hizmetlerimiz <br />
               <span className="text-[#0EA5E9] mt-2 block">Hakkında Merak Edilenler</span>
             </h2>
             <div className="w-20 h-1.5 bg-[#0EA5E9] mx-auto mt-5" />

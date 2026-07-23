@@ -152,7 +152,7 @@ export default function MusteriYorumlari() {
           </h1>
           <div className="w-20 h-1.5 bg-[#0EA5E9] mx-auto mt-6 rounded-full" />
           <p className="text-gray-300 font-semibold max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-            Sakarya genelinde ev, işyeri, ofis ve ticari binalarda gerçekleştirdiğimiz başarılı klima montaj, bakım ve arıza onarım hizmetlerinin ardından paylaşılan değerli geri bildirimler.
+            Sakarya genelinde gerçekleştirdiğimiz başarılı Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı ve Kurutma Makinesi servis hizmetlerimizin ardından paylaşılan değerli müşteri geri bildirimleri.
           </p>
 
           {/* Stat strip */}
@@ -161,7 +161,7 @@ export default function MusteriYorumlari() {
               { val: "7/24", label: "Kesintisiz Destek", icon: Clock },
               { val: "10+", label: "Yıllık Tecrübe", icon: ShieldCheck },
               { val: "Aynı Gün", label: "Hızlı Müdahale", icon: Zap },
-              { val: "TSE", label: "HYB Belgeli Servis", icon: CheckCircle2 },
+              { val: "1 Yıl", label: "Parça & İşçilik Garantisi", icon: CheckCircle2 },
             ].map((s, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl px-5 py-4 flex items-center gap-4 text-left backdrop-blur-md">
                 <s.icon className="w-5 h-5 text-[#0EA5E9] shrink-0" />

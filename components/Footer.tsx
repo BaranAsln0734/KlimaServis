@@ -99,11 +99,11 @@ export default function Footer() {
           <div className="max-w-[1600px] mx-auto px-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="space-y-3 text-center lg:text-left">
               <h3 className="text-gray-900 font-black text-xl md:text-2xl uppercase tracking-tight leading-snug">
-                Klimanız arızalandı mı? Bakım zamanı mı geldi? <br className="hidden md:inline" />
-                <span className="text-[#0EA5E9]">Hemen arayın, aynı gün çözelim.</span>
+                Cihazınız mı arızalandı? Klima, Kombi veya Beyaz Eşya servisi mi lazım? <br className="hidden md:inline" />
+                <span className="text-[#0EA5E9]">Hemen arayın, aynı gün kapınızda olalım.</span>
               </h3>
               <p className="text-gray-600 text-xs md:text-sm font-semibold uppercase tracking-wider">
-                Sakarya'nın tüm ilçelerinde 7/24 uzman klima servis ekibimiz hizmetinizde.
+                Sakarya'nın tüm ilçelerinde 7/24 uzman mobil teknik servis ekibimiz hizmetinizde.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
@@ -115,7 +115,7 @@ export default function Footer() {
                 0850 000 00 00
               </a>
               <a
-                href="https://wa.me/905550000000?text=Merhaba%2C%20klima%20servis%20talebi%20i%C3%A7in%20ileti%C5%9Fime%20ge%C3%A7iyorum."
+                href="https://wa.me/905550000000?text=Merhaba%2C%20teknik%20servis%20talebi%20i%C3%A7in%20ileti%C5%9Fime%20ge%C3%A7iyorum."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs uppercase tracking-widest rounded-xl transition-all hover:scale-[1.03] shadow-lg shadow-emerald-600/20 w-full sm:w-auto text-center"
@@ -123,7 +123,7 @@ export default function Footer() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 h-4" viewBox="0 0 16 16">
                   <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.949h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.592M7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.69-4.98c-.202-.1-1.195-.59-1.378-.657-.183-.067-.317-.1-.449.1-.132.2-.511.657-.626.78-.115.123-.23.138-.432.037-2.006-.897-3.27-2.007-4.153-3.524-.25-.43-.014-.663.22-.897.209-.208.432-.51.48-.684.048-.174.024-.326-.012-.426-.036-.1-.317-.765-.434-1.048-.115-.279-.23-.24-.317-.245-.083-.004-.178-.005-.272-.005a.52.52 0 0 0-.377.177C4.09 5.251 3.5 5.86 3.5 7.1c0 1.24.9 2.435 1.024 2.6 1.24 1.638 2.82 2.63 5.43 3.593.62.23 1.1.37 1.48.49.62.2 1.18.17 1.62.1.49-.07 1.4-.57 1.6-1.13.2-.56.2-1.04.14-1.13-.06-.1-.2-.17-.4-.27"/>
                 </svg>
-                WhatsApp Demo
+                WhatsApp Destek
               </a>
             </div>
           </div>
@@ -134,11 +134,13 @@ export default function Footer() {
         <div className="absolute inset-0 bg-topo-waves pointer-events-none opacity-80" />
         <div className="max-w-[1600px] mx-auto px-10 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 pt-16 relative z-10">
           {/* Brand details */}
-          <div className="flex flex-col gap-4">
-            <Logo className="mb-2" />
+          <div className="flex flex-col gap-4 items-start text-left">
+
+            <Logo className="text-white mb-2" />
             <p className="text-sm leading-relaxed text-gray-400">
-              Sakarya Uzman Klima Servisi, Adapazarı başta olmak üzere tüm Sakarya ilçelerinde her marka ve model klimaya montaj, periyodik bakım, arıza tamiri ve gaz dolumu hizmetleri sunmaktadır.
+              Sakarya Beyaz Eşya Kombi Klima Servisi, Adapazarı başta olmak üzere tüm Sakarya ilçelerinde Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Ev Aletleri için garantili teknik servis sunmaktadır.
             </p>
+
             
             {/* Sosyal Medya İkonları */}
             <div className="mt-2">
@@ -180,11 +182,14 @@ export default function Footer() {
           {/* Hizmetlerimiz */}
           <div>
             <h3 className="text-white font-bold text-sm tracking-widest uppercase mb-6">Hizmetlerimiz</h3>
-            <ul className="flex flex-col gap-3 text-sm">
-              <li><Link href="/hizmetler/ariza-servis-7-24" className="hover:text-[#0EA5E9] transition-colors">Klima Arıza Servisi</Link></li>
-              <li><Link href="/hizmetler/periyodik-kontrol" className="hover:text-[#0EA5E9] transition-colors">Klima Periyodik Bakımı</Link></li>
-              <li><Link href="/hizmetler/klima-montaj" className="hover:text-[#0EA5E9] transition-colors">Klima Montajı & Demontajı</Link></li>
-              <li><Link href="/hizmetler/gaz-dolumu" className="hover:text-[#0EA5E9] transition-colors">Gaz Dolumu & Bakım</Link></li>
+            <ul className="flex flex-col gap-2.5 text-sm">
+              <li><Link href="/hizmetler/camasir-makinesi-ariza-servisi" className="hover:text-[#0EA5E9] transition-colors">Çamaşır Makinesi Arıza Servisi</Link></li>
+              <li><Link href="/hizmetler/bulasik-makinesi-ariza-servisi" className="hover:text-[#0EA5E9] transition-colors">Bulaşık Makinesi Arıza Servisi</Link></li>
+              <li><Link href="/hizmetler/buzdolabi-ariza-servisi" className="hover:text-[#0EA5E9] transition-colors">Buzdolabı Arıza Servisi</Link></li>
+              <li><Link href="/hizmetler/kombi-ariza-servisi" className="hover:text-[#0EA5E9] transition-colors">Kombi Arıza Servisi</Link></li>
+              <li><Link href="/hizmetler/klima-arizasi-servisi" className="hover:text-[#0EA5E9] transition-colors">Klima Arızası Servisi</Link></li>
+              <li><Link href="/hizmetler/kucuk-ev-aletleri-ariza-servisi" className="hover:text-[#0EA5E9] transition-colors">Küçük Ev Aletleri Arıza Servisi</Link></li>
+              <li><Link href="/hizmetler/kurutma-makinesi-ariza-servisi" className="hover:text-[#0EA5E9] transition-colors">Kurutma Makinesi Arıza Servisi</Link></li>
             </ul>
           </div>
 

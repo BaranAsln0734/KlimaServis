@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
-import { Menu, X, ArrowRight, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, Phone, Calculator } from "lucide-react";
 
 interface NavChild {
   label: string;
@@ -31,11 +31,14 @@ const NAV_ITEMS: NavItem[] = [
     label: "Hizmetlerimiz",
     href: "/hizmetler",
     children: [
-      { label: "Klima Arıza Servisi", href: "/hizmetler/ariza-servis-7-24" },
-      { label: "Klima Periyodik Bakımı", href: "/hizmetler/periyodik-kontrol" },
-      { label: "Klima Montajı & Demontajı", href: "/hizmetler/klima-montaj" },
-      { label: "Gaz Dolumu & Bakım", href: "/hizmetler/gaz-dolumu" },
-      { label: "BTU Hesaplama", href: "/hesaplama-araclari" },
+      { label: "Çamaşır Makinesi Arıza Servisi", href: "/hizmetler/camasir-makinesi-ariza-servisi" },
+      { label: "Bulaşık Makinesi Arıza Servisi", href: "/hizmetler/bulasik-makinesi-ariza-servisi" },
+      { label: "Buzdolabı Arıza Servisi", href: "/hizmetler/buzdolabi-ariza-servisi" },
+      { label: "Kombi Arıza Servisi", href: "/hizmetler/kombi-ariza-servisi" },
+      { label: "Klima Arızası Servisi", href: "/hizmetler/klima-arizasi-servisi" },
+      { label: "Küçük Ev Aletleri Arıza Servisi", href: "/hizmetler/kucuk-ev-aletleri-ariza-servisi" },
+      { label: "Kurutma Makinesi Arıza Servisi", href: "/hizmetler/kurutma-makinesi-ariza-servisi" },
+      { label: "🔍 Akıllı Arıza Teşhis Sihirbazı", href: "/hizmetler/ariza-teshis-sihirbazi" },
     ],
   },
   {
@@ -143,14 +146,15 @@ export default function Header() {
     pathname === "/referanslar" ||
     pathname === "/musteri-yorumlari" ||
     (pathname && pathname.startsWith("/blog/")) ||
-    (pathname && pathname.startsWith("/hizmetler/")) ||
+    (pathname && pathname.startsWith("/hizmetler/") && pathname !== "/hizmetler/ariza-teshis-sihirbazi") ||
     (pathname && (pathname.includes("-klima-servisi") || pathname.includes("-Klima-Servisi")));
 
   const headerBgClass = isScrolled
-    ? "bg-white/95 backdrop-blur-lg shadow-md border-b border-gray-100 py-[14px]"
+    ? "bg-white/95 backdrop-blur-lg shadow-md border-b border-gray-100 py-4 sm:py-5"
     : isDarkHeroPage
-    ? "bg-transparent py-[22px] border-b border-white/10"
-    : "bg-white py-[20px] border-b border-gray-100";
+    ? "bg-transparent py-6 sm:py-7 border-b border-white/10"
+    : "bg-white py-6 sm:py-7 border-b border-gray-100";
+
 
   const linkColorClass = isScrolled
     ? "text-[#1A1A1A] hover:text-[#0EA5E9]"
@@ -158,13 +162,14 @@ export default function Header() {
     ? "text-white/90 hover:text-white"
     : "text-[#1A1A1A] hover:text-[#0EA5E9]";
 
-  const logoClass = "";
+  const logoTextColor = isScrolled || !isDarkHeroPage ? "text-gray-900" : "text-white";
 
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBgClass}`}>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
-          <Logo className={logoClass} priority={true} />
+          <Logo className={logoTextColor} priority={true} />
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6 lg:gap-8">
@@ -244,15 +249,17 @@ export default function Header() {
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="tel:08500000000"
-              className={`flex items-center gap-2 text-sm font-bold transition-colors ${
-                !isScrolled && isDarkHeroPage ? "text-white/80 hover:text-white" : "text-gray-600 hover:text-[#0EA5E9]"
+            <Link
+              href="/hesaplama-araclari"
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-black uppercase tracking-wider transition-all duration-200 ${
+                !isScrolled && isDarkHeroPage 
+                  ? "bg-white/10 border-white/20 text-white hover:bg-white/20" 
+                  : "bg-sky-50 border-sky-100 text-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white"
               }`}
             >
-              <Phone className="w-4 h-4" />
-              0850 000 00 00
-            </a>
+              <Calculator className="w-4 h-4" />
+              Hesapla
+            </Link>
             <button
               onClick={() => setIsQuoteModalOpen(true)}
               className="group flex items-center gap-2 px-6 py-3 rounded-sm bg-[#0EA5E9] hover:bg-[#0284C7] text-white font-bold text-xs uppercase tracking-widest active:scale-95 transition-all duration-300 shadow-sm cursor-pointer border-none outline-none"
@@ -323,13 +330,14 @@ export default function Header() {
                 </Link>
               );
             })}
-            <a
-              href="tel:08500000000"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-sm uppercase tracking-wider text-center mt-1 cursor-pointer"
+            <Link
+              href="/hesaplama-araclari"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-sky-50 border border-sky-100 text-[#0EA5E9] font-bold text-xs uppercase tracking-wider text-center mt-1 cursor-pointer"
             >
-              <Phone className="w-4 h-4" />
-              0850 000 00 00
-            </a>
+              <Calculator className="w-4 h-4" />
+              Hesapla (BTU Analizi)
+            </Link>
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);

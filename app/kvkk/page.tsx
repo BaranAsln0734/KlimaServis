@@ -133,7 +133,7 @@ export default function KVKK() {
             
             <div className="text-gray-550 font-semibold text-sm sm:text-base leading-relaxed space-y-6">
               <p>
-                <strong className="text-gray-950 font-black">Sakarya Uzman Klima İklimlendirme Servisi</strong> (&ldquo;Şirket&rdquo;) olarak, kişisel verilerinizin güvenliğine ve gizliliğine büyük önem vermekteyiz. 6698 sayılı Kişisel Verilerin Korunması Kanunu (&ldquo;KVKK&rdquo;) uyarınca, web sitemiz üzerinden bizimle paylaştığınız kişisel verileriniz hakkında sizleri bilgilendirmek isteriz.
+                <strong className="text-gray-950 font-black">Sakarya Uzman Klima & Beyaz Eşya Servisi</strong> (&ldquo;Şirket&rdquo;) olarak, kişisel verilerinizin güvenliğine ve gizliliğine büyük önem vermekteyiz. 6698 sayılı Kişisel Verilerin Korunması Kanunu (&ldquo;KVKK&rdquo;) uyarınca, web sitemiz üzerinden bizimle paylaştığınız kişisel verileriniz hakkında sizleri bilgilendirmek isteriz.
               </p>
             </div>
 
@@ -143,7 +143,7 @@ export default function KVKK() {
                 1. Veri Sorumlusunun Kimliği
               </h3>
               <p className="text-gray-550 text-sm sm:text-base font-semibold leading-relaxed">
-                KVKK uyarınca muhatap &ldquo;Veri Sorumlusu&rdquo;, Semerciler Mah. Bosna Cad. No: 12 Adapazarı/Sakarya adresinde mukim Sakarya Uzman Klima İklimlendirme Servisi&apos;dir.
+                KVKK uyarınca muhatap &ldquo;Veri Sorumlusu&rdquo;, Semerciler Mah. Bosna Cad. No: 12 Adapazarı/Sakarya adresinde mukim Sakarya Uzman Klima & Beyaz Eşya Servisi&apos;dir.
               </p>
             </div>
 
@@ -153,7 +153,7 @@ export default function KVKK() {
                 2. Kişisel Verilerin İşlenme Amacı
               </h3>
               <p className="text-gray-550 text-sm sm:text-base font-semibold leading-relaxed">
-                Web sitemizdeki İletişim ve Keşif Talep formları aracılığıyla toplanan <strong className="text-gray-950 font-black">Ad, Soyad, Telefon Numarası, E-posta Adresi ve Adres/Proje bilgileriniz</strong>;
+                Web sitemizdeki İletişim ve Servis Kayıt formları aracılığıyla toplanan <strong className="text-gray-950 font-black">Ad, Soyad, Telefon Numarası, E-posta Adresi ve Adres/Servis Detay bilgileriniz</strong>;
               </p>
               <ul className="list-none pl-0 space-y-3 font-semibold text-sm sm:text-base text-gray-550">
                 <li className="flex items-start gap-2.5">
@@ -162,8 +162,9 @@ export default function KVKK() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#0EA5E9] shrink-0 mt-1.5" />
-                  Klima montajı, bakımı, gaz şarjı ve teknik servis süreçlerinin organize edilmesi,
+                  Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Ev Aletleri servis süreçlerinin organize edilmesi,
                 </li>
+
                 <li className="flex items-start gap-2.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#0EA5E9] shrink-0 mt-1.5" />
                   Müşteri memnuniyeti ve iletişim süreçlerinin yürütülmesi,

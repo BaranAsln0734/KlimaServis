@@ -2,58 +2,50 @@ import type { Metadata } from "next";
 import FAQClientPage from "@/components/FAQClientPage";
 
 export const metadata: Metadata = {
-  title: "Sıkça Sorulan Sorular | Sakarya Uzman Klima Servisi",
-  description: "Klima bakımı ne sıklıkla yapılmalıdır, soğutmama sebepleri, gaz dolumu, montaj söküm işlemleri ve garanti koşulları hakkında merak edilen sorular.",
+  title: "Sıkça Sorulan Sorular | Sakarya Uzman Klima & Beyaz Eşya Servisi",
+  description: "Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Küçük Ev Aletleri servis süreçlerimiz, garanti koşullarımız ve bakım detayları hakkında merak edilen sorular.",
   alternates: {
     canonical: "/sss",
   },
   openGraph: {
-    title: "Sıkça Sorulan Sorular | Sakarya Uzman Klima Servisi",
-    description: "Klima bakımı ne sıklıkla yapılmalıdır, soğutmama sebepleri, gaz dolumu, montaj söküm işlemleri ve garanti koşulları hakkında merak edilen sorular.",
+    title: "Sıkça Sorulan Sorular | Sakarya Uzman Klima & Beyaz Eşya Servisi",
+    description: "Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Küçük Ev Aletleri servis süreçlerimiz, garanti koşullarımız ve bakım detayları hakkında merak edilen sorular.",
     url: "https://www.sakaryaklimaservisi.demo/sss",
   }
 };
 
 const FAQ_DATA = [
   {
-    question: "Jeneratör odası kurulumu nasıl olmalıdır?",
-    answer: "Jeneratör odasında yeterli taze hava girişi ve sıcak hava egzoz çıkışı (panjurlar yardımıyla) olmalıdır. Ayrıca motor titreşimini absorbe edecek kalınlıkta düzgün bir beton zemin, yangın güvenlik önlemleri ve kolay servis müdahalesi için yeterli çalışma alanı bulunmalıdır."
+    question: "Hangi cihazlar için servis hizmeti veriyorsunuz?",
+    answer: "Sakarya genelinde Klima (Split, Kaset, VRF), Kombi (Ateşleme, Kart, Petek), Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Küçük Ev Aletleri (Süpürge, Ütü, Kahve Makinesi) için 7/24 mobil teknik servis sunmaktayız."
   },
   {
-    question: "Jeneratör hiç elektrik kesilmediğinde ne sıklıkla çalıştırılmalıdır?",
-    answer: "Jeneratörlerin acil durumlara her an hazır kalması, akünün şarjını koruması ve motor içi yağlama sisteminin devrede kalması için haftada en az bir kez yüksüz olarak 10-15 dakika çalıştırılması (test çalıştırılması) önerilir."
+    question: "Çamaşır ve bulaşık makinelerinde parça değişimi garantili mi?",
+    answer: "Evet, firmamız bünyesinde yapılan tüm çamaşır ve bulaşık makinesi tamirlerinde (amortisör, motor kayışı, sirkülasyon pompası, anakart vb.) orijinal yedek parça kullanılarak 1 yıl süreyle resmi garanti verilir."
   },
   {
-    question: "Dizel jeneratörlerin yakıt tüketimi ne kadardır?",
-    answer: "Jeneratörlerin yakıt tüketimi motor gücüne (kVA) ve çalışma yüküne (%50, %75 veya %100 yük) bağlıdır. Genel bir kural olarak, modern dizel jeneratörler ürettikleri her kW güç için saatte ortalama 0.22 - 0.25 litre motorin tüketir."
+    question: "Kombi ve klima bakımı ne sıklıkla yapılmalıdır?",
+    answer: "Klima ve kombi sistemlerinin yılda en az bir kez periyodik bakımdan geçmesi önerilir. Düzenli bakım doğalgaz ve elektrik tüketimini %30 oranında düşürür ve cihazınızın ömrünü uzatır."
   },
   {
-    question: "Tesisim için en uygun jeneratör gücünü (kVA) nasıl belirlerim?",
-    answer: "Tesisinizdeki aktif elektrikli cihazların toplam güç tüketimi, demeraj (kalkış) akımları olan motorlu yükler ve gelecekteki büyüme payınız hesaplanarak güç tespiti yapılır. Akan Enerji mühendisleri adresinize gelerek ücretsiz keşif ve hassas güç ölçümü yapmaktadır."
+    question: "Buzdolabı soğutmama arızasına ne kadar sürede müdahale ediyorsunuz?",
+    answer: "Gıdalarınızın bozulma riskine karşı buzdolabı arızalarında mobil nöbetçi araçlarımız ortalama 30 dakika ile 1 saat içerisinde Sakarya genelindeki adresinize ulaşır."
   },
   {
-    question: "Sıfır jeneratör ile garantili ikinci el jeneratör arasındaki farklar nelerdir?",
-    answer: "Sıfır jeneratörler en son teknolojiye ve uzun vadeli üretici garantisine sahiptir. Revizyonlu ve test edilmiş ikinci el jeneratörler ise Akan Enerji teknik servis güvencesiyle sunulmakta olup, ilk yatırım bütçesini yaklaşık %40-50 oranında düşürmek isteyen işletmeler için mükemmel bir alternatiftir."
+    question: "Klima montajında vakumlama yapılması şart mıdır?",
+    answer: "Evet, kesinlikle şarttır. Boru hattındaki hava ve nem tahliye edilmeden gaz verildiğinde asit oluşur ve kompresör sargıları yanar. Ekiplerimiz her montajda minimum 20 dakika vakumlama yapmaktadır."
   },
   {
-    question: "Jeneratör aküsü neden arızalanır ve ne sıklıkla değiştirilmelidir?",
-    answer: "Jeneratörlerin çalışmama nedenlerinin %80'i zayıflamış veya şarj edilmemiş akülerden kaynaklanır. Jeneratör akülerinin ömrü ortalama 2 ila 3 yıldır. Akünün voltaj değerleri ve elektrolit seviyeleri periyodik servis kontrollerinde düzenli olarak ölçülmelidir."
+    question: "Servis sonrasında yapılan işlemler garantili mi?",
+    answer: "Evet, Sakarya Uzman Klima & Beyaz Eşya Servisi olarak gerçekleştirdiğimiz tüm arıza tespiti, parça değişimi ve tamir işlemleri 1 yıl işçilik ve parça garantimiz altındadır."
   },
   {
-    question: "Otomatik Voltaj Regülatörü (AVR) arızası cihazlarıma zarar verir mi?",
-    answer: "Evet, AVR jeneratörün ürettiği voltajı 230V/400V seviyesinde sabit tutan hayati bir karttır. AVR arızalandığında voltaj çok yükselebilir veya dalgalanabilir. Bu durum jeneratöre bağlı bilgisayarlar, UPS sistemleri, klimalar ve hassas elektronik kartların yanmasına yol açabilir."
+    question: "Kurutma makinesi neden çamaşırları nemli bırakır?",
+    answer: "Kurutma makinesinin nemli bırakması genellikle tiftik filtresi tıkanıklığı, kondanser kirliliği, ısı pompası gaz eksikliği veya nem sensör arızasından kaynaklanır. Yerinde bakımla sorun çözülür."
   },
   {
-    question: "Jeneratörün periyodik bakımı hangi aralıklarla yapılmalıdır?",
-    answer: "Standart acil durum (standby) jeneratörlerinde motor yağı, yağ filtresi, yakıt filtresi ve hava filtrelerinin yılda en az bir kez değiştirilmesi gerekir. Sürekli çalışan veya şantiyede kullanılan jeneratörlerde ise her 150 - 200 çalışma saatinde bir periyodik bakım yapılmalıdır."
-  },
-  {
-    question: "Kiralık jeneratör hizmetiniz neleri kapsıyor?",
-    answer: "Kiralama hizmetimiz; projenize uygun güçteki kabinli ve sessiz jeneratörün teminini, tesisinize nakliyesini, transfer panosu ve güç kablosu bağlantılarını kapsar. Kiralama süresi boyunca tüm periyodik bakımlar ve doğal aşınma kaynaklı servis işlemleri fiyata dahildir."
-  },
-  {
-    question: "Konser ve açık hava etkinlikleri için sessiz jeneratör kiralayabiliyor muyuz?",
-    answer: "Evet, kiralık jeneratör filomuzun tamamı özel ses yalıtım kabinli (süper sessiz) modellerden oluşur. Gürültü hassasiyeti olan konserler, film setleri, hastane yanları ve açık alan etkinlikleri için mükemmel düzeyde sessizlik sağlayan jeneratörler konumlandırıyoruz."
+    question: "Küçük ev aletleri (Süpürge, Ütü) için adresinizden servis alabilir miyiz?",
+    answer: "Elektrikli süpürge motor arızası, robot süpürge bataryası ve ütü rezistans arızalarında adresinizden teslim alıp veya yerinde ekonomik onarım yapmaktayız."
   }
 ];
 

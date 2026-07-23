@@ -73,8 +73,8 @@ export default function ServisBolgeleri() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#1E293B] font-sans">
-      <title>Servis Bölgelerimiz | Sakarya Uzman Klima İklimlendirme</title>
-      <meta name="description" content="Sakarya'da Adapazarı, Serdivan, Sapanca, Hendek ve tüm ilçelerde 7/24 mobil klima servisi. Hemen arayın!" />
+      <title>Servis Bölgelerimiz | Sakarya Beyaz Eşya Kombi Klima Servisi</title>
+      <meta name="description" content="Sakarya'da Adapazarı, Serdivan, Sapanca, Hendek ve tüm 16 ilçede 7/24 mobil Klima, Kombi ve Beyaz Eşya servisi. Hemen arayın!" />
 
       {/* ─── HERO ─── */}
       <section className="relative pt-36 pb-28 md:pt-40 bg-[#0F172A] text-white overflow-hidden">
@@ -102,7 +102,7 @@ export default function ServisBolgeleri() {
             >
               Tüm Sakarya'da<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8] mt-2 block">
-                Mobil Klima Servisi
+                Mobil Teknik Servis Ağı
               </span>
             </motion.h1>
 
@@ -113,7 +113,7 @@ export default function ServisBolgeleri() {
               className="text-gray-300 font-semibold max-w-2xl mx-auto text-sm sm:text-base leading-relaxed"
             >
               Adapazarı merkezimizden koordine edilen tam donanımlı mobil araçlarımızla Sakarya'nın 16 ilçesinde
-              kesintisiz teknik destek, bakım, montaj ve gaz dolum hizmeti sunuyoruz.
+              Klima, Kombi, Çamaşır Makinesi, Bulaşık Makinesi, Buzdolabı, Kurutma Makinesi ve Ev Aletleri arıza tamiri ve bakım hizmeti sunuyoruz.
             </motion.p>
 
             <motion.div

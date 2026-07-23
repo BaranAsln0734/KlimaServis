@@ -10,19 +10,22 @@ import {
 } from "lucide-react";
 
 const SERVICES = [
-  "Klima Arıza Tamiri",
-  "Periyodik Bakım",
-  "Gaz Dolumu (R32 / R410A)",
-  "Klima Montajı & Kurulumu",
-  "İç/Dış Ünite Temizliği",
-  "Klima Sökümü",
-  "Yedek Parça Temini",
+  "Çamaşır Makinesi Arıza Servisi",
+  "Bulaşık Makinesi Arıza Servisi",
+  "Buzdolabı Arıza Servisi",
+  "Kombi Arıza & Bakım Servisi",
+  "Klima Arıza & Gaz Dolumu Servisi",
+  "Kurutma Makinesi Arıza Servisi",
+  "Küçük Ev Aletleri Arıza Servisi",
+  "Genel Periyodik Bakım & Temizlik",
+  "Klima / Cihaz Montajı & Kurulumu",
   "Keşif & Fiyat Teklifi",
 ];
 
 const BRANDS = [
   "Daikin", "Mitsubishi", "Samsung", "LG", "Arçelik",
-  "Bosch", "Vestel", "Gree", "Midea", "Toshiba", "Diğer"
+  "Bosch", "Beko", "Vestel", "Siemens", "DemirDöküm",
+  "Baymak", "Vaillant", "Toshiba", "Buderus", "Profilo", "Diğer"
 ];
 
 const CONTACT_CARDS = [
@@ -153,9 +156,9 @@ export default function ContactClientPage() {
             transition={{ delay: 0.1 }}
             className="font-black text-white uppercase leading-none text-4xl sm:text-5xl md:text-6xl tracking-tight mb-4"
           >
-            Uzman Klima<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8]">
-              Servisi & İletişim
+            Uzman Teknik<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8] mt-2 block">
+              Servis & İletişim
             </span>
           </motion.h1>
 
@@ -165,8 +168,7 @@ export default function ContactClientPage() {
             transition={{ delay: 0.2 }}
             className="text-gray-300 font-semibold text-sm sm:text-base leading-relaxed max-w-2xl mx-auto"
           >
-            Klimanız için acil servis, bakım randevusu veya fiyat teklifi almak istiyorsanız
-            7/24 hattımızı arayın ya da formu doldurun, sizi geri arayalım.
+            Klima, Kombi veya Beyaz Eşyanız için acil servis, bakım randevusu veya fiyat teklifi almak istiyorsanız 7/24 hattımızı arayın ya da formu doldurun, sizi hemen arayalım.
           </motion.p>
 
           {/* Stats */}

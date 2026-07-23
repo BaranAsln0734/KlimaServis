@@ -5,10 +5,10 @@
     "eta": "Merkez",
     "neighborhoods": ["Cumhuriyet","Mithatpaşa","İstiklal","Karaosman","Semerciler","Camii Kebir","Papuççular","Çark","Orta","Tepebaşı","Yenidoğan","Şeker","Korucuk","Güneşler","Esentepe","Kırkpınar","Yeniköy","Dağyolu"],
     "services": [
-      {"title": "Adapazarı Klima Arıza Servisi", "content": "Adapazarı'nda klimanız aniden durdu, soğutmuyor veya su akıtıyorsa uzman teknik ekibimiz aynı gün içinde kapınıza gelir. Kompresör arızası, gaz kaçağı, fan motoru bozukluğu ve elektronik kart problemleri dahil tüm marka ve modellerde yerinde arıza tespiti ve onarım yapıyoruz."},
-      {"title": "Klima Bakım & Filtre Temizliği", "content": "Yıllık periyodik klima bakımı; filtrelerin temizlenmesi, serpantinlerin yıkanması, gaz basıncı kontrolü ve elektrik bağlantılarının gözden geçirilmesini kapsar. Düzenli bakım yapılan klimalar %30'a kadar daha az enerji harcar ve ömrü uzar."},
-      {"title": "R32 ve R410A Gaz Dolumu", "content": "Adapazarı'nda gaz dolumu hizmeti sunarken yalnızca orijinal ve belgeli soğutucu gaz kullanıyoruz. R32 ve R410A soğutucu gazlar için tam şarj, kısmi şarj veya sistem sızdırmazlık testi hizmetleri mevcuttur."},
-      {"title": "Klima Montajı & Kurulumu", "content": "Yeni klima montajında doğru konum seçimi, bakır boru hattı döşemesi, drenaj hattı ve elektrik bağlantısı standartlara uygun şekilde yapılır. Tüm montajlarda TSE montaj standartlarına uyulur ve 1 yıl işçilik garantisi verilir."}
+      {"title": "Adapazarı Klima Arıza & Montaj Servisi", "content": "Adapazarı'nda klimanız soğutmuyor, su akıtıyor veya sesli çalışıyorsa uzman teknik ekibimiz aynı gün kapınıza gelir. Kompresör, gaz dolumu, fan motoru ve elektronik kart değişimleri dahil garantili yerinde servis."},
+      {"title": "Adapazarı Kombi Tamir & Petek Temizliği", "content": "Adapazarı'nda kombi basınç düşmesi, sıcak su gelmemesi ve peteklerin ısınmaması gibi problemlere 7/24 nöbetçi ekiplerimizle müdahale ediyoruz. Periyodik bakımlar ve petek temizliği ile yakıt tasarrufu sağlayın."},
+      {"title": "Çamaşır & Bulaşık Makinesi Servisi", "content": "Çamaşır makinesinin su boşaltmaması, sıkma yapmaması ve bulaşık makinesinin lekeli yıkaması gibi arızalara adreste aynı gün orijinal parça değişimli garantili tamir hizmeti sunuyoruz."},
+      {"title": "Buzdolabı & Kurutma Makinesi Tamiri", "content": "Buzdolabının alt bölmesinin soğutmaması, karlı çalışması ve kurutma makinesinin nemli bırakması arızalarında Adapazarı merkez depomuzdan tam donanımlı araçlarımızla anında servis sunulur."}
     ]
   },
   "serdivan": {
@@ -17,10 +17,10 @@
     "eta": "~18 dk",
     "neighborhoods": ["Arabacıalanı","Çiftlik","Dağdibi","Emek","Fevzi Çakmak","Gazi","Hızırtepe","Kemalpaşa","Kırmızıtoprak","Kurtköy","Mimarsinan","Mithatpaşa","Orhangazi","Serdivan Merkez","Sinanoğlu","Tepekum","Üniversite","Yeni"],
     "services": [
-      {"title": "Serdivan Klima Arıza & Bakım Servisi", "content": "Serdivan'da konut, site ve işyeri klimaları için 7/24 arıza servisi sunuyoruz. Teknik ekibimiz Serdivan'a ortalama 18 dakikada ulaşarak soğutma, ısıtma ve hava kalitesi sorunlarınızı çözüme kavuşturur."},
-      {"title": "Serdivan'da Klima Montajı", "content": "Serdivan'daki yeni binalarda ve site rezidanslarında klima montaj hizmetleri veriyoruz. Duvar tipi split, kaset ve kanal tipi klimaların kurulumunda deneyimli kadromuzla hizmetinizdeyiz."},
-      {"title": "Gaz Dolumu ve Sızdırmazlık Testi", "content": "Klimanız yeterince soğutmuyorsa gaz eksikliği olabilir. Serdivan bölgesinde R32 ve R410A gaz dolumu, sızdırmazlık testi ve tahliye işlemlerini profesyonelce gerçekleştiriyoruz."},
-      {"title": "Yıllık Bakım Anlaşmaları", "content": "Serdivan'da ev ve işyeri sahiplerine yönelik yıllık bakım anlaşmaları sunuyoruz. Anlaşmalı müşterilerimiz öncelikli servis hizmetinden ve indirimli yedek parçadan yararlanır."}
+      {"title": "Serdivan Klima Arıza & Bakım Servisi", "content": "Serdivan'da konut, site ve işyeri klimaları için 7/24 arıza servisi. Ortalama 18 dakikada adrese ulaşarak soğutma, R32/R410A gaz dolumu ve filtre temizliği işlemlerini gerçekleştiriyoruz."},
+      {"title": "Serdivan Kombi & Petek Bakımı", "content": "Serdivan bölgesinde kombi arıza onarımı, devirdaim pompası ve genleşme tankı bakımları ile petek temizliği hizmetleri 1 yıl resmi parça garantili verilmektedir."},
+      {"title": "Serdivan Beyaz Eşya Servisi", "content": "Çamaşır makinesi, bulaşık makinesi ve buzdolabı arızalarında Serdivan'daki evlerinize ve sitelerinize aynı gün uzman teknik müdahale sağlıyoruz."},
+      {"title": "Montaj, Demontaj & Deplase", "content": "Serdivan'da yeni konut ve taşınma durumlarında klima montajı, gaz toplama ve beyaz eşya tesisat kurulum hizmetleri vermekteyiz."}
     ]
   },
   "erenler": {
@@ -29,10 +29,10 @@
     "eta": "~20 dk",
     "neighborhoods": ["Camili","Çukurhisar","Derbent","Erenler Merkez","Gündoğdu","Işıklar","Karapınar","Kuzuluk","Mithatpaşa","Mollafenari","Osmaniye","Sinan","Şenlikköy","Yenimahalle","Yeşiltepe","Zafer"],
     "services": [
-      {"title": "Erenler Klima Arıza Tamiri", "content": "Erenler ilçesinde her marka klimada arıza tespiti ve onarım hizmeti sunuyoruz. Samsung, LG, Daikin, Mitsubishi, Arçelik ve diğer tüm markalarda yerinde teknik müdahale gerçekleştiriyoruz."},
-      {"title": "Periyodik Bakım Hizmeti", "content": "Klimanızın ömrünü ve verimini artırmak için Erenler'de yıllık periyodik bakım hizmeti veriyoruz. Filtre temizliği, serpantin bakımı ve gaz basıncı kontrolü dahildir."},
-      {"title": "Gaz Dolumu & Şarjı", "content": "Erenler'de R32 ve R410A gazları için gaz dolumu ve sızdırmazlık testleri yapıyoruz. Tüm işlemlerde çevre dostu ve orijinal soğutucu gazlar kullanılmaktadır."},
-      {"title": "Klima Montaj & Söküm", "content": "Erenler'de klima kurulumu ve sökümü için randevu alabilirsiniz. Tüm montajlarımız TSE standartlarına uygun yapılır ve 1 yıl işçilik garantisi verilir."}
+      {"title": "Erenler Klima Arıza & Montaj Servisi", "content": "Erenler ilçesinde tüm klima marka ve modellerinde yerinde arıza tespiti, R32/R410A gaz şarjı ve standartlara uygun bakır borulu montaj yapıyoruz."},
+      {"title": "Erenler Kombi Arıza Tamiri", "content": "Kombiniz su sızdırıyor, ateşleme yapmıyor veya ses çıkarıyorsa Erenler mobil servis aracımız 20 dakikada kapınızdadır."},
+      {"title": "Çamaşır & Bulaşık Makinesi Servisi", "content": "Erenler'de çamaşır ve bulaşık makinesi arızaları adreste çözülür. Pompa, kart, kazan ve fıskiye değişimleri 1 yıl garantilidir."},
+      {"title": "Buzdolabı & Ev Aletleri Servisi", "content": "Buzdolabı soğutmama, gaz kaçak tespiti ve küçük ev aletleri arıza tamirlerinde yetkin mühendislik çözümleri sunulur."}
     ]
   },
   "arifiye": {
@@ -41,10 +41,10 @@
     "eta": "~22 dk",
     "neighborhoods": ["Arifiye Merkez","Geyve Caddesi","İstasyon","Karaçay","Kemaliye","Kırkpınar","Kocapınar","Küplü","Nüfus","Orta","Pelitçik","Seyrantepe","Yazlık"],
     "services": [
-      {"title": "Arifiye Klima Bakım Servisi", "content": "Arifiye'de konut ve ticari alanlarda klima bakımı, arıza tespiti ve onarım hizmeti sunuyoruz. Deneyimli ekibimiz Arifiye'ye 22 dakikada ulaşarak sorunlarınızı çözüme kavuşturur."},
-      {"title": "Klima Arıza Tespiti", "content": "Klima soğutmuyor, su akıtıyor veya sesli çalışıyor mu? Arifiye'de yerinde arıza tanılama yaparak en hızlı çözümü sunuyoruz."},
-      {"title": "Gaz Dolumu", "content": "Arifiye'de R32 ve R410A gaz dolumu hizmetleri sunuyoruz. Gaz eksikliği durumunda klimanız tam kapasite soğutamaz, enerji tüketimi artar."},
-      {"title": "Yeni Klima Montajı", "content": "Arifiye'de yeni klima satın aldıysanız montaj için bizi arayın. Uzman ekibimiz standartlara uygun montaj yaparak 1 yıl işçilik garantisi verir."}
+      {"title": "Arifiye Klima Bakım & Tamir Servisi", "content": "Arifiye'de konut ve sanayi bölgesi alanlarında klima arıza servisi ve periyodik ilaçlı bakım hizmetleri sunuyoruz."},
+      {"title": "Arifiye Kombi & Petek Servisi", "content": "Arifiye'de kombi yıllık bakımı, esanjör temizliği ve radyatör petek yıkama hizmetleri."},
+      {"title": "Beyaz Eşya Teknik Servisi", "content": "Arifiye ilçesinde Çamaşır Makinesi, Bulaşık Makinesi ve Buzdolabı arızalarında aynı gün yerinde tamir imkânı."},
+      {"title": "Orijinal Parça & 1 Yıl Garanti", "content": "Arifiye'de değiştirilen tüm yedek parçalar 1 yıl resmi garanti belgesiyle teslim edilir."}
     ]
   },
   "sapanca": {
@@ -53,10 +53,10 @@
     "eta": "~35 dk",
     "neighborhoods": ["Ballıkaya","Çamlıca","Çengeller","Dağkadı","Derbent","Doğançay","Eşme","Hüseyinli","Kıran","Kireçocağı","Mahmudiye","Maşukiye","Merkez","Nüzhetiye","Sünbüllü","Şerefiye","Uzunkum","Yangıköy"],
     "services": [
-      {"title": "Sapanca Klima Arıza & Bakım", "content": "Sapanca'da hem tatil hem de daimi konutlar için 7/24 klima servisi sunuyoruz. Maşukiye, Uzunkum ve Sapanca merkez dahil tüm bölgelere aynı gün servis garantisi veriyoruz."},
-      {"title": "Klima Bakımı", "content": "Sapanca'da sezonal klima bakımı için randevu alın. Yaz sezonu öncesi klima bakımını yaptırarak verimin en yüksek olduğu dönemde konforunuzu yaşayın."},
-      {"title": "Gaz Dolumu", "content": "Sapanca bölgesinde R32 ve R410A gaz dolumu ve sızdırmazlık testleri yapıyoruz."},
-      {"title": "Montaj & Söküm", "content": "Sapanca'da yazlık ve daimi konutlar için klima montajı ve sökümü hizmetleri sunuyoruz. Her türlü arazi ve yapıya uygun çözümler üretiyoruz."}
+      {"title": "Sapanca Klima Servisi", "content": "Sapanca, Maşukiye ve Uzunkum'daki villa, müstakil konut ve oteller için 7/24 klima arıza, montaj ve bakım servisi."},
+      {"title": "Sapanca Kombi Bakımı & Isıtma", "content": "Kış sezonu öncesinde Sapanca'daki konutlarınızda kombi bakımı ve petek temizliği ile kesintisiz ısınma garantisi."},
+      {"title": "Sapanca Beyaz Eşya Tamiri", "content": "Buzdolabı, çamaşır ve bulaşık makinesi arızalarında Sapanca'ya özel mobil servis aracımızla aynı gün servis."},
+      {"title": "Yazlık Konut Cihaz Bakımları", "content": "Sapanca yazlıklarında sezon öncesi tüm iklimlendirme ve beyaz eşyaların genel kontrol ve bakımı yapılır."}
     ]
   },
   "hendek": {
@@ -65,10 +65,10 @@
     "eta": "~45 dk",
     "neighborhoods": ["Ağaçlı","Akçay","Balcı","Bardakçı","Beşköprü","Çubuklu","Dallıca","Dereköy","Doğançay","Erikli","Fevziye","Geriş","Göçbeyli","Hamidiye","Hendek Merkez","Kavacık","Kayabaşı","Köprübaşı","Kuzuluk","Lalahan","Nüzhetiye","Pazar","Ramazan","Sazlıca","Sofular","Toygarlı"],
     "services": [
-      {"title": "Hendek Klima Teknik Servisi", "content": "Hendek ilçesinde klima arıza servisi, bakım ve montaj hizmeti veriyoruz. Merkez ve köy mahallelerine dahil tüm Hendek bölgesine mobil servis aracımızla ulaşıyoruz."},
-      {"title": "Periyodik Klima Bakımı", "content": "Hendek'te klima bakımı için randevu alın. Filtre temizliği, serpantin yıkama ve genel sistem kontrolü ile klimanızın verimini artırın."},
-      {"title": "Gaz Dolumu", "content": "Hendek'te soğutucu gaz dolumu hizmeti veriyoruz. R32 ve R410A soğutucu gazlarla klima performansınızı yenileyin."},
-      {"title": "Klima Montaj Hizmeti", "content": "Hendek'te yeni klima alacaklar için profesyonel montaj hizmeti sunuyoruz. Sanayi OSB ve konut alanlarına özel çözümler üretiyoruz."}
+      {"title": "Hendek Klima & Kombi Teknik Servisi", "content": "Hendek merkez, OSB ve köy mahallelerine 7/24 mobil araçlarımızla klima ve kombi arıza servisi veriyoruz."},
+      {"title": "Hendek Beyaz Eşya Servisi", "content": "Hendek'te Çamaşır Makinesi, Bulaşık Makinesi ve Buzdolabı arızalarında adreste garantili tamir çözümleri."},
+      {"title": "Periyodik İlaçlı Bakım", "content": "Klima ve kombilerinizin verimini artırmak ve yakıt tasarrufu sağlamak için periyodik periyodik bakım hizmeti."},
+      {"title": "Montaj & Gaz Dolumu", "content": "R32 ve R410A gaz şarjı, kaçak testi ve standartlara uygun klima montajı veriyoruz."}
     ]
   },
   "karasu": {
@@ -77,10 +77,10 @@
     "eta": "~45 dk",
     "neighborhoods": ["Akçakoca","Aydınpınar","Balkaya","Beyören","Doğançay","Düzağaç","Ekşioğlu","Erikli","Gündüzler","Güneşli","Hatipler","Karasu Merkez","Kılavuzlar","Kurtköy","Küçükköy","Merkez","Ovayurt","Sarıyer","Tekkeönü","Yeşilova"],
     "services": [
-      {"title": "Karasu Klima Arıza Servisi", "content": "Karasu'da hem sahil konutları hem işyerleri için 7/24 klima servisi veriyoruz. Tuzlu hava nedeniyle dış ünite bakımı özellikle kritik olan Karasu bölgesinde düzenli bakım öneriyoruz."},
-      {"title": "Dış Ünite Bakımı & Temizliği", "content": "Karasu'nun sahil iklimi dış ünitelerde korozyona yol açabilir. Serpantin temizliği ve koruyucu bakım uygulamalarıyla klimanızı koruyun."},
-      {"title": "Gaz Dolumu", "content": "Karasu'da R32 ve R410A gaz dolumu hizmetleri sunuyoruz."},
-      {"title": "Klima Montajı", "content": "Karasu'da yaz konutları ve yazlık sitelere klima montajı hizmetleri veriyoruz. Randevu için bizi arayın."}
+      {"title": "Karasu Klima & Kombi Servisi", "content": "Karasu sahil siteleri ve konutlarında klima ve kombi arıza tamiri, gaz dolumu ve bakım hizmeti."},
+      {"title": "Karasu Beyaz Eşya Tamiri", "content": "Sahil iklimine özel paslanma korumalı dış ünite bakımı ve çamaşır, bulaşık, buzdolabı arıza onarımları."},
+      {"title": "Yazlık Konut Sezon Hazırlığı", "content": "Karasu yazlıklarınızda klima ve kombi açılış bakımları aynı gün mobil ekibimiz tarafından yapılır."},
+      {"title": "Montaj & Demontaj", "content": "Yazlık evlerinize yeni klima montajı ve eski cihazların sökümü standartlara uygun yapılır."}
     ]
   },
   "kocaali": {
@@ -89,10 +89,10 @@
     "eta": "~55 dk",
     "neighborhoods": ["Akçakese","Alifuatpaşa","Ballıca","Çaltı","Çelik","Değirmendere","Geyik","Hüseyinli","Karaçay","Kayışlar","Kerpe","Kocaali Merkez","Kumkışlak","Ortaköy","Pazar","Sarıyar","Sultanlı","Tığcılar"],
     "services": [
-      {"title": "Kocaali Klima Teknik Servisi", "content": "Kocaali ilçesinde 7/24 klima arıza servisi sunuyoruz. Sahil bölgesi konutları ve yazlıklara özel klima hizmetleri veriyoruz."},
-      {"title": "Periyodik Bakım", "content": "Kocaali'de klima bakımı için randevu alabilirsiniz. Özellikle yaz sezonu başında yapılan bakımlar sezon boyunca sorunsuz çalışma garantisi sağlar."},
-      {"title": "Gaz Dolumu", "content": "Kocaali bölgesinde R32 ve R410A gaz dolumu hizmetleri veriyoruz."},
-      {"title": "Montaj Hizmetleri", "content": "Kocaali'de yazlık ve konutlara klima montajı yapıyoruz. Uzman ekibimiz tüm bölgelere ulaşmaktadır."}
+      {"title": "Kocaali Klima & Kombi Servisi", "content": "Kocaali merkez ve sahil mahallelerine 7/24 klima arıza, gaz şarjı ve kombi periyodik bakımı veriyoruz."},
+      {"title": "Kocaali Beyaz Eşya Teknik Servis", "content": "Çamaşır makinesi, buzdolabı ve bulaşık makinesi arızalarında adreste 1 yıl garantili tamir yapıyoruz."},
+      {"title": "Periyodik İlaçlı Bakım", "content": "Cihaz filtre temizliği ve hijyenik ilaçlı serpantin yıkanması ile yüksek performans sağlanır."},
+      {"title": "Orijinal Yedek Parça", "content": "Tüm markalarda orijinal yedek parça desteği ile garantili tamir sunulur."}
     ]
   },
   "kaynarca": {
@@ -101,10 +101,10 @@
     "eta": "~60 dk",
     "neighborhoods": ["Adatepe","Akçakese","Altıntaş","Aşağı Kızılca","Beşpınar","Büyük Kızılca","Çakıllar","Duralıbey","Göktepe","Güneşli","Kadıköy","Kaynarca Merkez","Kılçık","Kocagöl","Kuzucu","Taşburun"],
     "services": [
-      {"title": "Kaynarca Klima Servisi", "content": "Kaynarca ilçesinde klima arıza, bakım ve montaj hizmetleri sunuyoruz. Uzak ilçelerde de aynı güveni yaşatıyoruz."},
-      {"title": "Klima Bakımı", "content": "Kaynarca'da yıllık klima bakımı için bizi arayın. Bakım zamanlarında öncelikli randevu verilmektedir."},
-      {"title": "Gaz Dolumu", "content": "R32 ve R410A gaz dolumu için Kaynarca'ya servis veriyoruz."},
-      {"title": "Klima Montajı", "content": "Kaynarca'da konut ve işyerlerine klima montajı yapıyoruz."}
+      {"title": "Kaynarca Klima & Kombi Servisi", "content": "Kaynarca ilçesinde klima ve kombi arıza servisi, gaz dolumu ve periyodik ilaçlı bakım hizmetleri."},
+      {"title": "Kaynarca Beyaz Eşya Tamiri", "content": "Kaynarca'da çamaşır makinesi, buzdolabı ve bulaşık makinesi arızalarında mobil servis aracımızla adresteyiz."},
+      {"title": "Yeni Cihaz Montajı", "content": "Standartlara uygun vakumlu klima montajı ve beyaz eşya kurulumu yapılmaktadır."},
+      {"title": "1 Yıl İşçilik Garantisi", "content": "Yapılan tüm onarımlar yazılı resmi 1 yıl işçilik ve parça garantisi ile belgelenir."}
     ]
   },
   "ferizli": {
@@ -113,10 +113,10 @@
     "eta": "~30 dk",
     "neighborhoods": ["Aziziye","Bağlar","Bayramoğlu","Çaybaşı","Doğancı","Ferizli Merkez","Göktepe","Hamidiye","Kadı","Kışla","Köybucağı","Nüzhetiye","Orhan","Osmaniye","Selimiye","Servi","Turpçular"],
     "services": [
-      {"title": "Ferizli Klima Teknik Servisi", "content": "Ferizli'de klima arıza servisi ve bakım hizmetleri veriyoruz. Merkezden yaklaşık 30 dakikada Ferizli'ye ulaşan ekibimiz aynı gün çözüm sunar."},
-      {"title": "Klima Bakım & Temizliği", "content": "Ferizli'de filtre temizliği ve periyodik bakım için randevu alabilirsiniz."},
-      {"title": "Gaz Dolumu", "content": "Ferizli bölgesinde R32 ve R410A gaz dolumu hizmetleri sunulmaktadır."},
-      {"title": "Klima Montajı", "content": "Ferizli'de yeni klima kurulumu için bizi arayın, aynı gün montaj imkânı sunuyoruz."}
+      {"title": "Ferizli Klima & Kombi Teknik Servisi", "content": "Ferizli'de klima arıza servisi, R32/R410A gaz şarjı ve kombi petek bakımlarında aynı gün hızlı çözüm."},
+      {"title": "Ferizli Beyaz Eşya Servisi", "content": "Çamaşır ve bulaşık makinesi su boşaltma/sıkma arızaları ile buzdolabı soğutmama arızalarına adreste müdahale."},
+      {"title": "Periyodik İlaçlı Bakım", "content": "Klima filtre yıkama ve kombi yanma odası temizliği ile yakıt ve elektrik tasarrufu."},
+      {"title": "Montaj & Söküm", "content": "Ferizli'de konut ve işyerlerine standartlara uygun garantili klima montajı veriyoruz."}
     ]
   },
   "sogutlu": {
@@ -125,10 +125,10 @@
     "eta": "~28 dk",
     "neighborhoods": ["Ballıhisar","Çakmaklı","Çeltikçi","Dağkadı","Dikilitaş","Erenler","Güney","Hamidiye","Kayabaşı","Kızılcaören","Söğütlü Merkez","Yenice"],
     "services": [
-      {"title": "Söğütlü Klima Servisi", "content": "Söğütlü'de klima arıza ve bakım servisi veriyoruz. Merkezden yaklaşık 28 dakikada Söğütlü'ye ulaşan ekibimiz en hızlı çözümü sunar."},
-      {"title": "Klima Bakımı", "content": "Söğütlü'de sezonal klima bakımı için randevu alın."},
-      {"title": "Gaz Dolumu", "content": "Söğütlü'de R32 ve R410A gaz dolumu hizmeti sunulmaktadır."},
-      {"title": "Klima Montajı", "content": "Söğütlü'de konut ve işyerlerine klima montajı yapıyoruz."}
+      {"title": "Söğütlü Klima & Kombi Servisi", "content": "Söğütlü ilçesinde 7/24 klima arıza, gaz dolumu ve kombi bakımlarında uzman ekiplerimizle hizmet veriyoruz."},
+      {"title": "Söğütlü Beyaz Eşya Tamiri", "content": "Buzdolabı, çamaşır ve bulaşık makinelerinin arızalarına Söğütlü'de yerinde 1 yıl garantili çözümler."},
+      {"title": "Gaz Dolumu & Sızdırmazlık Testi", "content": "Soğutucu gaz kaçak tespiti ve dijital terazili R32/R410A gaz dolumu."},
+      {"title": "Klima Montajı", "content": "Söğütlü'de konut ve sanayi işletmelerine profesyonel klima montaj hizmeti."}
     ]
   },
   "geyve": {
@@ -137,10 +137,10 @@
     "eta": "~55 dk",
     "neighborhoods": ["Ağaçlı","Aydınpınar","Çark","Dağkadı","Derbent","Doğançay","Geyve Merkez","Güneşli","Hamidiye","Hisarköy","İhsaniye","Kavaklı","Kızılcaören","Mahmudiye","Nüzhetiye","Pazar","Sarıyer","Taşburun","Yenice"],
     "services": [
-      {"title": "Geyve Klima Teknik Servisi", "content": "Geyve ilçesinde klima arıza servisi ve bakım hizmetleri sunuyoruz. Dağlık ve geniş coğrafyasıyla Geyve'nin tüm mahallelerine mobil servis aracımızla ulaşıyoruz."},
-      {"title": "Periyodik Bakım", "content": "Geyve'de klima bakımı için randevu alabilirsiniz. Özellikle kış sezonu öncesi ısıtma sistemlerinin kontrolünü tavsiye ediyoruz."},
-      {"title": "Gaz Dolumu", "content": "Geyve bölgesinde R32 ve R410A gaz dolumu hizmetleri sunulmaktadır."},
-      {"title": "Klima Montajı", "content": "Geyve'de yeni klima kurulumu için bizi arayın."}
+      {"title": "Geyve Klima & Kombi Servisi", "content": "Geyve'nin tüm dağlık ve kırsal mahallelerine mobil servis aracımızla ulaşarak klima ve kombi tamiri veriyoruz."},
+      {"title": "Geyve Beyaz Eşya Servisi", "content": "Geyve ilçesinde Çamaşır Makinesi, Bulaşık Makinesi ve Buzdolabı arızalarına adreste 1 yıl garantili tamir."},
+      {"title": "Kış Sezonu Kombi & Petek Bakımı", "content": "Kış öncesi radyatör petek temizliği ve kombi bakımı ile maksimum tasarruf sağlama."},
+      {"title": "Klima Montaj & Deplase", "content": "Geyve'de her türlü yapı ve araziye uygun klima montaj hizmeti."}
     ]
   },
   "pamukova": {
@@ -149,10 +149,10 @@
     "eta": "~50 dk",
     "neighborhoods": ["Ahmediye","Akmeşe","Alpagut","Bektaşlı","Çifteler","Çifte Köprü","Dağkadı","Doğançay","Erikli","Göktepe","Güneşli","Hürriyet","Kazımiye","Kuşça","Kutluca","Mahmudiye","Pamukova Merkez","Selimiye","Sultandere","Yenice"],
     "services": [
-      {"title": "Pamukova Klima Servisi", "content": "Pamukova ilçesinde klima arıza servisi, bakım ve montaj hizmetleri sunuyoruz."},
-      {"title": "Klima Bakımı", "content": "Pamukova'da klima bakımı için randevu alabilirsiniz. Hem konut hem tarımsal işletmeler için servis veriyoruz."},
-      {"title": "Gaz Dolumu", "content": "Pamukova'da R32 ve R410A gaz dolumu hizmeti sunulmaktadır."},
-      {"title": "Montaj Hizmetleri", "content": "Pamukova ilçesinde klima montajı için randevu alın."}
+      {"title": "Pamukova Klima & Kombi Servisi", "content": "Pamukova ilçesinde klima arıza servisi, gaz şarjı ve kombi petek bakımında hızlı saha müdahalesi."},
+      {"title": "Pamukova Beyaz Eşya Tamiri", "content": "Çamaşır ve bulaşık makinesi arızaları ile buzdolabı tamirinde adreste orijinal parça garantili hizmet."},
+      {"title": "Tarımsal & Konut Cihaz Servisi", "content": "Pamukova'da konut ve tarımsal işletmelere özel iklimlendirme ve beyaz eşya servis çözümleri."},
+      {"title": "Montaj Hizmetleri", "content": "Pamukova'da standartlara uygun vakumlu klima kurulumu ve beyaz eşya montajı."}
     ]
   },
   "tarakli": {
@@ -161,10 +161,10 @@
     "eta": "~70 dk",
     "neighborhoods": ["Beypınar","Boyalıca","Çeltikdere","Dere","Deydinler","Eğrikaya","Gökçedere","Hacıyakup","Hamidiye","Kaymakam","Kılıçlı","Kırantepe","Köprübaşı","Kuzluca","Mahmudiye","Ortaca","Sarıbeyler","Taraklı Merkez","Yalnızçam","Yeşilova"],
     "services": [
-      {"title": "Taraklı Klima Teknik Servisi", "content": "Sakarya'nın tarihi ilçesi Taraklı'da klima arıza servisi ve bakım hizmetleri sunuyoruz. Taraklı'nın tüm köy ve mahallelerine ulaşan mobil ekibimizle hizmetinizdeyiz."},
-      {"title": "Klima Bakımı", "content": "Taraklı'da klima bakımı için randevu alabilirsiniz."},
-      {"title": "Gaz Dolumu", "content": "Taraklı'da R32 ve R410A gaz dolumu hizmeti verilmektedir."},
-      {"title": "Klima Montajı", "content": "Taraklı'da konut ve işyerlerine klima montajı yapıyoruz."}
+      {"title": "Taraklı Klima & Kombi Servisi", "content": "Tarihi Taraklı ilçemizde ve tüm köylerinde 7/24 klima arıza, bakım ve kombi servis hizmeti veriyoruz."},
+      {"title": "Taraklı Beyaz Eşya Teknik Servisi", "content": "Taraklı'da buzdolabı soğutmama, çamaşır makinesi sıkmama arızalarında yerinde garantili müdahale."},
+      {"title": "Tarihi Yapılara Hassas Montaj", "content": "Tarihi evler ve konaklarda estetik ve hassas borulamayla klima montaj hizmeti."},
+      {"title": "1 Yıl Parça Garantisi", "content": "Yapılan tüm parça değişimleri 1 yıl resmi servis garantimiz altındadır."}
     ]
   },
   "akyazi": {
@@ -173,22 +173,22 @@
     "eta": "~40 dk",
     "neighborhoods": ["Ağaçlı","Aksu","Balcı","Beşköprü","Çay","Çukurhisar","Dağdibi","Değirmendere","Doğançay","Duman","Erikli","Fevziye","Göktepe","Güneşli","Hamidiye","Işıklar","Kadıköy","Karaburun","Kavaklı","Kuyumcu","Mahmudiye","Nüzhetiye","Ortaköy","Pazar","Selimiye","Sultanlı","Taşburun","Yenice"],
     "services": [
-      {"title": "Akyazı Klima Arıza Servisi", "content": "Akyazı ilçesinde klima arıza tespiti ve onarım hizmeti sunuyoruz. Merkezden yaklaşık 40 dakikada Akyazı'ya ulaşan ekibimiz aynı gün çözüm sağlar."},
-      {"title": "Periyodik Bakım Hizmeti", "content": "Akyazı'da klima bakımı için randevu alabilirsiniz. Tarımsal işletmeler ve konutlar için özel bakım planları oluşturuyoruz."},
-      {"title": "Gaz Dolumu", "content": "Akyazı'da R32 ve R410A gaz dolumu ve sızdırmazlık testi hizmetleri veriyoruz."},
-      {"title": "Klima Montajı", "content": "Akyazı'da yeni klima kurulumu için bizi arayın. Uzman ekibimiz tüm Akyazı mahalleleri ve bağlı köylere ulaşmaktadır."}
+      {"title": "Akyazı Klima & Kombi Arıza Servisi", "content": "Akyazı merkez ve bağlı köylerinde klima arıza tespiti, gaz dolumu ve kombi petek bakımlarında aynı gün hızlı çözüm."},
+      {"title": "Akyazı Beyaz Eşya Tamir Servisi", "content": "Çamaşır ve bulaşık makinesi ile buzdolabı arızalarına Akyazı'da yerinde 1 yıl garantili tamir veriyoruz."},
+      {"title": "Periyodik İlaçlı Bakım", "content": "Klima filtre yıkama ve kombi yanma odası temizliği ile yüksek verimlilik."},
+      {"title": "Klima Montaj Hizmeti", "content": "Akyazı'da tüm mahallelerde vakumlu ve garantili klima kurulumu."}
     ]
   },
   "karapurcek": {
     "name": "Karapürçek",
     "locative": "Karapürçek'te",
     "eta": "~35 dk",
-    "neighborhoods": ["Bahçeköy","Bağlarbası","Bekirler","Boyalıca","Çaltı","Çeltikçi","Dağkadı","Dikmen","Düzköy","Güneşli","Hamidiye","Karapürçek Merkez","Kavaklı","Kızılcaören","Köprübaşı","Mahmudiye","Sarıyer","Selimiye","Yenice"],
+    "neighborhoods": ["Bahçeköy","Bağlarbaşı","Bekirler","Boyalıca","Çaltı","Çeltikçi","Dağkadı","Dikmen","Düzköy","Güneşli","Hamidiye","Karapürçek Merkez","Kavaklı","Kızılcaören","Köprübaşı","Mahmudiye","Sarıyer","Selimiye","Yenice"],
     "services": [
-      {"title": "Karapürçek Klima Teknik Servisi", "content": "Karapürçek ilçesinde klima arıza servisi ve bakım hizmetleri sunuyoruz. Adapazarı merkezinden yaklaşık 35 dakikada ulaşan ekibimizle hızlı çözüm sağlıyoruz."},
-      {"title": "Klima Bakımı", "content": "Karapürçek'te sezonal klima bakımı ve filtre temizliği için randevu alabilirsiniz."},
-      {"title": "Gaz Dolumu", "content": "Karapürçek'te R32 ve R410A gaz dolumu hizmeti veriyoruz."},
-      {"title": "Klima Montajı", "content": "Karapürçek'te konut ve işyerlerine klima montajı için bizi arayın."}
+      {"title": "Karapürçek Klima & Kombi Servisi", "content": "Karapürçek ilçesinde klima arıza servisi, R32/R410A gaz şarjı ve kombi petek bakımında hızlı mobil ekip."},
+      {"title": "Karapürçek Beyaz Eşya Tamiri", "content": "Çamaşır makinesi, buzdolabı ve bulaşık makinesi arızalarında Karapürçek'te adreste tamir imkânı."},
+      {"title": "Periyodik İlaçlı Bakım", "content": "Klima ve kombilerinizin ömrünü uzatan periyodik ilaçlı temizlik hizmeti."},
+      {"title": "1 Yıl İşçilik Garantisi", "content": "Yapılan her teknik müdahale 1 Yıl Parça ve İşçilik Garanti Belgesi ile güvence altına alınır."}
     ]
   }
 }

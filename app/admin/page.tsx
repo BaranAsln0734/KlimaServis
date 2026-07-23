@@ -57,35 +57,35 @@ interface ServiceRequest {
 const INITIAL_REQUESTS: ServiceRequest[] = [
   {
     id: "req-1",
-    name: "Ahmet Yılmaz (Teknosa Lojistik)",
+    name: "Ahmet Yılmaz (Adapazarı)",
     phone: "+90 532 111 22 33",
-    email: "ahmet.yilmaz@teknosa.com",
-    serviceType: "Periyodik Bakım",
-    district: "Hadımköy (Arnavutköy)",
-    message: "Depomuzdaki 500 kVA Aksa jeneratörümüz için yıllık sözleşmeli bakım teklifi almak istiyoruz.",
-    date: "2026-06-29",
+    email: "ahmet.yilmaz@gmail.com",
+    serviceType: "Klima Periyodik Bakım",
+    district: "Adapazarı",
+    message: "Evimizdeki Daikin split klima için sezonsal ilaçlı bakım randevusu almak istiyoruz.",
+    date: "2026-07-22",
     status: "Pending"
   },
   {
     id: "req-2",
-    name: "Mehmet Demir (Acıbadem Tıp Merkezi)",
+    name: "Mehmet Demir (Serdivan)",
     phone: "+90 544 444 55 66",
-    email: "mdemir@acibadem.com",
-    serviceType: "Acil Arıza Servisi",
-    district: "Kadıköy",
-    message: "Şebeke kesintisi anında jeneratör marş basıyor ama devreye girmiyor, acil ekip yönlendirir misiniz?",
-    date: "2026-06-28",
+    email: "mdemir@hotmail.com",
+    serviceType: "Kombi Arıza Servisi",
+    district: "Serdivan",
+    message: "Kombimiz basınç düşürüyor ve petekler ısınmıyor, acil nöbetçi ekip yönlendirir misiniz?",
+    date: "2026-07-21",
     status: "Approved"
   },
   {
     id: "req-3",
-    name: "Selin Kaya (Kaya Tekstil)",
+    name: "Selin Kaya (Sapanca)",
     phone: "+90 535 777 88 99",
     email: "info@kayatekstil.com",
-    serviceType: "Güç ve Yer Tespiti",
-    district: "Esenyurt",
-    message: "Yeni fabrikamız için kaç kVA jeneratör almamız gerektiği konusunda yerinde mühendislik keşfi talep ediyoruz.",
-    date: "2026-06-27",
+    serviceType: "Çamaşır Makinesi Tamiri",
+    district: "Sapanca",
+    message: "Çamaşır makinemiz suyu tahliye etmiyor ve sıkmaya geçmiyor. Yerinde servis rica ederiz.",
+    date: "2026-07-20",
     status: "Archived"
   }
 ];
@@ -725,17 +725,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
         <div className="w-full lg:w-2/5 flex flex-col justify-between p-8 sm:p-12 md:p-16 bg-[#0B1120] relative z-20 border-l border-white/5">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-[#0EA5E9] flex items-center justify-center text-white shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                  <line x1="12" y1="2" x2="12" y2="22"/>
-                  <path d="m2 7 10 5 10-5"/>
-                  <path d="m2 17 10-5 10 5"/>
-                  <path d="m7 4.5-2.5 2.5 2.5 2.5"/>
-                  <path d="M17 4.5l2.5 2.5-2.5 2.5"/>
-                  <path d="m7 19.5-2.5-2.5 2.5-2.5"/>
-                  <path d="M17 19.5l2.5-2.5-2.5-2.5"/>
-                </svg>
-              </div>
+              <img src="/x.png" alt="Sakarya Uzman Klima Logo" className="h-10 w-auto object-contain group-hover:scale-105 transition-transform" />
               <div>
                 <span className="block font-black text-sm text-white tracking-tight">SAKARYA UZMAN</span>
                 <span className="block font-bold text-[10px] text-[#0EA5E9] uppercase tracking-widest">Klima Servisi</span>
@@ -860,7 +850,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                     onClick={() => setActiveTab(item.id as "dashboard" | "blog" | "requests" | "files")}
                     className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 cursor-pointer
                       ${isActive 
-                        ? "bg-[#FFCC00] text-white shadow-md shadow-[#FFCC00]/20" 
+                        ? "bg-[#0EA5E9] text-white shadow-md shadow-[#0EA5E9]/20" 
                         : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
                       }
                     `}
@@ -871,7 +861,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                     </div>
                     {item.badge !== undefined && (
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold 
-                        ${isActive ? "bg-white text-[#FFCC00]" : "bg-red-500 text-white"}`}
+                        ${isActive ? "bg-white text-[#0EA5E9]" : "bg-red-500 text-white"}`}
                       >
                         {item.badge}
                       </span>
@@ -884,7 +874,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
             <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col gap-3">
               <Link 
                 href="/" 
-                className="flex items-center justify-between text-xs font-bold text-gray-400 hover:text-[#FFCC00] transition-colors"
+                className="flex items-center justify-between text-xs font-bold text-gray-400 hover:text-[#0EA5E9] transition-colors"
               >
                 <span>Sitede Gör</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -916,7 +906,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
               {/* Stats Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                 {[
-                  { label: "Toplam Blog Haberi", val: totalPostsCount, desc: `${posts.length} Dinamik, 6 Statik`, icon: FileText, color: "text-[#FFCC00] bg-[#FFCC00]/10" },
+                  { label: "Toplam Blog Haberi", val: totalPostsCount, desc: `${posts.length} Dinamik, 6 Statik`, icon: FileText, color: "text-[#0EA5E9] bg-[#0EA5E9]/10" },
                   { label: "Servis Talepleri", val: requests.length, desc: `${pendingRequestsCount} İşlem Bekliyor`, icon: Users, color: "text-amber-600 bg-amber-50" },
                   { label: "Aktif Servis Bölgeleri", val: 39, desc: "Tüm İstanbul İlçeleri", icon: MapPin, color: "text-emerald-600 bg-emerald-50" },
                   { label: "Hizmet Kategorileri", val: 5, desc: "5 Mühendislik Hizmeti", icon: Cpu, color: "text-purple-600 bg-purple-50" }
@@ -944,7 +934,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                     <h3 className="text-lg font-black text-gray-800 uppercase tracking-tight">Son Servis Talepleri</h3>
                     <button 
                       onClick={() => setActiveTab("requests")} 
-                      className="text-xs font-black uppercase tracking-wider text-[#FFCC00] hover:underline"
+                      className="text-xs font-black uppercase tracking-wider text-[#0EA5E9] hover:underline"
                     >
                       Tümünü Gör
                     </button>
@@ -987,7 +977,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   <div className="flex flex-col gap-3">
                     <button
                       onClick={() => setActiveTab("blog")}
-                      className="w-full py-3.5 rounded-xl bg-[#FFCC00] text-white font-black uppercase text-xs tracking-wider hover:brightness-105 transition-all shadow-md shadow-blue-500/10 flex items-center justify-center gap-2"
+                      className="w-full py-3.5 rounded-xl bg-[#0EA5E9] text-white font-black uppercase text-xs tracking-wider hover:brightness-105 transition-all shadow-md shadow-blue-500/10 flex items-center justify-center gap-2"
                     >
                       <PlusCircle className="w-4 h-4" />
                       Yeni Haber Ekle
@@ -1037,7 +1027,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         required
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800"
                         placeholder="Örn: Jeneratör Bakımı Neden Önemlidir?"
                       />
                     </div>
@@ -1048,7 +1038,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         <select
                           value={blogCategory}
                           onChange={(e) => setBlogCategory(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
                         >
                           <option value="Genel">Genel</option>
                           <option value="Jeneratör Bakımı">Jeneratör Bakımı</option>
@@ -1065,7 +1055,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                           required
                           value={blogDate}
                           onChange={(e) => setBlogDate(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
                         />
                       </div>
                     </div>
@@ -1076,7 +1066,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         rows={2}
                         value={excerpt}
                         onChange={(e) => setExcerpt(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
                         placeholder="Haberin kısa bir özeti..."
                       />
                     </div>
@@ -1090,7 +1080,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                           type="url"
                           value={imageUrl}
                           onChange={(e) => setImageUrl(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800"
                           placeholder="https://images.unsplash.com/..."
                         />
                         <p className="text-[10px] text-gray-400 mt-1 font-semibold">Boş bırakırsanız yüklediğiniz resimlerden ilki veya varsayılan görsel atanır.</p>
@@ -1104,7 +1094,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                           type="file"
                           accept="image/*"
                           onChange={handleImageUpload}
-                          className="w-full px-4 py-2.5 text-xs font-semibold text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:uppercase file:bg-blue-50 file:text-[#FFCC00] hover:file:bg-blue-100 border border-gray-200 rounded-xl cursor-pointer"
+                          className="w-full px-4 py-2.5 text-xs font-semibold text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:uppercase file:bg-blue-50 file:text-[#0EA5E9] hover:file:bg-blue-100 border border-gray-200 rounded-xl cursor-pointer"
                         />
                         <p className="text-[10px] text-gray-400 mt-1 font-semibold">Habere kapak resmi olacak bir görsel seçin.</p>
                       </div>
@@ -1118,7 +1108,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         type="url"
                         value={videoUrl}
                         onChange={(e) => setVideoUrl(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800"
                         placeholder="Örn: YouTube, Vimeo veya doğrudan video (.mp4) linki"
                       />
                       <p className="text-[10px] text-gray-400 mt-1 font-semibold">Desteklenenler: YouTube, Vimeo veya doğrudan video URL'i.</p>
@@ -1153,7 +1143,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         rows={8}
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
                         placeholder="Haberin tüm detaylarını buraya yazın..."
                       />
                     </div>
@@ -1161,7 +1151,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                     <button
                       type="submit"
                       disabled={status === "loading"}
-                      className="w-full py-4 bg-[#FFCC00] text-white font-black uppercase tracking-wider rounded-xl hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 disabled:opacity-75 text-xs"
+                      className="w-full py-4 bg-[#0EA5E9] text-white font-black uppercase tracking-wider rounded-xl hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 disabled:opacity-75 text-xs"
                     >
                       {status === "loading" ? "Yayınlanıyor..." : "Haberi Yayınla"}
                       <Send className="w-4 h-4" />
@@ -1195,7 +1185,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                               <button
                                 type="button"
                                 onClick={() => { setAllPostsModal("published"); setModalSearchQuery(""); }}
-                                className="text-[10px] font-black text-[#FFCC00] hover:underline uppercase tracking-wider cursor-pointer border-0 bg-transparent"
+                                className="text-[10px] font-black text-[#0EA5E9] hover:underline uppercase tracking-wider cursor-pointer border-0 bg-transparent"
                               >
                                 Tümünü Gör ({published.length})
                               </button>
@@ -1214,7 +1204,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   <div className="flex items-center gap-1.5 shrink-0">
                                     <button
                                       onClick={() => handleEditPost(post)}
-                                      className="w-7 h-7 rounded-lg bg-blue-50 text-[#FFCC00] hover:bg-[#FFCC00] hover:text-white transition-colors flex items-center justify-center border border-blue-100 cursor-pointer"
+                                      className="w-7 h-7 rounded-lg bg-blue-50 text-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white transition-colors flex items-center justify-center border border-blue-100 cursor-pointer"
                                       title="Haberi Düzenle"
                                     >
                                       <Pencil className="w-3 h-3" />
@@ -1241,7 +1231,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                               <button
                                 type="button"
                                 onClick={() => { setAllPostsModal("scheduled"); setModalSearchQuery(""); }}
-                                className="text-[10px] font-black text-[#FFCC00] hover:underline uppercase tracking-wider cursor-pointer border-0 bg-transparent"
+                                className="text-[10px] font-black text-[#0EA5E9] hover:underline uppercase tracking-wider cursor-pointer border-0 bg-transparent"
                               >
                                 Tümünü Gör ({scheduled.length})
                               </button>
@@ -1260,7 +1250,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   <div className="flex items-center gap-1.5 shrink-0">
                                     <button
                                       onClick={() => handleEditPost(post)}
-                                      className="w-7 h-7 rounded-lg bg-blue-50 text-[#FFCC00] hover:bg-[#FFCC00] hover:text-white transition-colors flex items-center justify-center border border-blue-100 cursor-pointer"
+                                      className="w-7 h-7 rounded-lg bg-blue-50 text-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white transition-colors flex items-center justify-center border border-blue-100 cursor-pointer"
                                       title="Haberi Düzenle"
                                     >
                                       <Pencil className="w-3 h-3" />
@@ -1292,7 +1282,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-black text-[#111111] uppercase tracking-tight">Servis & Teklif Talepleri</h2>
-                <p className="text-gray-500 mt-1">Müşterilerden gelen jeneratör arıza, bakım ve güç tespiti taleplerini denetleyin.</p>
+                <p className="text-gray-500 mt-1">Müşterilerden gelen Klima, Kombi ve Beyaz Eşya arıza, bakım ve montaj taleplerini denetleyin.</p>
               </div>
 
               <div className="bg-white rounded-3xl border border-gray-100 shadow-xs overflow-hidden">
@@ -1311,7 +1301,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
 
                 {loadingRequests ? (
                   <div className="p-12 flex flex-col items-center justify-center text-center text-gray-400">
-                    <div className="w-6 h-6 border-2 border-[#FFCC00] border-t-transparent rounded-full animate-spin mb-2" />
+                    <div className="w-6 h-6 border-2 border-[#0EA5E9] border-t-transparent rounded-full animate-spin mb-2" />
                     <p className="text-xs font-bold uppercase tracking-wider">Talepler Yükleniyor...</p>
                   </div>
                 ) : requests.length === 0 ? (
@@ -1345,7 +1335,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                               </div>
                             </td>
                             <td className="px-6 py-4.5">
-                              <span className="px-2.5 py-1.5 rounded-lg bg-[#FFCC00]/5 border border-[#FFCC00]/10 text-[#FFCC00] font-bold inline-block text-[10px] tracking-wide uppercase">
+                              <span className="px-2.5 py-1.5 rounded-lg bg-[#0EA5E9]/5 border border-[#0EA5E9]/10 text-[#0EA5E9] font-bold inline-block text-[10px] tracking-wide uppercase">
                                 {req.serviceType}
                               </span>
                               <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mt-1.5 flex items-center gap-1">
@@ -1430,7 +1420,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   <button
                     onClick={handleSaveFileContent}
                     disabled={fileStatus === "loading"}
-                    className="px-5 py-3 text-xs font-black uppercase tracking-wider text-white bg-[#FFCC00] hover:bg-[#E6B800] rounded-xl transition-all shadow-md shadow-[#FFCC00]/10 disabled:opacity-50 flex items-center gap-1.5 cursor-pointer animate-pulse"
+                    className="px-5 py-3 text-xs font-black uppercase tracking-wider text-white bg-[#0EA5E9] hover:bg-[#E6B800] rounded-xl transition-all shadow-md shadow-[#0EA5E9]/10 disabled:opacity-50 flex items-center gap-1.5 cursor-pointer animate-pulse"
                   >
                     {fileStatus === "loading" ? "Kaydediliyor..." : "Tüm Değişiklikleri Kaydet"}
                   </button>
@@ -1446,7 +1436,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                     <select
                       value={selectedFile}
                       onChange={(e) => setSelectedFile(e.target.value)}
-                      className="w-full md:w-80 px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
+                      className="w-full md:w-80 px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
                     >
                       <option value="projects.ts">Referans Projeler (projects.ts)</option>
                       <option value="references.ts">Kurumsal Referans Logoları (references.ts)</option>
@@ -1464,7 +1454,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                       }}
                       className={`pb-2.5 text-xs font-black uppercase tracking-wider border-b-2 transition-all cursor-pointer ${
                         editMode === "visual"
-                          ? "border-[#FFCC00] text-[#FFCC00]"
+                          ? "border-[#0EA5E9] text-[#0EA5E9]"
                           : "border-transparent text-gray-400 hover:text-gray-600"
                       }`}
                     >
@@ -1474,7 +1464,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                       onClick={() => setEditMode("raw")}
                       className={`pb-2.5 text-xs font-black uppercase tracking-wider border-b-2 transition-all cursor-pointer ${
                         editMode === "raw"
-                          ? "border-[#FFCC00] text-[#FFCC00]"
+                          ? "border-[#0EA5E9] text-[#0EA5E9]"
                           : "border-transparent text-gray-400 hover:text-gray-600"
                       }`}
                     >
@@ -1509,7 +1499,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         value={fileContent}
                         onChange={(e) => setFileContent(e.target.value)}
                         disabled={fileStatus === "loading"}
-                        className="w-full p-6 bg-gray-950 text-emerald-400 font-mono text-xs rounded-2xl border border-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FFCC00]/50 leading-relaxed disabled:opacity-75"
+                        className="w-full p-6 bg-gray-950 text-emerald-400 font-mono text-xs rounded-2xl border border-gray-900 focus:outline-none focus:ring-2 focus:ring-[#0EA5E9]/50 leading-relaxed disabled:opacity-75"
                         style={{ tabSize: 2, whiteSpace: "pre", overflowX: "auto" }}
                         placeholder="// Dosya içeriği yükleniyor..."
                       />
@@ -1538,7 +1528,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                 <select
                                   value={selectedDistrict}
                                   onChange={(e) => setSelectedDistrict(e.target.value)}
-                                  className="mt-1.5 px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 bg-white outline-none focus:border-[#FFCC00]"
+                                  className="mt-1.5 px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 bg-white outline-none focus:border-[#0EA5E9]"
                                 >
                                   {Object.keys(parsedData).map((key) => (
                                     <option key={key} value={key}>
@@ -1560,7 +1550,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                     type="text"
                                     value={parsedData[selectedDistrict].mainTitle || ""}
                                     onChange={(e) => updateDistrictMainTitle(e.target.value)}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] outline-none text-sm font-semibold text-gray-800"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] outline-none text-sm font-semibold text-gray-800"
                                   />
                                 </div>
 
@@ -1570,7 +1560,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   {parsedData[selectedDistrict].sections?.map((section: any, idx: number) => (
                                     <div key={idx} className="p-6 border border-gray-100 rounded-2xl bg-gray-50/50 space-y-4">
                                       <div className="flex items-center justify-between">
-                                        <span className="text-[10px] font-black text-[#FFCC00] bg-[#FFCC00]/10 px-2 py-0.5 rounded-md uppercase tracking-wider">Bölüm #{idx + 1}</span>
+                                        <span className="text-[10px] font-black text-[#0EA5E9] bg-[#0EA5E9]/10 px-2 py-0.5 rounded-md uppercase tracking-wider">Bölüm #{idx + 1}</span>
                                       </div>
                                       <div>
                                         <label className="block text-[10px] font-black text-gray-400 uppercase tracking-wider mb-1">Bölüm Başlığı</label>
@@ -1578,7 +1568,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                           type="text"
                                           value={section.title || ""}
                                           onChange={(e) => updateDistrictSection(idx, "title", e.target.value)}
-                                          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-800 outline-none focus:border-[#FFCC00]"
+                                          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm font-bold text-gray-800 outline-none focus:border-[#0EA5E9]"
                                         />
                                       </div>
                                       <div>
@@ -1587,7 +1577,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                           rows={4}
                                           value={section.html || ""}
                                           onChange={(e) => updateDistrictSection(idx, "html", e.target.value)}
-                                          className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold text-gray-700 leading-relaxed outline-none focus:border-[#FFCC00]"
+                                          className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold text-gray-700 leading-relaxed outline-none focus:border-[#0EA5E9]"
                                         />
                                       </div>
                                     </div>
@@ -1608,7 +1598,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   placeholder="Model ismi ara..."
                                   value={searchQuery}
                                   onChange={(e) => setSearchQuery(e.target.value)}
-                                  className="w-full sm:w-60 px-4 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold text-gray-700 outline-none focus:border-[#FFCC00]"
+                                  className="w-full sm:w-60 px-4 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold text-gray-700 outline-none focus:border-[#0EA5E9]"
                                 />
                               </div>
                               <button
@@ -1634,7 +1624,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                     .filter(([key]) => key.toLowerCase().includes(searchQuery.toLowerCase()))
                                     .map(([key, val]: any, idx) => (
                                       <tr key={key} className="hover:bg-gray-50/50 transition-colors">
-                                        <td className="px-4 py-3 text-[#FFCC00] font-black">{key}</td>
+                                        <td className="px-4 py-3 text-[#0EA5E9] font-black">{key}</td>
                                         <td className="px-4 py-3 max-w-[240px] truncate font-mono text-[10px] text-gray-500">{val.tr}</td>
                                         <td className="px-4 py-3 max-w-[240px] truncate font-mono text-[10px] text-gray-500">{val.en}</td>
                                         <td className="px-4 py-3 text-right space-x-1.5">
@@ -1676,7 +1666,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                       setParsedData(updated);
                                       await serializeParsedData(selectedFile, updated);
                                     }}
-                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-800 outline-none focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/10 bg-white"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-800 outline-none focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/10 bg-white"
                                   />
                                 </div>
                                 <div>
@@ -1689,7 +1679,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                       setParsedData(updated);
                                       await serializeParsedData(selectedFile, updated);
                                     }}
-                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-800 outline-none focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/10 bg-white"
+                                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-800 outline-none focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/10 bg-white"
                                   />
                                 </div>
                               </div>
@@ -1763,7 +1753,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   placeholder="Başlık, marka, model ara..."
                                   value={searchQuery}
                                   onChange={(e) => setSearchQuery(e.target.value)}
-                                  className="w-full sm:w-60 px-4 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold text-gray-700 outline-none focus:border-[#FFCC00]"
+                                  className="w-full sm:w-60 px-4 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold text-gray-700 outline-none focus:border-[#0EA5E9]"
                                 />
                               </div>
                               <button
@@ -1780,7 +1770,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   onClick={() => setProjectStatusFilter("all")}
                                   className={`pb-2.5 text-xs font-black uppercase tracking-wider border-b-2 transition-all cursor-pointer ${
                                     projectStatusFilter === "all"
-                                      ? "border-[#FFCC00] text-[#FFCC00]"
+                                      ? "border-[#0EA5E9] text-[#0EA5E9]"
                                       : "border-transparent text-gray-400 hover:text-gray-600"
                                   }`}
                                 >
@@ -1790,7 +1780,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   onClick={() => setProjectStatusFilter("completed")}
                                   className={`pb-2.5 text-xs font-black uppercase tracking-wider border-b-2 transition-all cursor-pointer ${
                                     projectStatusFilter === "completed"
-                                      ? "border-[#FFCC00] text-[#FFCC00]"
+                                      ? "border-[#0EA5E9] text-[#0EA5E9]"
                                       : "border-transparent text-gray-400 hover:text-gray-600"
                                   }`}
                                 >
@@ -1800,7 +1790,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                                   onClick={() => setProjectStatusFilter("ongoing")}
                                   className={`pb-2.5 text-xs font-black uppercase tracking-wider border-b-2 transition-all cursor-pointer ${
                                     projectStatusFilter === "ongoing"
-                                      ? "border-[#FFCC00] text-[#FFCC00]"
+                                      ? "border-[#0EA5E9] text-[#0EA5E9]"
                                       : "border-transparent text-gray-400 hover:text-gray-600"
                                   }`}
                                 >
@@ -1910,7 +1900,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   required
                   value={editingPost.title}
                   onChange={(e) => setEditingPost({ ...editingPost, title: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800"
                 />
               </div>
 
@@ -1920,7 +1910,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   <select
                     value={editingPost.category || "Genel"}
                     onChange={(e) => setEditingPost({ ...editingPost, category: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
                   >
                     <option value="Genel">Genel</option>
                     <option value="Jeneratör Bakımı">Jeneratör Bakımı</option>
@@ -1937,7 +1927,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                     required
                     value={editingPost.date || ""}
                     onChange={(e) => setEditingPost({ ...editingPost, date: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800 bg-white"
                   />
                 </div>
               </div>
@@ -1948,7 +1938,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   rows={2}
                   value={editingPost.excerpt}
                   onChange={(e) => setEditingPost({ ...editingPost, excerpt: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
                 />
               </div>
 
@@ -1960,7 +1950,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   type="text"
                   value={editingPost.imageUrl || ""}
                   onChange={(e) => setEditingPost({ ...editingPost, imageUrl: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800"
                   placeholder="https://..."
                 />
               </div>
@@ -1973,7 +1963,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   type="url"
                   value={editingPost.videoUrl || ""}
                   onChange={(e) => setEditingPost({ ...editingPost, videoUrl: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all text-sm font-semibold text-gray-800"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all text-sm font-semibold text-gray-800"
                   placeholder="YouTube, Vimeo veya direct video link"
                 />
               </div>
@@ -1987,7 +1977,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   rows={10}
                   value={editingPost.content}
                   onChange={(e) => setEditingPost({ ...editingPost, content: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none transition-all resize-none text-sm font-semibold text-gray-800"
                 />
               </div>
 
@@ -2008,7 +1998,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                 <button
                   type="submit"
                   disabled={editStatus === "loading"}
-                  className="flex-1 py-3.5 bg-[#FFCC00] text-white font-black uppercase tracking-wider rounded-xl hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 disabled:opacity-75 text-xs cursor-pointer"
+                  className="flex-1 py-3.5 bg-[#0EA5E9] text-white font-black uppercase tracking-wider rounded-xl hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 disabled:opacity-75 text-xs cursor-pointer"
                 >
                   {editStatus === "loading" ? (
                     "Kaydediliyor..."
@@ -2053,7 +2043,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                   placeholder="Başlığa veya kategoriye göre makale ara..."
                   value={modalSearchQuery}
                   onChange={(e) => setModalSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#FFCC00] focus:ring-2 focus:ring-[#FFCC00]/20 outline-none text-xs font-semibold text-gray-800 bg-white"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/20 outline-none text-xs font-semibold text-gray-800 bg-white"
                 />
               </div>
               {modalSearchQuery && (
@@ -2116,7 +2106,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                               handleEditPost(post);
                               setAllPostsModal(null);
                             }}
-                            className="w-8 h-8 rounded-lg bg-blue-50 text-[#FFCC00] hover:bg-[#FFCC00] hover:text-white transition-colors flex items-center justify-center border border-blue-100 cursor-pointer"
+                            className="w-8 h-8 rounded-lg bg-blue-50 text-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white transition-colors flex items-center justify-center border border-blue-100 cursor-pointer"
                             title="Haberi Düzenle"
                           >
                             <Pencil className="w-3.5 h-3.5" />
@@ -2258,7 +2248,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         className="flex-1 px-4 py-3 rounded-xl border border-gray-200 text-sm font-semibold text-gray-800"
                         placeholder="/images/akanenerji/..."
                       />
-                      <label className="px-5 py-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#FFCC00] font-black uppercase text-xs tracking-wider flex items-center justify-center shrink-0 cursor-pointer transition-colors border border-blue-100">
+                      <label className="px-5 py-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#0EA5E9] font-black uppercase text-xs tracking-wider flex items-center justify-center shrink-0 cursor-pointer transition-colors border border-blue-100">
                         Resim Yükle
                         <input
                           type="file"
@@ -2307,7 +2297,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                     />
                   </div>
                   {/* Homepage Featured toggle */}
-                  <div className="md:col-span-2 bg-[#FFCC00]/5 p-5 rounded-2xl border border-[#FFCC00]/20 flex items-center justify-between gap-4">
+                  <div className="md:col-span-2 bg-[#0EA5E9]/5 p-5 rounded-2xl border border-[#0EA5E9]/20 flex items-center justify-between gap-4">
                     <div className="space-y-1">
                       <label className="block text-xs font-black text-gray-800 uppercase tracking-wide">Anasayfada Örnek Projeler Arasında Göster</label>
                       <p className="text-[10px] text-gray-400 font-semibold leading-normal">
@@ -2321,7 +2311,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         onChange={(e) => setEditingItem({ ...editingItem, showOnHomepage: e.target.checked })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FFCC00]"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#0EA5E9]"></div>
                     </label>
                   </div>
                 </div>
@@ -2431,7 +2421,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                         className="flex-1 px-4 py-3 rounded-xl border border-gray-200 text-sm font-semibold text-gray-800"
                         placeholder="/images/akanenerji/..."
                       />
-                      <label className="px-5 py-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#FFCC00] font-black uppercase text-xs tracking-wider flex items-center justify-center shrink-0 cursor-pointer transition-colors border border-blue-100">
+                      <label className="px-5 py-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#0EA5E9] font-black uppercase text-xs tracking-wider flex items-center justify-center shrink-0 cursor-pointer transition-colors border border-blue-100">
                         Resim Yükle
                         <input
                           type="file"
@@ -2706,7 +2696,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = ${JSON.stringify(data, null, 2)}
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-3.5 bg-[#FFCC00] text-white font-black uppercase tracking-wider rounded-xl hover:brightness-105 transition-all text-xs cursor-pointer shadow-md shadow-[#FFCC00]/10 flex items-center justify-center gap-2 border-0"
+                  className="flex-1 py-3.5 bg-[#0EA5E9] text-white font-black uppercase tracking-wider rounded-xl hover:brightness-105 transition-all text-xs cursor-pointer shadow-md shadow-[#0EA5E9]/10 flex items-center justify-center gap-2 border-0"
                 >
                   <Check className="w-4 h-4" /> Değişiklikleri Uygula
                 </button>

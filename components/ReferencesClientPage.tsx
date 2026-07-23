@@ -255,7 +255,7 @@ export default function ReferencesClientPage() {
               <div className="w-12 h-12 bg-[#0EA5E9]/10 rounded-2xl flex items-center justify-center text-[#0EA5E9]">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="font-black text-gray-900 text-lg uppercase tracking-tight">TSE & HYB Belgeli Standartlar</h3>
+              <h3 className="font-black text-gray-900 text-lg uppercase tracking-tight">ISO & MYK Belgeli Standartlar</h3>
               <p className="text-gray-500 text-xs sm:text-sm font-semibold leading-relaxed">
                 Tüm teknik personelimiz klima üreticilerinin orijinal standartlarına uygun sertifikalara sahiptir. Montaj, borulama ve gaz dolumlarında sıfır hata prensibiyle hareket edilir.
               </p>
